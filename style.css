@@ -1,0 +1,40 @@
+:root {
+  --wallpaper: url(assets/wallpaper.jpg);
+  --bg: 22, 22, 22;
+}
+
+body {
+  background: var(--wallpaper) center fixed;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#filter {
+  display: flex;
+  background: rgba(var(--bg), 0.3);
+  min-height: 100%;
+}
+
+#box {
+  position: relative;
+  margin: auto;
+  min-width: 40vw;
+  min-height: 10vw;
+  padding: 1vw 2vw;
+  background-color: rgba(var(--bg), 0.9);
+  color: lightgray;
+  border-radius: 1vw;
+  font-size: larger;
+  box-shadow: -4px 8px 10px rgba(11, 11, 11, 0.5);
+}
+
+#socials a img {
+  width: 2vw;
+  height: 2vw;
+}
