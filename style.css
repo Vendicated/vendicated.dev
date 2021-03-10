@@ -21,9 +21,9 @@ html {
 #box {
   position: relative;
   margin: auto;
-  min-width: 40vw;
-  min-height: 10vw;
-  padding: 1vw 2vw;
+  min-width: 800px;
+  min-height: 200px;
+  padding: 20px 40px;
   background-color: rgba(var(--bg), 0.9);
   color: lightgray;
   border-radius: 8px;
@@ -44,9 +44,9 @@ a {
 }
 
 a img {
-  width: 3vw;
-  height: 3vw;
-  margin-right: 0.5vw;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
 }
 
 a span {
@@ -54,8 +54,8 @@ a span {
 
   position: absolute;
   margin-left: 0;
-  padding: 0.6vw;
-  border-radius: 0.5vw;
+  padding: 12px;
+  border-radius: 10px;
   background-color: black;
   color: rgb(var(--fg));
 }
@@ -82,7 +82,7 @@ body,
   bottom: 0;
   right: 0;
   left: 0;
-  filter: blur(10px);
+  filter: blur(40px);
   z-index: -1;
 }
 
