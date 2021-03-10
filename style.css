@@ -24,7 +24,7 @@ html {
   min-width: 800px;
   min-height: 200px;
   padding: 20px 40px;
-  background-color: rgba(var(--bg), 0.9);
+  background-color: rgba(var(--bg), 0.7);
   color: lightgray;
   border-radius: 8px;
   font-size: larger;
@@ -82,7 +82,7 @@ body,
   bottom: 0;
   right: 0;
   left: 0;
-  filter: blur(40px);
+  filter: blur(20px);
   z-index: -1;
 }
 
