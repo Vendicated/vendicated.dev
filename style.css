@@ -49,6 +49,14 @@ a img {
   margin-right: 10px;
 }
 
+a img:hover {
+  transform: rotate(5deg);
+  -webkit-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+}
+
 a span {
   visibility: hidden;
 
