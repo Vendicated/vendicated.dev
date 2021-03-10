@@ -1,10 +1,7 @@
 :root {
   --wallpaper: url(assets/wallpaper.jpg);
-  --bg: 22, 22, 22;
-}
-
-body {
-  background: var(--wallpaper) center fixed;
+  --bg: 22, 22, 22; /* Dark gray */
+  --fg: 211, 211, 211; /* light gray */
 }
 
 body,
@@ -29,12 +26,66 @@ html {
   padding: 1vw 2vw;
   background-color: rgba(var(--bg), 0.9);
   color: lightgray;
-  border-radius: 1vw;
+  border-radius: 8px;
   font-size: larger;
   box-shadow: -4px 8px 10px rgba(11, 11, 11, 0.5);
 }
 
-#socials a img {
+#avatar {
+  border-radius: 50%;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  height: 100px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a img {
   width: 2vw;
   height: 2vw;
+  margin-right: 0.5vw;
+}
+
+a span {
+  visibility: hidden;
+
+  position: absolute;
+  margin-left: 0;
+  padding: 0.6vw;
+  border-radius: 0.5vw;
+  background-color: black;
+  color: rgb(var(--fg));
+}
+
+a:hover span {
+  visibility: visible;
+}
+
+a span:hover {
+  visibility: hidden;
+}
+
+body,
+#box::before {
+  background: var(--wallpaper) 0 / cover fixed;
+  background-position-x: top;
+  background-position-y: right;
+}
+
+#box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+h3 {
+  text-decoration: underline;
 }
