@@ -78,7 +78,7 @@ function tick() {
   }
 }
 
-window.onload = () => {
+document.onload = () => {
   tick(getDate());
   interval = setInterval(tick, 1000);
 };
