@@ -1,0 +1,103 @@
+/* 
+ * vendicated.dev
+ * Copyright (C) 2021 Vendicated - See https://github.com/Vendicated/vendicated.dev/tree/main/LICENSE
+ */
+
+#project-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 3em;
+}
+
+.project-widget {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-widget-header {
+    display: flex;
+    flex-direction: row;
+    padding: 1.5em;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    /* border: 0.3em solid var(--nord0); /* Commented out because idk if i like it */
+    position: relative;
+}
+
+@media screen and (max-width: 900px) {
+    #project-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .project-widget-header {
+        height: auto;
+    }
+}
+
+.project-widget-icon {
+    /* border-radius: 50%; */
+    height: 3.5em;
+    width: 3.5em;
+    margin-right: 1em;
+}
+
+.ic-project-pc-plugs {
+    height: 4em;
+    width: 4em;
+}
+
+.project-widget-title {
+    display: flex;
+    flex-direction: column;
+    height: 20%;
+    justify-content: center;
+}
+
+.project-widget-launch {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5em;
+    fill: var(--nord5);
+    transition: 0.2s fill;
+}
+
+.project-widget-launch:hover {
+    fill: var(--nord13);
+    transition: 0.2s fill;
+}
+
+.project-widget-title > h3 {
+    line-height: 1.2em;
+}
+
+.project-widget-body {
+    background-color: var(--nord0);
+    padding: 2em;
+    min-height: 50%;
+}
+
+.green-card {
+    background-color: #04aa6d;
+}
+
+.pink-card {
+    background-color: var(--nord15);
+}
+
+.yellow-card {
+    background-color: #966fd6;
+}
+
+.orange-card {
+    background-color: var(--nord12);
+}
+
+.red-card {
+    background-color: var(--nord11);
+}
+
+.blue-card {
+    background-color: #5865f2;
+}

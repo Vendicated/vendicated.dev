@@ -1,0 +1,42 @@
+/* 
+ * vendicated.dev
+ * Copyright (C) 2021 Vendicated - See https://github.com/Vendicated/vendicated.dev/tree/main/LICENSE
+ */
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#home-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#avatar {
+    border-radius: 50%;
+    width: 6.5em;
+    height: 6.5em;
+    margin: 1em;
+}
+
+#home section {
+    width: 60%;
+    margin-top: 1.5em;
+}
+
+@media screen and (max-width: 500px) {
+    #home-header {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    #home section {
+        width: 80%;
+    }
+}

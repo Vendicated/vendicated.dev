@@ -1,0 +1,87 @@
+/* 
+ * vendicated.dev
+ * Copyright (C) 2021 Vendicated - See https://github.com/Vendicated/vendicated.dev/tree/main/LICENSE
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6em;
+}
+
+body {
+    background-color: var(--nord1);
+    color: var(--nord5);
+    font-family: "Sans-serif";
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none !important;
+}
+
+a {
+    color: var(--nord13);
+    text-decoration: none;
+    transition: 0.2s color;
+}
+
+a:hover {
+    color: #eca009;
+    transition: 0.2s color;
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
+}
+
+header {
+    width: 100%;
+    background-color: var(--nord0);
+    margin-bottom: 1em;
+}
+
+#header-bar {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-item {
+    text-align: center;
+    width: 25%;
+    height: 1.5em;
+}
+
+.nav-item-selected a {
+    text-decoration: underline;
+    text-underline-offset: 0.4em;
+}
+
+.main-body {
+    margin: 3em;
+    margin-top: 1em;
+}
+
+.main-body > h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    margin-top: 1em;
+    background-color: var(--nord0);
+}
+
+footer p {
+    text-align: center;
+    padding: 0.7em 1em;
+}
