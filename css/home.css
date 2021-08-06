@@ -15,6 +15,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, var(--nord1) 0, var(--miku) 50%, var(--nord1)) 1;
 }
 
 #avatar {
@@ -25,8 +27,9 @@
 }
 
 #home section {
-    width: 60%;
+    width: 70%;
     margin-top: 1.5em;
+    font-size: 1.2em;
 }
 
 @media screen and (max-width: 500px) {
@@ -37,6 +40,103 @@
 
 @media screen and (max-width: 700px) {
     #home section {
-        width: 80%;
+        width: 85%;
+        font-size: 1em;
+    }
+}
+
+#socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 3em;
+    background-color: var(--nord0);
+    padding: 1em;
+    padding-bottom: 0.6em;
+    border-radius: 0.5em;
+}
+
+.social {
+    width: 4em;
+    height: 4em;
+}
+
+.social-img {
+    width: 100%;
+    height: 100%;
+}
+
+.social:not(:last-child):not(:first-child) {
+    margin-bottom: 0.5em;
+}
+
+.social:first-child > .social-img {
+    width: 85%;
+    height: 85%;
+    padding: 7.5% 7.5%;
+}
+
+.social-tooltip {
+    visibility: hidden;
+    background-color: var(--miku);
+    color: var(--nord5) !important;
+    text-align: center;
+    line-height: 0.4em;
+    padding: 1em;
+    margin-top: -60%;
+    width: 5em;
+    height: 0.3em;
+    margin-left: -7.7em;
+    border-radius: 0.5em;
+    position: absolute;
+    z-index: 8810;
+}
+
+.social-tooltip:after {
+    visibility: hidden;
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    width: 0;
+    height: 0;
+    border: 0.5em solid transparent;
+    border-left-color: var(--miku);
+    border-right: 0;
+    margin-bottom: -0.5em;
+    margin-right: -0.5em;
+}
+
+.social:hover > .social-tooltip {
+    visibility: visible;
+    text-decoration: none;
+}
+
+.social:hover > .social-tooltip:after {
+    visibility: visible;
+}
+
+@media screen and (max-width: 800px) {
+    #socials {
+        flex-direction: row;
+        position: inherit;
+        padding: 0.5em 1em;
+        margin-top: 2em;
+    }
+
+    .social {
+        margin-bottom: 0 !important;
+        width: 3em;
+        height: 3em;
+    }
+
+    .social:not(:last-child) {
+        margin-right: 0.4em;
+    }
+
+    .social-tooltip {
+        margin-top: -3em;
     }
 }
