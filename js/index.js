@@ -24,3 +24,5 @@ function jumpTo(hash) {
 }
 
 window.onhashchange = () => jumpTo(window.location.hash);
+
+setTimeout(() => document.querySelector(".darkreader") && alert("Heya! Please disable Dark reader :)"), 1000);
