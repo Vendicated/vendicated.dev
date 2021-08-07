@@ -3,6 +3,10 @@
  * Copyright (C) 2021 Vendicated - See https://github.com/Vendicated/vendicated.dev/tree/main/LICENSE
  */
 
+@import "nord.css";
+@import "home.css";
+@import "projects.css";
+
 * {
     margin: 0;
     padding: 0;

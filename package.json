@@ -1,0 +1,6 @@
+{
+	"dependencies": {
+		"clean-css": "^5.1.5",
+		"rimraf": "^3.0.2"
+	}
+}
