@@ -29,7 +29,6 @@
                     if (obj != null) for (const key in obj) fn(key, obj[key])
                 }
 
-                loopIfNotNull(json.manifest, (k, v) => converted[k] = v)
                 loopIfNotNull(json.colors, (k, v) => converted["color_" + k] = v)
                 loopIfNotNull(json.drawable_tints, (k, v) => converted["drawablecolor_" + k] = v)
                 loopIfNotNull(json.simple_colors, (k, v) => {
