@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="file">Choose a theme to convert</label>
+
+    <input type="file" id="file" name="file" accept="application/json">
+
+    <script>
+        const input = document.getElementById("file")
+        input.addEventListener("change", function () {
+            const file = input.files[input.files.length - 1]
+            const { name } = file
+
+            const reader = new FileReader()
+            reader.onload = e => {
+                const json = JSON.parse(e.target.result)
+                console.log(json)
+                const converted = {}
+
+                function loopIfNotNull(obj, fn) {
+                    if (obj != null) for (const key in obj) fn(key, obj[key])
+                }
+
+                loopIfNotNull(json.manifest, (k, v) => converted[k] = v)
+                loopIfNotNull(json.colors, (k, v) => converted["color_" + k] = v)
+                loopIfNotNull(json.drawable_tints, (k, v) => converted["drawablecolor_" + k] = v)
+                loopIfNotNull(json.simple_colors, (k, v) => {
+                    if (k == "accent") converted.simple_accent_color = v
+                    else if (k == "background") converted.simple_bg_color = v
+                    else if (k == "background_secondary") converted.simple_bg_secondary_color = v
+                    else if (k == "mention_highlight") converted[k] = v
+                    else converted[k + "_color"] = v
+                })
+
+                const file = new Blob([JSON.stringify(converted, null, 4)], { type: "text/plain" })
+                var a = document.createElement("a"),
+                    url = URL.createObjectURL(file);
+                a.href = url;
+                a.download = name;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(function () {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                }, 0);
+            }
+            reader.readAsText(file)
+        }, false);
+    </script>
+</body>
+
+</html>
