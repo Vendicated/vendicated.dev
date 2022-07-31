@@ -1,210 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Read if cute -->
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Vendicated</title>
-    <link rel="shortcut icon" href="https://github.com/Vendicated.png?size=256" />
-
-    <meta name="description" content="Ven's website" />
-    <meta name="author" content="Vendicated" />
-
-    <meta name="theme-color" content="#459aac">
-
-    <meta name="og:type" content="website">
-    <meta name="og:title" content="Ven's Website">
-    <meta name="og:description" content="Ven's website">
-    <meta name="og:url" content="https://vendicated.dev">
-    <meta name="og:image" content="https://github.com/Vendicated.png">
-
-    <link rel="stylesheet" href="css/index.css" />
-
-    <noscript>
-        <style>
-            .nav-item {
-                display: none !important;
-            }
-
-            #no-script-header {
-                display: block !important;
-            }
-        </style>
-    </noscript>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ven's website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/normalize.css">
 </head>
 
 <body>
-    <header>
-        <ul id="header-bar">
-            <p id="no-script-header" style="display: none">This would usually be the navbar, but you have javascript
-                disabled. Please enable javascript to <a href="js/index.js">make it function</a></p>
-            <li id="nav-home" class="nav-item nav-item-selected"><a href="#home">Home</a></li>
-            <li id="nav-projects" class="nav-item"><a href="#projects">Projects</a></li>
+    <nav class="sticky">
+        <div id="navigawtion">
+            <h2 class="nav-title">Ven's site</h2>
+            <div id="btns">
+                <ul id="links">
+                    <li>
+                        <a href="#" onclick="TODO()">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" onclick="TODO()">About</a>
+                    </li>
+                    <li>
+                        <a href="#projects" onclick="TODO()">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#blog" onclick="TODO()">Blog</a>
+                    </li>
+                </ul>
+                <span id="theme-toggle" role="button" tabindex="0" onclick="toggleTheme()" onkeyup="toggleTheme(event)">
+                </span>
+            </div>
+        </div>
+        <div id="nav-spacer"></div>
+    </nav>
+    <div id="nav-spacer"></div>
+    <div id="content">
+        <noscript>
+            <section class="card" style="background-color: var(--warning);">
+                Hi! For the best experience, please enable javascript! Otherwise some
+                features like theme toggling and dark mode may not work as expected.
+            </section>
+        </noscript>
+
+        <div id="intro">
+            <h2>Hi, I'm Ven!</h2>
+            <h3 class="non-bold">I'm a software developer who's very passionate about Linux, Android Modding Open Source
+                and
+                all sorts of
+                Music</h3>
+        </div>
+
+        <h3 id="socials-header">You can find me all over the interwebs:</h3>
+        <ul id="socials">
+            <li class="social">
+                GitHub: <a class="social-link" href="https://github.com/Vendicated">Vendicated</a>
+            </li>
+            <li class="social">
+                Discord: <a class="social-link" href="https://discord.com/users/343383572805058560">Ven#8810</a>
+            </li>
+            <li class="social">
+                Telegram: <a class="social-link" href="https://t.me/Vendicated">@Vendicated</a>
+            </li>
+            <li class="social">
+                Email me: <a id="liam-social" class="social-link"
+                    href="mailto:FBI%20&lt;oiparequest@ic.fbi.gov&gt;">Anti Spam
+                    Placeholder, enable Javascript to see.</a>
+            </li>
         </ul>
-    </header>
-
-    <main id="home" class="main-body">
-        <div id="home-header">
-            <img id="avatar" src="https://github.com/Vendicated.png?size=256">
-            <h2 id="hey">Hi, I'm Ven!</h2>
-        </div>
-
-        <section>
-            I'm a 19 year old hobby programmer from Baden-Württemberg, Germany. I'm very passionate
-            about Linux, Android Modding and Music!
-        </section>
-
-        <section>
-            I really really really really love Open Source Software and community projects and contribute a lot to them
-            in my free time
-        </section>
-
-        <div id="socials">
-            <a class="social" href="https://discord.com/users/343383572805058560">
-                <img class="social-img" src="assets/discord.svg" />
-                <p class="social-tooltip">Ven#8810</p>
-            </a>
-            <a class="social" href="https://github.com/Vendicated">
-                <img class="social-img" src="assets/github.svg" />
-                <p class="social-tooltip">Github</p>
-            </a>
-            <a class="social" href="https://t.me/Vendicated">
-                <img class="social-img" src="assets/telegram.svg" />
-                <p class="social-tooltip">Telegram</p>
-            </a>
-            <a class="social" href="mailto:Vendicated%20&lt;vendicated@riseup.net&gt;">
-                <img class="social-img" src="assets/email.svg" />
-                <p class="social-tooltip">Email me</p>
-            </a>
-        </div>
-    </main>
-
-    <section id="projects" class="main-body hidden">
-        <h1>Projects</h1>
-        <div id="project-grid">
-            <section class="project-widget">
-                <div class="project-widget-header green-card">
-                    <img class="project-widget-icon" src="https://github.com/Aliucord.png?size=256">
-                    <div class="project-widget-title">
-                        <h3>Aliucord</h3>
-                        <p><i>A Discord client mod for Android</i></p>
-                    </div>
-                    <div class="project-widget-spacer"></div>
-                    <a class="project-widget-launch" href="https://github.com/Aliucord/Aliucord">
-                        <svg width="26pt" height="26pt" viewBox="0 0 26 26">
-                            <path
-                                d="M 20.582031 19.792969 L 5.417969 19.792969 L 5.417969 5.207031 L 13 5.207031 L 13 3.125 L 5.417969 3.125 C 4.214844 3.125 3.25 4.0625 3.25 5.207031 L 3.25 19.792969 C 3.25 20.9375 4.214844 21.875 5.417969 21.875 L 20.582031 21.875 C 21.773438 21.875 22.75 20.9375 22.75 19.792969 L 22.75 12.5 L 20.582031 12.5 Z M 15.167969 3.125 L 15.167969 5.207031 L 19.058594 5.207031 L 8.40625 15.449219 L 9.933594 16.917969 L 20.582031 6.675781 L 20.582031 10.417969 L 22.75 10.417969 L 22.75 3.125 Z M 15.167969 3.125 " />
-                        </svg>
-                    </a>
-                </div>
-                <div class="project-widget-body">
-                    <p>Aliucord is a lightweight Discord Android client mod written in Java. Powered by the
-                        <a href="https://github.com/canyie/pine">pine</a> ART method hook framework, it offers a
-                        rich
-                        plugin api and dynamic patching of Discords classes
-                    </p>
-                </div>
-            </section>
-
-            <section class="project-widget">
-                <div class="project-widget-header yellow-card">
-                    <img class="project-widget-icon" src="https://github.com/Aliucord.png?size=256">
-                    <div class="project-widget-title">
-                        <h3>Aliucord Plugins</h3>
-                        <p><i>A collection of plugins for Aliucord</i></p>
-                    </div>
-                    <div class="project-widget-spacer"></div>
-                    <a class="project-widget-launch" href="https://github.com/Vendicated/AliucordPlugins">
-                        <svg width="26pt" height="26pt" viewBox="0 0 26 26">
-                            <path
-                                d="M 20.582031 19.792969 L 5.417969 19.792969 L 5.417969 5.207031 L 13 5.207031 L 13 3.125 L 5.417969 3.125 C 4.214844 3.125 3.25 4.0625 3.25 5.207031 L 3.25 19.792969 C 3.25 20.9375 4.214844 21.875 5.417969 21.875 L 20.582031 21.875 C 21.773438 21.875 22.75 20.9375 22.75 19.792969 L 22.75 12.5 L 20.582031 12.5 Z M 15.167969 3.125 L 15.167969 5.207031 L 19.058594 5.207031 L 8.40625 15.449219 L 9.933594 16.917969 L 20.582031 6.675781 L 20.582031 10.417969 L 22.75 10.417969 L 22.75 3.125 Z M 15.167969 3.125 " />
-                        </svg>
-                    </a>
-                </div>
-                <div class="project-widget-body">
-                    <p>Plugins for <a href="https://github.com/Alicuord/Aliucord>Aliucord">Aliucord</a>, a Discord
-                        Android client mod. Written in Kotlin & Java</p>
-                </div>
-            </section>
-
-            <section class="project-widget">
-                <div class="project-widget-header blue-card">
-                    <img class="project-widget-icon ic-project-pc-plugs" src="https://github.com/VenPlugs.png?size=256">
-                    <div class="project-widget-title">
-                        <h3>Powercord Plugins</h3>
-                        <p><i>A collection of plugins for Powercord</i></p>
-                    </div>
-                    <div class="project-widget-spacer"></div>
-                    <a class="project-widget-launch" href="https://github.com/VenPlugs">
-                        <svg width="26pt" height="26pt" viewBox="0 0 26 26">
-                            <path
-                                d="M 20.582031 19.792969 L 5.417969 19.792969 L 5.417969 5.207031 L 13 5.207031 L 13 3.125 L 5.417969 3.125 C 4.214844 3.125 3.25 4.0625 3.25 5.207031 L 3.25 19.792969 C 3.25 20.9375 4.214844 21.875 5.417969 21.875 L 20.582031 21.875 C 21.773438 21.875 22.75 20.9375 22.75 19.792969 L 22.75 12.5 L 20.582031 12.5 Z M 15.167969 3.125 L 15.167969 5.207031 L 19.058594 5.207031 L 8.40625 15.449219 L 9.933594 16.917969 L 20.582031 6.675781 L 20.582031 10.417969 L 22.75 10.417969 L 22.75 3.125 Z M 15.167969 3.125 " />
-                        </svg>
-                    </a>
-                </div>
-                <div class="project-widget-body">
-                    <p>Plugins for <a href="https://github.com/powercord-org/powercord">Powercord</a>, a Discord
-                        Desktop
-                        client mod. Written in javascript</p>
-                </div>
-            </section>
-
-            <section class="project-widget">
-                <div class="project-widget-header red-card">
-                    <img class="project-widget-icon" src="assets/robot-emoji.webp">
-                    <div class="project-widget-title">
-                        <h3>VendyMachine</h3>
-                        <p><em>A Discord bot focused on emotes</em></p>
-                    </div>
-                    <div class="project-widget-spacer"></div>
-                    <a class="project-widget-launch" href="https://github.com/Vendicated/VendyMachine">
-                        <svg width="26pt" height="26pt" viewBox="0 0 26 26">
-                            <path
-                                d="M 20.582031 19.792969 L 5.417969 19.792969 L 5.417969 5.207031 L 13 5.207031 L 13 3.125 L 5.417969 3.125 C 4.214844 3.125 3.25 4.0625 3.25 5.207031 L 3.25 19.792969 C 3.25 20.9375 4.214844 21.875 5.417969 21.875 L 20.582031 21.875 C 21.773438 21.875 22.75 20.9375 22.75 19.792969 L 22.75 12.5 L 20.582031 12.5 Z M 15.167969 3.125 L 15.167969 5.207031 L 19.058594 5.207031 L 8.40625 15.449219 L 9.933594 16.917969 L 20.582031 6.675781 L 20.582031 10.417969 L 22.75 10.417969 L 22.75 3.125 Z M 15.167969 3.125 " />
-                        </svg>
-                    </a>
-                </div>
-                <div class="project-widget-body">
-                    <p>A Discord bot focused on emotes with features such as cloning emotes from one server to another,
-                        downloading them as zip and unicode emoji lookup. Written in Typescript, powered by PostgreSQL
-                        and <a href="https://discord.js.org">discord.js</a></p>
-                </div>
-            </section>
-
-            <section class="project-widget">
-                <div class="project-widget-header pink-card">
-                    <img class="project-widget-icon" src="assets/head_exploding_emoji.webp">
-                    <div class="project-widget-title">
-                        <h3>Brainfuck Interpreter</h3>
-                        <p><i>A brainfuck interpreter</i></p>
-                    </div>
-                    <div class="project-widget-spacer"></div>
-                    <a class="project-widget-launch" href="https://github.com/Vendicated/BrainfuckInterpreter">
-                        <svg width="26pt" height="26pt" viewBox="0 0 26 26">
-                            <path
-                                d="M 20.582031 19.792969 L 5.417969 19.792969 L 5.417969 5.207031 L 13 5.207031 L 13 3.125 L 5.417969 3.125 C 4.214844 3.125 3.25 4.0625 3.25 5.207031 L 3.25 19.792969 C 3.25 20.9375 4.214844 21.875 5.417969 21.875 L 20.582031 21.875 C 21.773438 21.875 22.75 20.9375 22.75 19.792969 L 22.75 12.5 L 20.582031 12.5 Z M 15.167969 3.125 L 15.167969 5.207031 L 19.058594 5.207031 L 8.40625 15.449219 L 9.933594 16.917969 L 20.582031 6.675781 L 20.582031 10.417969 L 22.75 10.417969 L 22.75 3.125 Z M 15.167969 3.125 " />
-                        </svg>
-                    </a>
-                </div>
-                <div class="project-widget-body">
-                    <p><a href="https://en.wikipedia.org/wiki/Brainfuck">Brainfuck</a> is an esoteric programming
-                        language with only 8 instructions. This is my implementation of it in C, which can be used
-                        to both
-                        interpret brainfuck and to convert ascii to brainfuck</p>
-                </div>
-            </section>
-        </div>
-    </section>
-
-    <footer>
-        <p>
-            Copyright (C) 2021 Vendicated -
-            <a href="https://github.com/Vendicated/vendicated.dev">Source Code</a>
-        </p>
-    </footer>
-    <script defer src="js/index.js"></script>
+        <img id="dare" src="assets/me.png">
+    </div>
+    <script defer src="script.js"></script>
 </body>
 
 </html>

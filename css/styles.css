@@ -1,0 +1,200 @@
+@import url(../fonts/inter.css);
+
+
+:root {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Theme: https://github.com/catppuccin/catppuccin */
+body {
+    --background-color: white;
+    --surface: #f6f6f6;
+    --color: black;
+    --warning: #df8e1d;
+    --accent: #dd7878;
+}
+
+body.dark {
+    --background-color: #303446;
+    --surface: #292c3c;
+    --color: #c6d0f5;
+    --warning: #e5c890;
+    --accent: #eebebe;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--color);
+    width: 100vw;
+}
+
+::selection {
+    color: var(--background-color);
+    background-color: var(--color);
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+#navigawtion {
+    background-color: var(--surface);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 1em 0;
+}
+
+.nav-title {
+    font-weight: 500;
+    display: relative;
+}
+
+.nav-title::before {
+    content: "";
+    display: block;
+    width: 100%;
+    margin: auto;
+    height: 1px;
+    margin-bottom: 4px;
+    background-color: var(--color);
+}
+
+.nav-title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    margin: auto;
+    height: 1px;
+    margin-top: 4px;
+    background-color: var(--color);
+}
+
+#btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-btn {
+    width: 1.2em;
+    height: 1.2em;
+    background-image: url(../assets/home.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#links {
+    float: right;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+#links li {
+    float: left;
+}
+
+#links li a {
+    text-decoration: none;
+    text-align: center;
+    padding: .5em;
+    color: var(--color);
+}
+
+#links li a:hover, #links li a:focus {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    outline: none;
+}
+
+#theme-toggle {
+    cursor: pointer;
+    margin-left: 1em;
+    width: 1.2em;
+    height: 1.2em;
+    background-image: url(../assets/sun.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0%) saturate(100%);
+
+    transition: 0.12s linear;
+}
+
+#theme-toggle.dark {
+    background-image: url(../assets/moon.svg);
+    filter: brightness(0%) saturate(100%) invert(100%);
+}
+
+#theme-toggle:hover, #theme-toggle:focus {
+    transform: scale(1.2) rotate(-5deg);
+    outline: none;
+}
+
+#theme-toggle:focus:not(:hover)::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    bottom: -4px;
+    width: 100%;
+    background: var(--color);
+    transform: scale(1.2) rotate(5deg);
+}
+
+#content {
+    margin: 2em 20%;
+}
+
+.card {
+    padding: 2em;
+    text-align: center;
+    background-color: var(--surface);
+}
+
+.non-bold {
+    font-weight: normal;
+}
+
+#intro {
+    margin-bottom: 2em;
+}
+
+
+#socials {
+    /* Removes li indent */
+    padding-left: 1.2em;
+}
+
+.social-link {
+    text-decoration: underline;
+    transition: 0.15s linear;
+    color: var(--color);
+}
+
+.social-link:hover {
+    text-decoration-color: var(--accent);
+    color: var(--accent);
+}
+
+.social:not(:last-child) {
+    margin-bottom: 0.6em;
+}
+
+#dare {
+    border-radius: 5px;
+    margin-top: 2em;
+    max-width: 80vw;
+}
+
+@media only screen and (max-width: 600px) {
+    #navigawtion {
+        flex-direction: column;
+    }
+
+    #content {
+        margin: 2em 2em;
+    }
+}
