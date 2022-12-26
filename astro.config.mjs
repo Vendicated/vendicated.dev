@@ -4,5 +4,11 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
     site: "https://vendicated.dev",
-    integrations: [sitemap()]
+    integrations: [sitemap()],
+
+    vite: {
+        build: {
+            sourcemap: true
+        }
+    }
 });

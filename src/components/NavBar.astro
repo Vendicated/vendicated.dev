@@ -1,5 +1,7 @@
 <nav>
-    <h2>Ven's site</h2>
+    <a href="/" id="title">
+        <h2>Ven's site</h2>
+    </a>
     <div id="btns">
         <ul>
             <li>
@@ -19,7 +21,7 @@
     </div>
 </nav>
 
-<style>
+<style lang="scss">
     nav {
         background-color: var(--surface);
 
@@ -32,6 +34,7 @@
     }
 
     h2 {
+        cursor: pointer;
         font-weight: 500;
     }
 
@@ -82,12 +85,14 @@
         transition-property: color, text-decoration;
     }
 
-    a:hover,
-    a:focus {
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-        outline: none;
-        color: var(--accent);
+    a:not(#title) {
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            outline: none;
+            color: var(--accent);
+        }
     }
 
     button {
