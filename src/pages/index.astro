@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Social from "../components/Social.astro";
+---
+
+<Layout title="Ven's Website">
+    <main>
+        <div id="intro">
+            <h2>Hi, I'm Ven!</h2>
+            <h3 class="non-bold">
+                I'm a self taught software developer who's very passionate about
+                Linux, Reverse Engineering, Open Source and all sorts of Music
+            </h3>
+        </div>
+
+        <h3 id="socials-header">You can find me all over the interwebs:</h3>
+        <ul id="socials">
+            <Social
+                icon="fa-brands:github"
+                text="Vendicated"
+                href="https://github.com/Vendicated"
+            />
+            <Social
+                icon="fa-brands:discord"
+                text="VendingMachine#8485"
+                href="https://discord.com/users/343383572805058560"
+            />
+            <Social
+                icon="fa-brands:telegram"
+                text="@Vendicated"
+                href="https://t.me/Vendicated"
+            />
+            <Social
+                id="email"
+                icon="fa:envelope"
+                text="Anti Spam Placeholder, enable Javascript to see."
+                href="mailto:FBI%20<oiparequest@ic.fbi.gov>"
+            />
+        </ul>
+    </main>
+</Layout>
+
+<script>
+    const emailAnchor = document.getElementById("email") as HTMLAnchorElement;
+    const email = Array.from(window.atob("GRIBCx4MDgMKCzcdBgQKGgdBARIb"))
+        .map((s, i) =>
+            String.fromCharCode(
+                s.charCodeAt(0) ^ "owo".charCodeAt(Math.floor(i % 3))
+            )
+        )
+        .join("");
+
+    emailAnchor.href = "mailto:Vendicated <" + email + ">";
+    // trolley
+    emailAnchor.children[1].textContent = email;
+</script>
+
+<style lang="scss">
+    main {
+        margin: 2em 20%;
+    }
+
+    #intro {
+        margin-bottom: 2em;
+    }
+
+    @media only screen and (max-width: 600px) {
+        main {
+            margin: 2em 2em;
+        }
+    }
+
+    ul {
+        list-style: none;
+        // the user agent padding is insane
+        padding: 0 0 0 1em;
+    }
+</style>

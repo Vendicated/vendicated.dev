@@ -1,0 +1,142 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<!-- this is just a random page to convert Aliucord themes -->
+<Layout title="Aliucord Theme Converter">
+    <main>
+        <div>
+            <h1>Aliucord Theme Converter</h1>
+            <p>
+                This tool allows you to convert themes created with the Themer
+                plugin to themes compatible with the Xposed module.
+            </p>
+            <p>
+                Note that the Xposed module does not have as many features as
+                the plugin, so things like backgrounds will not work!
+            </p>
+
+            <section>
+                <label for="file">
+                    <input
+                        type="file"
+                        id="file"
+                        name="file"
+                        accept="application/json"
+                    />
+                    Choose a theme to convert</label
+                >
+            </section>
+        </div>
+    </main>
+</Layout>
+
+<script>
+    const input = document.getElementById("file")! as HTMLInputElement;
+    input.addEventListener(
+        "change",
+        function () {
+            const file = input.files![input.files!.length - 1];
+            const { name } = file;
+
+            const reader = new FileReader();
+            reader.onload = e => {
+                const json = JSON.parse(e.target!.result as string);
+                console.log(json);
+                const converted = {} as Record<string, any>;
+
+                function loopIfNotNull(
+                    obj: Record<string, any>,
+                    fn: (key: string, value: any) => void
+                ) {
+                    if (obj != null) for (const key in obj) fn(key, obj[key]);
+                }
+
+                loopIfNotNull(
+                    json.colors,
+                    (k, v) => (converted["color_" + k] = v)
+                );
+
+                loopIfNotNull(
+                    json.drawable_tints,
+                    (k, v) => (converted["drawablecolor_" + k] = v)
+                );
+
+                const map = {
+                    accent: "simple_accent_color",
+                    background: "simple_bg_color",
+                    background_secondary: "simple_bg_secondary_color",
+                    mention_highlight: "mention_highlight",
+                };
+
+                loopIfNotNull(json.simple_colors, (k, v) => {
+                    converted[map[k as keyof typeof map] ?? k + "_color"] = v;
+                });
+
+                const file = new Blob([JSON.stringify(converted, null, 4)], {
+                    type: "text/plain",
+                });
+
+                const a = document.createElement("a");
+                const url = URL.createObjectURL(file);
+
+                a.href = url;
+                a.download =
+                    (name.endsWith(".json") ? name.slice(0, -5) : name) +
+                    ".converted.json";
+                document.body.appendChild(a);
+                a.click();
+
+                setImmediate(() => {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                });
+            };
+            reader.readAsText(file);
+        },
+        false
+    );
+</script>
+
+<style>
+    main {
+        width: 100vw;
+    }
+
+    div {
+        width: 60%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @media only screen and (max-width: 600px) {
+        div {
+            width: 80%;
+        }
+    }
+
+    label {
+        display: inline-block;
+        margin-top: 0.5em;
+
+        padding: 1em 2em;
+        background-color: var(--surface);
+        color: var(--accent);
+        border: 1px solid var(--accent);
+
+        transition: 0.2s color ease, 0.2s background-color ease;
+    }
+
+    label:hover,
+    label:focus,
+    label:focus-within {
+        background-color: var(--accent);
+        color: var(--surface);
+        border-color: var(--surface);
+    }
+
+    input {
+        width: 0;
+        height: 0;
+    }
+</style>

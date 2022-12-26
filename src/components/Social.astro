@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+    icon: string;
+    href: string;
+    text: string;
+    id?: string;
+}
+
+const { icon, href, text, id } = Astro.props;
+---
+
+<li>
+    <a id={id} href={href}>
+        <Icon class="brand-icon" name={icon} />
+        <span>{text}</span>
+    </a>
+</li>
+
+<style>
+    a {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: underline;
+        color: var(--color);
+
+        transition: color 0.2s ease;
+    }
+
+    svg {
+        shape-rendering: auto;
+        width: 32px;
+        height: 32px;
+        margin-right: 0.5em;
+    }
+
+    a:hover,
+    a:focus {
+        color: var(--accent);
+        text-decoration-thickness: 2px;
+        outline: none;
+    }
+
+    li:not(:last-child) {
+        margin-bottom: 0.5em;
+    }
+
+    #email > svg {
+        transform: scale(0.9);
+    }
+</style>
