@@ -17,7 +17,8 @@
                 <a href="/blog">Blog</a>
             </li>
         </ul>
-        <button id="theme-toggle" role="button" tabindex="0"> </button>
+        <button id="theme-toggle" name="toggle dark theme" tabindex="0">
+        </button>
     </div>
 </nav>
 
@@ -152,7 +153,6 @@
     ) as HTMLButtonElement;
 
     themeToggle.addEventListener("click", e => {
-        console.log(e);
         const isDark = changeTheme();
         localStorage.setItem("theme", isDark ? "dark" : "light");
         console.log("Switched theme to", isDark ? "dark" : "light");
