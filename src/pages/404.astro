@@ -3,32 +3,25 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Uh oh! (404)">
-    <main>
-        <div>
-            <h1>Uh oh!</h1>
-            <h3>That page was not found :(</h3>
-            <p>
-                Either you're lost or I might have just not implemented this
-                page yet.
-            </p>
-            <p>Click Koishi to get back home!</p>
-            <a href="/">
-                <img
-                    src="https://cdn.discordapp.com/emojis/432715085526597634.webp"
-                    alt="Koishi going xD"
-                />
-            </a>
-        </div>
-    </main>
+    <div>
+        <h1>Uh oh!</h1>
+        <h3>That page was not found :(</h3>
+        <p>
+            Either you're lost or I might have just not implemented this page
+            yet.
+        </p>
+        <p>Click Koishi to get back home!</p>
+        <a href="/">
+            <img
+                src="https://cdn.discordapp.com/emojis/432715085526597634.webp"
+                alt="Koishi going xD"
+            />
+        </a>
+    </div>
 </Layout>
 
 <style>
-    main {
-        width: 100vw;
-    }
-
     div {
-        width: 60%;
-        margin: 0 auto;
+        margin: 2em 20%;
     }
 </style>

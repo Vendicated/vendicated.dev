@@ -1,3 +1,7 @@
+---
+import ThemeToggle from "./ThemeToggle.svelte";
+---
+
 <nav>
     <a href="/" id="title">
         <h2>Ven's site</h2>
@@ -17,8 +21,7 @@
                 <a href="/blog">Blog</a>
             </li>
         </ul>
-        <button id="theme-toggle" aria-label="toggle dark theme" tabindex="0">
-        </button>
+        <ThemeToggle client:load />
     </div>
 </nav>
 
@@ -96,68 +99,16 @@
         }
     }
 
-    button {
-        all: unset;
-
-        cursor: pointer;
-        margin-left: 1em;
-        width: 1.2em;
-        height: 1.2em;
-        background-image: url(../assets/sun.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        filter: brightness(0%) saturate(100%);
-
-        transition: transform 0.12s linear;
-    }
-
-    :global(.dark) button {
-        background-image: url(../assets/moon.svg) !important;
-        filter: brightness(0%) saturate(100%) invert(100%) !important;
-    }
-
-    button:hover,
-    button:focus {
-        transform: scale(1.2) rotate(-5deg);
-        outline: none;
-    }
-
-    button:focus:not(:hover)::after {
-        position: absolute;
-        content: "";
-        height: 1px;
-        bottom: -4px;
-        width: 100%;
-        background: var(--color);
-        transform: scale(1.2) rotate(5deg);
-    }
-
     @media only screen and (max-width: 600px) {
         nav {
             position: relative;
             flex-direction: column;
         }
 
-        button {
+        nav :global(button) {
             position: absolute !important;
             top: 2em;
             right: 2em;
         }
     }
 </style>
-
-<script>
-    import { changeTheme } from "../util";
-    const themeToggle = document.getElementById(
-        "theme-toggle"
-    ) as HTMLButtonElement;
-
-    themeToggle.addEventListener("click", e => {
-        const isDark = changeTheme();
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-        console.log("Switched theme to", isDark ? "dark" : "light");
-
-        // do not blur if this press was keyboard triggered
-        if (e instanceof PointerEvent && e.pointerType) themeToggle.blur();
-    });
-</script>

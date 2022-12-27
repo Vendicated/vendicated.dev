@@ -4,31 +4,29 @@ import Layout from "../layouts/Layout.astro";
 
 <!-- this is just a random page to convert Aliucord themes -->
 <Layout title="Aliucord Theme Converter">
-    <main>
-        <div>
-            <h1>Aliucord Theme Converter</h1>
-            <p>
-                This tool allows you to convert themes created with the Themer
-                plugin to themes compatible with the Xposed module.
-            </p>
-            <p>
-                Note that the Xposed module does not have as many features as
-                the plugin, so things like backgrounds will not work!
-            </p>
+    <div>
+        <h1>Aliucord Theme Converter</h1>
+        <p>
+            This tool allows you to convert themes created with the Themer
+            plugin to themes compatible with the Xposed module.
+        </p>
+        <p>
+            Note that the Xposed module does not have as many features as the
+            plugin, so things like backgrounds will not work!
+        </p>
 
-            <section>
-                <label for="file">
-                    <input
-                        type="file"
-                        id="file"
-                        name="file"
-                        accept="application/json"
-                    />
-                    Choose a theme to convert</label
-                >
-            </section>
-        </div>
-    </main>
+        <section>
+            <label for="file">
+                <input
+                    type="file"
+                    id="file"
+                    name="file"
+                    accept="application/json"
+                />
+                Choose a theme to convert</label
+            >
+        </section>
+    </div>
 </Layout>
 
 <script>
@@ -99,14 +97,8 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
-    main {
-        width: 100vw;
-    }
-
     div {
-        width: 60%;
-        margin-right: auto;
-        margin-left: auto;
+        margin: 2em 20%;
     }
 
     @media only screen and (max-width: 600px) {

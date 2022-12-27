@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const blogs = await Astro.glob("./*.{md,mdx}");
+---
+
+<Layout title="Blog [WIP]">
+    <div>
+        <h1>Blog [WIP]</h1>
+        <p>
+            Yes i know this page looks terrible it's a WIP, I'm just testing
+            Astro rn
+        </p>
+        <ul>
+            {
+                blogs.map(blog => {
+                    const { file, url, frontmatter } = blog;
+                    return (
+                        <li>
+                            <a href={url}>{frontmatter.title}</a>
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
+</Layout>

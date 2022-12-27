@@ -1,4 +1,4 @@
-export function changeTheme(dark = !document.body.classList.contains('dark')) {
+export function toggleTheme(dark = !document.body.classList.contains('dark')) {
     // temporarily disable transitions to avoid color transitions
     document.body.classList.add("disable-transitions");
 

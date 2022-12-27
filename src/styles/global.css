@@ -1,0 +1,45 @@
+/* Theme: https://github.com/catppuccin/catppuccin */
+
+body {
+    --background-color: white;
+    --surface: #f6f6f6;
+    --color: black;
+    --warning: #df8e1d;
+    --accent: #dd7878;
+
+    background-color: var(--background-color);
+    color: var(--color);
+
+    width: 100vw;
+    min-height: 100vh;
+}
+
+body.dark {
+    --background-color: #303446;
+    --surface: #292c3c;
+    --color: #c6d0f5;
+    --warning: #e5c890;
+    --accent: #eebebe;
+}
+
+html {
+    font-family: Inter, system-ui, sans-serif;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("/fonts/Inter.var-subset.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: "Regular";
+}
+
+.non-bold {
+    font-weight: 400;
+}
+
+/* used to change theme without performing color transitions */
+.disable-transitions * {
+    transition: none !important;
+}

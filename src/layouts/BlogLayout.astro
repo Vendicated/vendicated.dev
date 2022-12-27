@@ -1,0 +1,85 @@
+---
+import "normalize.css";
+import "../styles/global.css";
+
+import { z } from "zod";
+import NavBar from "../components/NavBar.astro";
+
+const PropsSchema = z.object({
+    frontmatter: z.object({
+        title: z.string(),
+        description: z.string(),
+        publishDate: z.string(),
+        section: z.string(),
+        tags: z.string(),
+    }),
+});
+
+const {
+    frontmatter: { title, description, publishDate, section, tags },
+} = PropsSchema.parse(Astro.props);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="https://github.com/Vendicated.png?size=256" />
+        <meta name="generator" content={Astro.generator} />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="author" content="Vendicated" />
+        <meta name="theme-color" content="#dd7878" />
+
+        <meta name="og:type" content="article" />
+        <meta name="og:title" content={title} />
+        <meta name="og:description" content={description} />
+        <meta name="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+        <meta name="og:image" content="https://github.com/Vendicated.png" />
+
+        <meta property="article:author" content="Vendicated" />
+        <meta
+            property="article:published_time"
+            content={new Date(publishDate).toISOString()}
+        />
+        <meta property="article:section" content={section} />
+        {
+            tags
+                .split(",")
+                .map(tag => (
+                    <meta property="article:tag" content={tag.trim()} />
+                ))
+        }
+
+        <link rel="stylesheet" href="/styles/prism-one-dark.css" />
+    </head>
+    <body>
+        <header>
+            <NavBar />
+        </header>
+        <article id="blog-body">
+            <h1>{title}</h1>
+            <p>{description}</p>
+            <slot />
+        </article>
+    </body>
+</html>
+
+<style is:global lang="scss">
+    #blog-body {
+        padding: 1rem;
+
+        pre {
+            padding: 1rem;
+            border-radius: 5px;
+        }
+    }
+</style>
+
+<style></style>
+
+<script>
+    import "../scripts/global";
+</script>

@@ -1,10 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Social from "../components/Social.astro";
+
+import { Code } from "astro/components";
 ---
 
 <Layout title="Ven's Website">
-    <main>
+    <div id="wrapper">
         <div id="intro">
             <h2>Hi, I'm Ven!</h2>
             <h3 class="non-bold">
@@ -46,7 +48,7 @@ import Social from "../components/Social.astro";
                 href="https://github.com/Vendicated/vendicated.dev"
             />
         </ul>
-    </main>
+    </div>
 </Layout>
 
 <script>
@@ -65,7 +67,7 @@ import Social from "../components/Social.astro";
 </script>
 
 <style lang="scss">
-    main {
+    #wrapper {
         margin: 2em 20%;
     }
 
