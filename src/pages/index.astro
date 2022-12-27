@@ -2,11 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Social from "../components/Social.astro";
 
-import { Code } from "astro/components";
+import CenteredBody from "../components/CenteredBody.astro";
 ---
 
 <Layout title="Ven's Website">
-    <div id="wrapper">
+    <CenteredBody id="wrapper">
         <div id="intro">
             <h2>Hi, I'm Ven!</h2>
             <h3 class="non-bold">
@@ -48,7 +48,7 @@ import { Code } from "astro/components";
                 href="https://github.com/Vendicated/vendicated.dev"
             />
         </ul>
-    </div>
+    </CenteredBody>
 </Layout>
 
 <script>
@@ -67,18 +67,8 @@ import { Code } from "astro/components";
 </script>
 
 <style lang="scss">
-    #wrapper {
-        margin: 2em 20%;
-    }
-
     #intro {
         margin-bottom: 2em;
-    }
-
-    @media only screen and (max-width: 600px) {
-        main {
-            margin: 2em 2em;
-        }
     }
 
     ul {

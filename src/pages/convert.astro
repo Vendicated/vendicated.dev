@@ -1,10 +1,11 @@
 ---
+import CenteredBody from "../components/CenteredBody.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <!-- this is just a random page to convert Aliucord themes -->
 <Layout title="Aliucord Theme Converter">
-    <div>
+    <CenteredBody>
         <h1>Aliucord Theme Converter</h1>
         <p>
             This tool allows you to convert themes created with the Themer
@@ -26,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
                 Choose a theme to convert</label
             >
         </section>
-    </div>
+    </CenteredBody>
 </Layout>
 
 <script>
@@ -97,16 +98,6 @@ import Layout from "../layouts/Layout.astro";
 </script>
 
 <style>
-    div {
-        margin: 2em 20%;
-    }
-
-    @media screen and (max-width: 800px) {
-        div {
-            margin: 2em 5%;
-        }
-    }
-
     label {
         display: inline-block;
         margin-top: 0.5em;

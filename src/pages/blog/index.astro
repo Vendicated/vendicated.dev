@@ -1,11 +1,12 @@
 ---
+import CenteredBody from "../../components/CenteredBody.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const blogs = await Astro.glob("./*.{md,mdx}");
 ---
 
 <Layout title="Blog [WIP]">
-    <div>
+    <CenteredBody>
         <h1>Blog [WIP]</h1>
         <p>
             Yes i know this page looks terrible it's a WIP, I'm just testing
@@ -23,5 +24,5 @@ const blogs = await Astro.glob("./*.{md,mdx}");
                 })
             }
         </ul>
-    </div>
+    </CenteredBody>
 </Layout>

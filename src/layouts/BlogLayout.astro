@@ -4,6 +4,7 @@ import "../styles/global.css";
 
 import { z } from "zod";
 import NavBar from "../components/NavBar.astro";
+import CenteredBody from "../components/CenteredBody.astro";
 
 const FrontMatterSchema = z.object({
     title: z.string(),
@@ -65,26 +66,24 @@ const { title, description, publishDate, updateDate, section, tags } =
         <header>
             <NavBar />
         </header>
-        <article id="blog-body">
-            <h1>{title}</h1>
-            <p>{description}</p>
-            <slot />
-        </article>
+        <CenteredBody>
+            <article id="blog-body">
+                <h1>{title}</h1>
+                <p>{description}</p>
+                <slot />
+            </article>
+        </CenteredBody>
     </body>
 </html>
 
-<style is:global lang="scss">
+<style lang="scss">
     #blog-body {
-        padding: 1rem;
-
-        pre {
+        :global(pre) {
             padding: 1rem;
             border-radius: 5px;
         }
     }
 </style>
-
-<style></style>
 
 <script>
     import "../scripts/global";
