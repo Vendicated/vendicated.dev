@@ -15,9 +15,9 @@ body {
 }
 
 body.dark {
-    --background-color: #303446;
-    --surface: #292c3c;
-    --color: #c6d0f5;
+    --background-color: #212121;
+    --surface: #1e1e1e;
+    --color: #e5e5e5;
     --warning: #e5c890;
     --accent: #eebebe;
 }
