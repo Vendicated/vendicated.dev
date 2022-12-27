@@ -5,19 +5,17 @@ import "../styles/global.css";
 import { z } from "zod";
 import NavBar from "../components/NavBar.astro";
 
-const PropsSchema = z.object({
-    frontmatter: z.object({
-        title: z.string(),
-        description: z.string(),
-        publishDate: z.string(),
-        section: z.string(),
-        tags: z.string(),
-    }),
+const FrontMatterSchema = z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.coerce.date(),
+    updateDate: z.coerce.date().optional(),
+    section: z.string(),
+    tags: z.string(),
 });
 
-const {
-    frontmatter: { title, description, publishDate, section, tags },
-} = PropsSchema.parse(Astro.props);
+const { title, description, publishDate, updateDate, section, tags } =
+    FrontMatterSchema.parse(Astro.props.frontmatter);
 ---
 
 <!DOCTYPE html>
@@ -42,8 +40,16 @@ const {
         <meta property="article:author" content="Vendicated" />
         <meta
             property="article:published_time"
-            content={new Date(publishDate).toISOString()}
+            content={publishDate.toISOString()}
         />
+        {
+            updateDate != null && (
+                <meta
+                    property="article:modified_time"
+                    content={updateDate.toISOString()}
+                />
+            )
+        }
         <meta property="article:section" content={section} />
         {
             tags
