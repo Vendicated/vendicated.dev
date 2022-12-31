@@ -31,8 +31,8 @@
     }
 
     :global(.dark) button {
-        background-image: url(/assets/moon.svg) !important;
-        filter: brightness(0%) saturate(100%) invert(100%) !important;
+        background-image: url(/assets/moon.svg);
+        filter: brightness(0%) saturate(100%) invert(100%);
     }
 
     button:hover,
