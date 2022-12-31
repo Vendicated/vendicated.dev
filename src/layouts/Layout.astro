@@ -4,11 +4,14 @@ import "../styles/global.css";
 
 import NavBar from "../components/NavBar.astro";
 
+import { AUTHOR, ICON, THEME_COLOUR } from "../scripts-ssr/constants";
+
 export interface Props {
     title: string;
+    description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -16,25 +19,22 @@ const { title } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="https://github.com/Vendicated.png?size=256" />
-        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" href={ICON} />
 
         <title>{title}</title>
-        <meta name="description" content="Ven's website" />
-        <meta name="author" content="Vendicated" />
-        <meta name="theme-color" content="#dd7878" />
+        <meta name="description" content={description} />
+        <meta name="author" content={AUTHOR} />
+        <meta name="theme-color" content={THEME_COLOUR} />
 
         <meta name="og:type" content="website" />
-        <meta name="og:title" content="Ven's Website" />
-        <meta name="og:description" content="read if cute" />
-        <meta name="og:url" content="https://vendicated.dev" />
-        <meta name="og:image" content="https://github.com/Vendicated.png" />
-
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:description" content="read if cute" />
-        <meta name="twitter:title" content="Ven's Website" />
+        <meta name="og:title" content={title} />
+        <meta name="og:description" content={description} />
+        <meta name="og:url" content={Astro.url} />
+        <meta name="og:image" content={ICON} />
     </head>
     <body>
+        <!-- Mastodon Link verification shenanigans -->
+        <a rel="me" href="https://wetdry.world/@v"></a>
         <header>
             <NavBar />
         </header>
@@ -44,6 +44,12 @@ const { title } = Astro.props;
         </main>
     </body>
 </html>
+
+<style>
+    a[rel="me"] {
+        display: none;
+    }
+</style>
 
 <script>
     import "../scripts/global";

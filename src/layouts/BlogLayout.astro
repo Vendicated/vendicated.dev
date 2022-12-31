@@ -3,8 +3,16 @@ import "normalize.css";
 import "../styles/global.css";
 
 import { z } from "zod";
+
 import NavBar from "../components/NavBar.astro";
 import CenteredBody from "../components/CenteredBody.astro";
+
+import {
+    AUTHOR,
+    AUTHOR_URL,
+    ICON,
+    THEME_COLOUR,
+} from "../scripts-ssr/constants";
 
 const FrontMatterSchema = z.object({
     title: z.string(),
@@ -24,21 +32,20 @@ const { title, description, publishDate, updateDate, section, tags } =
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="https://github.com/Vendicated.png?size=256" />
-        <meta name="generator" content={Astro.generator} />
+        <link rel="icon" href={ICON} />
 
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="author" content="Vendicated" />
-        <meta name="theme-color" content="#dd7878" />
+        <meta name="author" content={AUTHOR} />
+        <meta name="theme-color" content={THEME_COLOUR} />
 
         <meta name="og:type" content="article" />
         <meta name="og:title" content={title} />
         <meta name="og:description" content={description} />
-        <meta name="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-        <meta name="og:image" content="https://github.com/Vendicated.png" />
+        <meta name="og:url" content={Astro.url} />
+        <meta name="og:image" content={ICON} />
 
-        <meta property="article:author" content="Vendicated" />
+        <meta property="article:author" content={AUTHOR_URL} />
         <meta
             property="article:published_time"
             content={publishDate.toISOString()}
