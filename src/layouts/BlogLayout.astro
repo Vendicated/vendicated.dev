@@ -2,8 +2,6 @@
 import "normalize.css";
 import "../styles/global.css";
 
-import { z } from "zod";
-
 import NavBar from "../components/NavBar.astro";
 import CenteredBody from "../components/CenteredBody.astro";
 
@@ -13,18 +11,10 @@ import {
     ICON,
     THEME_COLOUR,
 } from "../scripts-ssr/constants";
-
-const FrontMatterSchema = z.object({
-    title: z.string(),
-    description: z.string(),
-    publishDate: z.coerce.date(),
-    updateDate: z.coerce.date().optional(),
-    section: z.string(),
-    tags: z.string(),
-});
+import { BlogFrontmatterSchema } from "../scripts-ssr/types";
 
 const { title, description, publishDate, updateDate, section, tags } =
-    FrontMatterSchema.parse(Astro.props.frontmatter);
+    BlogFrontmatterSchema.parse(Astro.props.frontmatter);
 ---
 
 <!DOCTYPE html>
@@ -71,7 +61,7 @@ const { title, description, publishDate, updateDate, section, tags } =
     </head>
     <body>
         <header>
-            <NavBar />
+            <NavBar title="Ven's Blog" />
         </header>
         <CenteredBody>
             <article id="blog-body">

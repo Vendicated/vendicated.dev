@@ -1,28 +1,17 @@
 ---
+import BlogPostCard from "../../components/BlogPostCard.astro";
 import CenteredBody from "../../components/CenteredBody.astro";
 import Layout from "../../layouts/Layout.astro";
 
-const blogs = await Astro.glob("./*.{md,mdx}");
+import type { BlogPost } from "../../scripts-ssr/types";
+
+const posts = await Astro.glob<BlogPost>("./*.{md,mdx}");
 ---
 
 <Layout title="Blog [WIP]" description="in the mind of an insane person">
     <CenteredBody>
-        <h1>Blog [WIP]</h1>
-        <p>
-            Yes i know this page looks terrible it's a WIP, I'm just testing
-            Astro rn
-        </p>
-        <ul>
-            {
-                blogs.map(blog => {
-                    const { file, url, frontmatter } = blog;
-                    return (
-                        <li>
-                            <a href={url}>{frontmatter.title}</a>
-                        </li>
-                    );
-                })
-            }
-        </ul>
+        <div>
+            {posts.map(p => <BlogPostCard post={p} />)}
+        </div>
     </CenteredBody>
 </Layout>

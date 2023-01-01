@@ -1,10 +1,16 @@
 ---
 import ThemeToggle from "./ThemeToggle.svelte";
+
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <nav>
     <a href="/" id="title">
-        <h2>Ven's site</h2>
+        <h2>{title}</h2>
     </a>
     <div id="btns">
         <ul>

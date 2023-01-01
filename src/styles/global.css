@@ -2,7 +2,8 @@
 
 body {
     --background-color: white;
-    --surface: #f6f6f6;
+    --surface: #f6f6f7;
+    --surface2: #f2f2f3;
     --color: black;
     --warning: #df8e1d;
     --accent: #dd7878;
@@ -15,11 +16,13 @@ body {
 }
 
 body.dark {
-    --background-color: #212121;
-    --surface: #1e1e1e;
+    --background-color: #202021;
+    --surface: #1e1e1f;
+    --surface2: #29292b;
     --color: #e5e5e5;
     --warning: #e5c890;
     --accent: #eebebe;
+    --accent-rgb: 238, 190, 190;
 }
 
 html {

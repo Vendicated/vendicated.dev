@@ -36,7 +36,11 @@ const { title, description } = Astro.props;
         <!-- Mastodon Link verification shenanigans -->
         <a rel="me" href="https://wetdry.world/@v"></a>
         <header>
-            <NavBar />
+            <NavBar
+                title={Astro.url.pathname === "/blog"
+                    ? "Ven's Blog"
+                    : "Ven's Site"}
+            />
         </header>
 
         <main>
