@@ -57,7 +57,13 @@ const { title, description, publishDate, updateDate, section, tags } =
                 ))
         }
 
-        <link id="prism-theme" rel="stylesheet" />
+        <noscript>
+            <link
+                id="prism-theme"
+                rel="stylesheet"
+                href="/styles/prism-one-light.css"
+            />
+        </noscript>
     </head>
     <body>
         <header>
@@ -101,5 +107,13 @@ const { title, description, publishDate, updateDate, section, tags } =
     }
 
     document.addEventListener("themechange", loadPrismTheme);
+
+    document.head.append(
+        Object.assign(document.createElement("link"), {
+            id: "prism-theme",
+            rel: "stylesheet",
+        })
+    );
+
     loadPrismTheme();
 </script>
