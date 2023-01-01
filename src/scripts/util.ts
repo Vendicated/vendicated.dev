@@ -8,6 +8,7 @@ export function toggleTheme(dark = !document.body.classList.contains('dark')) {
         document.body.classList.remove("disable-transitions")
     );
 
+    document.dispatchEvent(new Event("themechange"));
     return dark;
 }
 

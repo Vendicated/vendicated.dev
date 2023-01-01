@@ -57,7 +57,7 @@ const { title, description, publishDate, updateDate, section, tags } =
                 ))
         }
 
-        <link rel="stylesheet" href="/styles/prism-one-dark.css" />
+        <link id="prism-theme" rel="stylesheet" />
     </head>
     <body>
         <header>
@@ -76,12 +76,30 @@ const { title, description, publishDate, updateDate, section, tags } =
 <style lang="scss">
     #blog-body {
         :global(pre) {
-            padding: 1rem;
+            padding: 1rem 1rem;
             border-radius: 5px;
+            background-color: var(--surface2);
+            display: inline-block;
+
+            :global(*) {
+                background-color: unset;
+            }
         }
     }
 </style>
 
 <script>
     import "../scripts/global";
+
+    function loadPrismTheme() {
+        const theme = document.body.classList.contains("dark")
+            ? "dark"
+            : "light";
+        document
+            .getElementById("prism-theme")!
+            .setAttribute("href", `/styles/prism-one-${theme}.css`);
+    }
+
+    document.addEventListener("themechange", loadPrismTheme);
+    loadPrismTheme();
 </script>
