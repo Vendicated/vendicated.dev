@@ -7,16 +7,17 @@ import CenteredBody from "../components/CenteredBody.astro";
 
 <Layout title="Ven's Website" description="read if cute">
     <CenteredBody id="wrapper">
-        <div id="intro">
-            <h1>Hi, I'm <span id="ven-cozy">Ven!</span></h1>
+        <div>
+            <h1>Hi, I'm <span>Ven!</span></h1>
             <p class="non-bold">
-                I'm a self-taught software developer who is very passionate about
-                Linux, reverse engineering, open source, and all sorts of music (especially black metal and death!).
+                I'm a self-taught software developer who's very passionate about
+                Linux, reverse engineering, open source, and all sorts of music
+                (especially black metal and death!)
             </p>
         </div>
 
-        <div id="interwebs">
-            <h4>You can find me all over the interwebs:</h4>
+        <div>
+            <h2>You can find me all over the interwebs:</h2>
             <ul>
                 <Social
                     icon="fa-brands:github"
@@ -42,7 +43,7 @@ import CenteredBody from "../components/CenteredBody.astro";
             </ul>
         </div>
 
-        <h4>This site is open source!</h4>
+        <h2>This site is open source!</h2>
         <ul>
             <Social
                 icon="fa:code-fork"
@@ -69,20 +70,24 @@ import CenteredBody from "../components/CenteredBody.astro";
 </script>
 
 <style lang="scss">
-    #intro, #interwebs {
+    div {
         margin-bottom: 2.5em;
     }
 
-    #ven-cozy {
+    span {
         color: var(--accent);
     }
 
     ul {
         list-style: none;
         // the user agent padding is insane
-        padding: 0 0 0 1em;
+        padding: 0 0 0 1rem;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
+    }
+
+    h2 {
+        font-size: unset;
     }
 </style>
