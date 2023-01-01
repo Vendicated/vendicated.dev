@@ -37,7 +37,7 @@ const { title, description } = Astro.props;
         <a rel="me" href="https://wetdry.world/@v"></a>
         <header>
             <NavBar
-                title={Astro.url.pathname === "/blog"
+                title={Astro.url.pathname.startsWith("/blog")
                     ? "Ven's Blog"
                     : "Ven's Site"}
             />
