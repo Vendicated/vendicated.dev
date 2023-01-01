@@ -104,13 +104,17 @@ import Layout from "../layouts/Layout.astro";
     label {
         display: inline-block;
         margin-top: 0.5em;
-
         padding: 1em 2em;
-        background-color: var(--surface);
+
+        cursor: pointer;
+        background-color: var(--background-color);
         color: var(--accent);
         border: 1px solid var(--accent);
 
-        transition: 0.2s color ease, 0.2s background-color ease;
+        transition: 0.2s ease, 0.2s ease;
+        transition-property: background-color, color, box-shadow;
+
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     label:hover,
@@ -118,7 +122,8 @@ import Layout from "../layouts/Layout.astro";
     label:focus-within {
         background-color: var(--accent);
         color: var(--surface);
-        border-color: var(--surface);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25),
+            0 6px 6px rgba(0, 0, 0, 0.22);
     }
 
     input {
