@@ -8,7 +8,7 @@ import type { BlogPost } from "../../scripts-ssr/types";
 const posts = await Astro.glob<BlogPost>("./*.{md,mdx}");
 ---
 
-<Layout title="Blog [WIP]" description="in the mind of an insane person">
+<Layout title="Ven's Blog" description="in the mind of an insane person">
     <CenteredBody>
         <div>
             {posts.map(p => <BlogPostCard post={p} />)}
