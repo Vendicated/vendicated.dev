@@ -29,6 +29,10 @@ html {
     font-family: Inter, system-ui, sans-serif;
 }
 
+p {
+    line-height: 1.75em;
+}
+
 @font-face {
     font-family: "Inter";
     src: url("/fonts/Inter.var-subset.woff2") format("woff2");

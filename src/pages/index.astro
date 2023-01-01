@@ -8,39 +8,41 @@ import CenteredBody from "../components/CenteredBody.astro";
 <Layout title="Ven's Website" description="read if cute">
     <CenteredBody id="wrapper">
         <div id="intro">
-            <h2>Hi, I'm Ven!</h2>
-            <h3 class="non-bold">
-                I'm a self taught software developer who's very passionate about
-                Linux, Reverse Engineering, Open Source and all sorts of Music
-            </h3>
+            <h1>Hi, I'm <span id="ven-cozy">Ven!</span></h1>
+            <p class="non-bold">
+                I'm a self-taught software developer who is very passionate about
+                Linux, reverse engineering, open source, and all sorts of music (especially black metal and death!).
+            </p>
         </div>
 
-        <h3>You can find me all over the interwebs:</h3>
-        <ul>
-            <Social
-                icon="fa-brands:github"
-                text="Vendicated"
-                href="https://github.com/Vendicated"
-            />
-            <Social
-                icon="fa-brands:discord"
-                text="VendingMachine#8485"
-                href="https://discord.com/users/343383572805058560"
-            />
-            <Social
-                icon="fa-brands:telegram"
-                text="@Vendicated"
-                href="https://t.me/Vendicated"
-            />
-            <Social
-                id="email"
-                icon="fa:envelope"
-                text="Anti Spam Placeholder, enable Javascript to see."
-                href="mailto:FBI%20<oiparequest@ic.fbi.gov>"
-            />
-        </ul>
+        <div id="interwebs">
+            <h4>You can find me all over the interwebs:</h4>
+            <ul>
+                <Social
+                    icon="fa-brands:github"
+                    text="Vendicated"
+                    href="https://github.com/Vendicated"
+                />
+                <Social
+                    icon="fa-brands:discord"
+                    text="VendingMachine#8485"
+                    href="https://discord.com/users/343383572805058560"
+                />
+                <Social
+                    icon="fa-brands:telegram"
+                    text="@Vendicated"
+                    href="https://t.me/Vendicated"
+                />
+                <Social
+                    id="email"
+                    icon="fa:envelope"
+                    text="Anti Spam Placeholder, enable Javascript to see."
+                    href="mailto:FBI%20<oiparequest@ic.fbi.gov>"
+                />
+            </ul>
+        </div>
 
-        <h3>This site is open source!</h3>
+        <h4>This site is open source!</h4>
         <ul>
             <Social
                 icon="fa:code-fork"
@@ -67,13 +69,20 @@ import CenteredBody from "../components/CenteredBody.astro";
 </script>
 
 <style lang="scss">
-    #intro {
-        margin-bottom: 2em;
+    #intro, #interwebs {
+        margin-bottom: 2.5em;
+    }
+
+    #ven-cozy {
+        color: var(--accent);
     }
 
     ul {
         list-style: none;
         // the user agent padding is insane
         padding: 0 0 0 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 </style>
