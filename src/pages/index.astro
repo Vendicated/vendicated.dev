@@ -56,17 +56,16 @@ import CenteredBody from "../components/CenteredBody.astro";
 
 <script>
     const emailAnchor = document.getElementById("email") as HTMLAnchorElement;
-    const email = Array.from(window.atob("GRIBCx4MDgMKCzcdBgQKGgdBARIb"))
-        .map((s, i) =>
-            String.fromCharCode(
-                s.charCodeAt(0) ^ "owo".charCodeAt(Math.floor(i % 3))
-            )
+    const email = String.fromCharCode(
+        ...Array.from(
+            window.atob("GRIBCx4MDgMKCzcdBgQKGgdBARIb"),
+            (s, i) => s.charCodeAt(0) ^ [111, 119, 111][i % 3]
         )
-        .join("");
+    );
 
     emailAnchor.href = "mailto:Vendicated <" + email + ">";
     // trolley
-    emailAnchor.children[1].textContent = email;
+    emailAnchor.querySelector("span")!.textContent = email;
 </script>
 
 <style lang="scss">
