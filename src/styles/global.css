@@ -50,3 +50,13 @@ p {
 .disable-transitions * {
     transition: none !important;
 }
+
+::selection {
+    background-color: var(--color);
+    color: var(--background-color);
+}
+
+.dark ::selection {
+    background-color: var(--accent);
+    color: var(--background-color);
+}
