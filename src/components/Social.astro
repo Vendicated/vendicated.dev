@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon";
+import Link from "./Link.svelte";
 
 export interface Props {
     icon: string;
@@ -11,23 +12,14 @@ export interface Props {
 const { icon, href, text, id } = Astro.props;
 ---
 
-<li>
-    <a id={id} href={href}>
+<li id={id}>
+    <Link href={href} class={"social-link"}>
         <Icon class="brand-icon" name={icon} />
         <span>{text}</span>
-    </a>
+    </Link>
 </li>
 
 <style>
-    a {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: underline;
-        color: var(--color);
-
-        transition: color 0.2s ease;
-    }
-
     svg {
         shape-rendering: auto;
         width: 24px;
@@ -35,14 +27,12 @@ const { icon, href, text, id } = Astro.props;
         margin-right: 0.5em;
     }
 
-    a:hover,
-    a:focus {
-        color: var(--accent);
-        text-decoration-thickness: 2px;
-        outline: none;
+    svg[astro-icon="fa:envelope"] {
+        transform: scale(0.9);
     }
 
-    #email > svg {
-        transform: scale(0.9);
+    .social-link {
+        display: inline-flex;
+        align-items: center;
     }
 </style>

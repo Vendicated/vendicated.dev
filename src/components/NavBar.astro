@@ -21,14 +21,12 @@ const { title } = Astro.props;
                 <a href="/about">About</a>
             </li>
             <li>
-                <a href="/projects">Projects</a>
-            </li>
-            <li>
                 <a href="/blog">Blog</a>
             </li>
         </ul>
         <ThemeToggle client:load />
     </div>
+    <div id="oneko" aria-hidden></div>
 </nav>
 
 <style lang="scss">
@@ -46,26 +44,6 @@ const { title } = Astro.props;
     h2 {
         cursor: pointer;
         font-weight: 500;
-    }
-
-    h2::before {
-        content: "";
-        display: block;
-        width: 100%;
-        margin: auto;
-        height: 1px;
-        margin-bottom: 4px;
-        background-color: var(--color);
-    }
-
-    h2::after {
-        content: "";
-        display: block;
-        width: 100%;
-        margin: auto;
-        height: 1px;
-        margin-top: 4px;
-        background-color: var(--color);
     }
 
     #btns {
@@ -105,6 +83,28 @@ const { title } = Astro.props;
         }
     }
 
+    #oneko {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        right: 2rem;
+        image-rendering: pixelated;
+        /* https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif */
+        background-image: url("/assets/oneko.gif");
+        animation: sleep 1s infinite;
+        cursor: pointer;
+
+        &:hover {
+            animation: 2.5s 1 forwards wakeup;
+        }
+
+        @media (prefers-reduced-motion) {
+            display: none;
+        }
+    }
+
     @media only screen and (max-width: 600px) {
         nav {
             position: relative;
@@ -116,6 +116,44 @@ const { title } = Astro.props;
             position: absolute !important;
             top: 2rem !important;
             right: 2rem !important;
+        }
+
+        #oneko {
+            top: 2rem;
+            left: 2rem;
+        }
+    }
+
+    @keyframes sleep {
+        0%,
+        50% {
+            background-position: -64px 0;
+        }
+        50.00001%,
+        100% {
+            background-position: -64px -32px;
+        }
+    }
+    @keyframes wakeup {
+        0%,
+        20% {
+            background-position: -160px 0;
+        }
+        20.00001%,
+        40% {
+            background-position: -192px 0;
+        }
+        40.00001%,
+        60% {
+            background-position: -224px 0;
+        }
+        60.00001%,
+        80% {
+            background-position: -96px -64px;
+        }
+        80.00001%,
+        100% {
+            background-position: -96px -96px;
         }
     }
 </style>

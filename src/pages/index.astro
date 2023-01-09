@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Social from "../components/Social.astro";
 
 import CenteredBody from "../components/CenteredBody.astro";
+import Link from "../components/Link.svelte";
 ---
 
 <Layout title="Ven's Website" description="read if cute">
@@ -11,8 +12,23 @@ import CenteredBody from "../components/CenteredBody.astro";
             <h1>Hi, I'm <span>Ven!</span></h1>
             <p class="non-bold">
                 I'm a self-taught software developer who's very passionate about
-                Linux, reverse engineering, open source, and all sorts of music
-                (especially black metal and death!)
+                Linux & Android, reverse engineering, open source, and all sorts
+                of music, especially
+                <Link
+                    title="Skyforest - Reminiscence"
+                    href="https://www.youtube.com/watch?v=t9xkdQhbTvU"
+                    >atmospheric</Link
+                >
+                <Link
+                    title="A Light in the Dark - In a Deafening Silence"
+                    href="https://www.youtube.com/watch?v=QLxfLtkUle8"
+                    >black</Link
+                >
+                <Link
+                    title="Caladan Brood - The Passing of the Grey Company"
+                    href="https://www.youtube.com/watch?v=JVmP8S-bg3g"
+                    >metal</Link
+                >!
             </p>
         </div>
 
@@ -27,7 +43,7 @@ import CenteredBody from "../components/CenteredBody.astro";
                 <Social
                     icon="fa-brands:discord"
                     text="VendingMachine#8485"
-                    href="https://discord.com/users/343383572805058560"
+                    href="https://discord.id/?prefill=343383572805058560"
                 />
                 <Social
                     icon="fa-brands:telegram"
@@ -55,7 +71,6 @@ import CenteredBody from "../components/CenteredBody.astro";
 </Layout>
 
 <script>
-    const emailAnchor = document.getElementById("email") as HTMLAnchorElement;
     const email = String.fromCharCode(
         ...Array.from(
             window.atob("GRIBCx4MDgMKCzcdBgQKGgdBARIb"),
@@ -63,9 +78,11 @@ import CenteredBody from "../components/CenteredBody.astro";
         )
     );
 
-    emailAnchor.href = "mailto:Vendicated <" + email + ">";
-    // trolley
-    emailAnchor.querySelector("span")!.textContent = email;
+    const emailContainer = document.querySelector("#email") as HTMLElement;
+
+    emailContainer.querySelector("a")!.href =
+        "mailto:Vendicated <" + email + ">";
+    emailContainer.querySelector("span")!.innerText = email;
 </script>
 
 <style lang="scss">
@@ -88,5 +105,9 @@ import CenteredBody from "../components/CenteredBody.astro";
 
     h2 {
         font-size: unset;
+    }
+
+    a:not(:hover):not(:focus) {
+        text-decoration: none;
     }
 </style>
