@@ -4,11 +4,12 @@ import Social from "../components/Social.astro";
 
 import CenteredBody from "../components/CenteredBody.astro";
 import Link from "../components/Link.svelte";
+import Fren from "../components/Fren.astro";
 ---
 
-<Layout title="Ven's Website" description="read if cute">
+<Layout title="Ven's Site" description="read if cute">
     <CenteredBody id="wrapper">
-        <div>
+        <section>
             <h1>Hi, I'm <span>Ven!</span></h1>
             <p class="non-bold">
                 I'm a self-taught software developer who's very passionate about
@@ -30,9 +31,9 @@ import Link from "../components/Link.svelte";
                     >metal</Link
                 >!
             </p>
-        </div>
+        </section>
 
-        <div>
+        <section>
             <h2>You can find me all over the interwebs:</h2>
             <ul>
                 <Social
@@ -57,16 +58,36 @@ import Link from "../components/Link.svelte";
                     href="mailto:FBI%20<oiparequest@ic.fbi.gov>"
                 />
             </ul>
-        </div>
+        </section>
 
-        <h2>This site is open source!</h2>
-        <ul>
-            <Social
-                icon="fa:code-fork"
-                text="Vendicated/vendicated.dev"
-                href="https://github.com/Vendicated/vendicated.dev"
-            />
-        </ul>
+        <section>
+            <h2>This site is open source!</h2>
+            <ul>
+                <Social
+                    icon="fa:code-fork"
+                    text="Vendicated/vendicated.dev"
+                    href="https://github.com/Vendicated/vendicated.dev"
+                />
+            </ul>
+        </section>
+
+        <section>
+            <h2>Cool peoples' cool sites</h2>
+            <div id="frens">
+                <Fren name="MeguminSama" url="https://megu.gay/" />
+                <Fren name="dzshn" url="https://dzshn.xyz" />
+                <Fren name="auravoid" url="https://auravoid.dev" />
+                <Fren name="vanillyn" url="https://vani.vendicated.dev/" />
+                <Fren name="wingio" url="https://wingio.xyz" />
+                <Fren name="AAGaming00" url="https://aa.catvibers.me/" />
+                <Fren name="aaxyi" url="https://axyria.dev/" />
+                <Fren name="neeko-iko" url="https://neeko.page/" />
+                <Fren name="X1nto" url="https://xinto.me/" />
+                <Fren name="TymanWasTaken" url="https://tyman.systems/" />
+                <Fren name="Katlyn" url="https://katlyn.dev/" />
+                <Fren name="fawni" url="https://x4.pm/" />
+            </div>
+        </section>
     </CenteredBody>
 </Layout>
 
@@ -83,10 +104,16 @@ import Link from "../components/Link.svelte";
     emailContainer.querySelector("a")!.href =
         "mailto:Vendicated <" + email + ">";
     emailContainer.querySelector("span")!.innerText = email;
+
+    // Shuffle friends
+    const frens = document.querySelector("#frens") as HTMLDivElement;
+    for (let i = frens.children.length; i >= 0; i--)
+        // appending an already added element moves it
+        frens.appendChild(frens.children[Math.floor(Math.random() * i)]);
 </script>
 
 <style lang="scss">
-    div {
+    section:not(:last-child) {
         margin-bottom: 2.5em;
     }
 
@@ -109,5 +136,18 @@ import Link from "../components/Link.svelte";
 
     a:not(:hover):not(:focus) {
         text-decoration: none;
+    }
+
+    #frens {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    // trolley
+    @media screen and (max-width: 1506px) {
+        #frens {
+            justify-content: center;
+        }
     }
 </style>

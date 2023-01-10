@@ -1,0 +1,36 @@
+---
+export interface Props {
+    name: string;
+    url: string;
+}
+
+const { name, url } = Astro.props;
+---
+
+<a href={url}>
+    <img
+        alt={name}
+        title={name}
+        src={`https://github.com/${name}.png?size=256`}
+    />
+</a>
+
+<style lang="scss">
+    img {
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        border: 2px solid var(--color);
+
+        box-shadow: var(--box-shadow);
+        transition: 0.2s box-shadow var(--box-shadow-transition);
+    }
+
+    a {
+        text-decoration: none;
+
+        &:hover img {
+            box-shadow: var(--box-shadow-stronger);
+        }
+    }
+</style>

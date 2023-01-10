@@ -8,11 +8,24 @@ body {
     --warning: #df8e1d;
     --accent: #dd7878;
 
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+    --box-shadow-stronger: 0 8px 15px rgba(0, 0, 0, 0.25),
+        0 6px 6px rgba(0, 0, 0, 0.22);
+    --box-shadow-transition: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    --horizontal-margin: 20%;
+
     background-color: var(--background-color);
     color: var(--color);
 
     width: 100vw;
     min-height: 100vh;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        --horizontal-margin: 5%;
+    }
 }
 
 body.dark {
