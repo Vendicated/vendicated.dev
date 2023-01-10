@@ -30,9 +30,13 @@ const { name, url } = Astro.props;
         text-decoration: none;
 
         &:hover img {
-            box-shadow: 0 8px 15px var(--accent-semi-trans),
-                0 6px 6px var(--accent-semi-trans);
-            border-color: var(--accent);
+            box-shadow: var(--box-shadow-stronger);
         }
+    }
+
+    :global(.dark) a:hover img {
+        box-shadow: 0 8px 15px var(--accent-semi-trans),
+            0 6px 6px var(--accent-semi-trans);
+        border-color: var(--accent);
     }
 </style>
