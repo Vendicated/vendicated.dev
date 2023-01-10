@@ -5,8 +5,11 @@ body {
     --surface: #f6f6f7;
     --surface2: #f2f2f3;
     --color: black;
+    --color-semi-trans: rgba(0, 0, 0, 0.3);
+
     --warning: #df8e1d;
     --accent: #dd7878;
+    --accent-semi-trans: rgba(238, 190, 190, 0.5);
 
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
     --box-shadow-stronger: 0 8px 15px rgba(0, 0, 0, 0.25),
@@ -20,6 +23,10 @@ body {
 
     width: 100vw;
     min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 @media screen and (max-width: 800px) {
@@ -33,8 +40,10 @@ body.dark {
     --surface: #1e1e1f;
     --surface2: #29292b;
     --color: #e5e5e5;
+    --color-semi-trans: rgba(229, 229, 229, 0.4);
     --warning: #e5c890;
     --accent: #eebebe;
+    --accent-semi-trans: rgba(238, 190, 190, 0.3);
     --accent-rgb: 238, 190, 190;
 }
 
@@ -72,4 +81,12 @@ p {
 .dark ::selection {
     background-color: var(--accent);
     color: var(--background-color);
+}
+
+img::selection {
+    background-color: var(--color-semi-trans);
+}
+
+.dark img::selection {
+    background-color: var(--accent-semi-trans);
 }

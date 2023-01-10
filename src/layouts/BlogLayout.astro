@@ -12,6 +12,7 @@ import {
     THEME_COLOUR,
 } from "../scripts-ssr/constants";
 import { BlogFrontmatterSchema } from "../scripts-ssr/types";
+import Footer from "../components/Footer.astro";
 
 const { title, description, publishDate, updateDate, section, tags } =
     BlogFrontmatterSchema.parse(Astro.props.frontmatter);
@@ -76,6 +77,8 @@ const { title, description, publishDate, updateDate, section, tags } =
                 <slot />
             </article>
         </CenteredBody>
+
+        <Footer />
     </body>
 </html>
 
