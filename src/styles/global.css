@@ -9,7 +9,7 @@ body {
 
     --warning: #df8e1d;
     --accent: #dd7878;
-    --accent-semi-trans: rgba(238, 190, 190, 0.5);
+    --accent-semi-trans: rgba(238, 190, 190, 0.6);
 
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
     --box-shadow-stronger: 0 8px 15px rgba(0, 0, 0, 0.25),
@@ -43,7 +43,7 @@ body.dark {
     --color-semi-trans: rgba(229, 229, 229, 0.4);
     --warning: #e5c890;
     --accent: #eebebe;
-    --accent-semi-trans: rgba(238, 190, 190, 0.3);
+    --accent-semi-trans: rgba(238, 190, 190, 0.2);
     --accent-rgb: 238, 190, 190;
 }
 
