@@ -5,16 +5,17 @@ import Link from "./Link.svelte";
 export interface Props {
     icon: string;
     href: string;
+    title: string;
     text: string;
     id?: string;
 }
 
-const { icon, href, text, id } = Astro.props;
+const { icon, href, text, id, title } = Astro.props;
 ---
 
 <li id={id}>
     <Link href={href} class={"social-link"}>
-        <Icon class="brand-icon" name={icon} />
+        <Icon class="brand-icon" role="img" name={icon} {title} />
         <span>{text}</span>
     </Link>
 </li>
