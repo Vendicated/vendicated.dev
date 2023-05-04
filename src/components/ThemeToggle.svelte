@@ -2,9 +2,7 @@
     import { toggleTheme } from "../scripts/util";
 
     function onClick(e: MouseEvent) {
-        const newTheme = toggleTheme() ? "dark" : "light";
-        localStorage.setItem("theme", newTheme);
-        console.log("Switched theme to", newTheme);
+        toggleTheme();
 
         // do not blur if this press was keyboard triggered
         if (e instanceof PointerEvent && e.pointerType)

@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+    icon: string;
+    title: string;
+}
+
+const { icon, title } = Astro.props;
+---
+
+<Icon class="brand-icon" role="img" name={icon} {title} />
+
+<style>
+    svg {
+        shape-rendering: auto;
+        width: 24px;
+        height: 24px;
+        margin-right: 0.5em;
+    }
+
+    svg[astro-icon="fa:envelope"] {
+        transform: scale(0.9);
+    }
+</style>

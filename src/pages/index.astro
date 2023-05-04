@@ -5,6 +5,7 @@ import Social from "../components/Social.astro";
 import CenteredBody from "../components/CenteredBody.astro";
 import Link from "../components/Link.svelte";
 import Fren from "../components/Fren.astro";
+import SocialImg from "../components/SocialImg.astro";
 ---
 
 <Layout title="Ven's Site" description="read if cute">
@@ -13,17 +14,15 @@ import Fren from "../components/Fren.astro";
             <h1>Hi, I'm <span>Ven!</span></h1>
             <p class="non-bold">
                 I'm a self-taught software developer who's very passionate about
-                Linux & Android, reverse engineering, free/libre software, and all sorts
-                of music, especially
+                Linux & Android, reverse engineering, free/libre software, and
+                all sorts of music, especially
                 <Link
                     title="Sadness - Encontrarnos"
-                    href="https://youtu.be/xjDJdgRjGvI"
-                    >black</Link
+                    href="https://youtu.be/xjDJdgRjGvI">black</Link
                 >
                 <Link
                     title="Peste Noire - Phalènes et Pestilence (this band consists of horrible people but the song is amazing)"
-                    href="https://youtu.be/V_QNRV_NAEo"
-                    >metal</Link
+                    href="https://youtu.be/V_QNRV_NAEo">metal</Link
                 >!
             </p>
         </section>
@@ -31,17 +30,22 @@ import Fren from "../components/Fren.astro";
         <section>
             <h2>You can find me all over the interwebs:</h2>
             <ul>
+                <li id="discord">
+                    <SocialImg icon="fa-brands:discord" title="Discord" />
+                    <iframe
+                        id="discord-widget"
+                        title="User Embed"
+                        width="340"
+                        height="120"
+                        frameborder="0"
+                        src="https://widgets.vendicated.dev/user?id=343383572805058560&theme=light&banner=true&full-banner=false&rounded-corners=false"
+                    ></iframe>
+                </li>
                 <Social
                     title="Github"
                     icon="fa-brands:github"
                     text="Vendicated"
                     href="https://github.com/Vendicated"
-                />
-                <Social
-                    title="Discord"
-                    icon="fa-brands:discord"
-                    text="VendingMachine#8485"
-                    href="https://discord.id/?prefill=343383572805058560"
                 />
                 <Social
                     title="Telegram"
@@ -86,6 +90,22 @@ import Fren from "../components/Fren.astro";
 </Layout>
 
 <script>
+    import "../scripts/polyfills";
+    import { getCurrentTheme } from "../scripts/themeRuntime";
+
+    const setWidgetTheme = () => {
+        const widget = document.querySelector(
+            "#discord-widget"
+        ) as HTMLIFrameElement;
+        widget.src = widget.src.replace(
+            /theme=(light|dark)/,
+            "theme=" + getCurrentTheme()
+        );
+    };
+
+    setWidgetTheme();
+    document.addEventListener("themechange", setWidgetTheme);
+
     const email = String.fromCharCode(
         ...Array.from(
             window.atob("GRIBCx4MDgMKCzcdBgQKGgdBARIb"),
@@ -143,5 +163,19 @@ import Fren from "../components/Fren.astro";
         #frens {
             justify-content: center;
         }
+    }
+
+    #discord {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    iframe {
+        box-shadow: 0px 0px 0px 1px var(--color);
+        border-radius: 12px;
+    }
+
+    :global(.dark) iframe {
+        box-shadow: none;
     }
 </style>

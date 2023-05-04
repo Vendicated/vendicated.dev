@@ -1,13 +1,15 @@
 ---
 import { Icon } from "astro-icon";
 import Link from "./Link.svelte";
+import SocialImg from "./SocialImg.astro";
 
 export interface Props {
     icon: string;
-    href: string;
+    href?: string;
     title: string;
-    text: string;
+    text?: string;
     id?: string;
+    children?: any;
 }
 
 const { icon, href, text, id, title } = Astro.props;
@@ -15,23 +17,12 @@ const { icon, href, text, id, title } = Astro.props;
 
 <li id={id}>
     <Link href={href} class={"social-link"}>
-        <Icon class="brand-icon" role="img" name={icon} {title} />
+        <SocialImg {icon} {title} />
         <span>{text}</span>
     </Link>
 </li>
 
 <style>
-    svg {
-        shape-rendering: auto;
-        width: 24px;
-        height: 24px;
-        margin-right: 0.5em;
-    }
-
-    svg[astro-icon="fa:envelope"] {
-        transform: scale(0.9);
-    }
-
     .social-link {
         display: inline-flex;
         align-items: center;
