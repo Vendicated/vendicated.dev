@@ -1,3 +1,10 @@
+# vendicated.dev
+
+This is the source code for my personal website!
+
+If you are looking at this repo on github, note that it's just a mirror.
+The actual repository is [on codeberg](https://codeberg.org/Ven/vendicated.dev) and pull requests and issues should go there!
+
 # Welcome to [Astro](https://astro.build)
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
