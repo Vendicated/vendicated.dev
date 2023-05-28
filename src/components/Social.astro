@@ -43,10 +43,12 @@ const { icon, href, text, id, title } = Astro.props as SocialProps &
         min-width: 5rem;
     }
 
+    /* the li is here to increase specificity to win over the Link text-decoration style lmao */
     li .content {
         border-radius: 99999px;
         padding: 0.2em 0.5em;
         background-color: var(--surface2);
+
         text-decoration: none;
     }
 
