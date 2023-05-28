@@ -48,6 +48,28 @@ import SocialImg from "../components/SocialImg.astro";
                     href="https://github.com/Vendicated"
                 />
                 <Social
+                    title="Codeberg"
+                    text="Ven"
+                    href="https://codeberg.org/Ven"
+                >
+                    <svg
+                        slot="icon"
+                        class="codeberg-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                    >
+                        <title>Codeberg</title>
+                        <path
+                            fill="currentColor"
+                            d="M12 1A11 11 0 0 0 1 12a11 11 0 0 0 1.7 6.4L12 6l9.3 12.4A11 11 0 0 0 23 12 11 11 0 0 0 12 1Z"
+                        ></path>
+                        <path
+                            fill="currentColor"
+                            d="M21.3 18.4 12 6l4.4 16.8a11 11 0 0 0 4.9-4.4Z"
+                        ></path>
+                    </svg>
+                </Social>
+                <Social
                     title="Telegram"
                     icon="fa-brands:telegram"
                     text="@Vendicated"
@@ -60,11 +82,17 @@ import SocialImg from "../components/SocialImg.astro";
                     href="https://www.last.fm/user/Vendymachine"
                 />
                 <Social
-                    title="Email Me"
+                    title="Email"
                     id="email"
                     icon="fa:envelope"
                     text="Anti Spam Placeholder, enable Javascript to see."
                     href="mailto:FBI%20<oiparequest@ic.fbi.gov>"
+                />
+                <Social
+                    title="PGP Key"
+                    icon="fa-solid:key"
+                    text="A1DC 0CFB 5615 D905"
+                    href="/pgp_key.asc.txt"
                 />
             </ul>
         </section>
@@ -116,7 +144,7 @@ import SocialImg from "../components/SocialImg.astro";
 
     emailContainer.querySelector("a")!.href =
         "mailto:Vendicated <" + email + ">";
-    emailContainer.querySelector("span")!.innerText = email;
+    emailContainer.querySelector(".content")!.textContent = email;
 
     // Shuffle friends
     const frens = document.querySelector("#frens") as HTMLDivElement;
@@ -164,11 +192,6 @@ import SocialImg from "../components/SocialImg.astro";
         }
     }
 
-    #discord {
-        display: inline-flex;
-        align-items: center;
-    }
-
     iframe {
         box-shadow: 0px 0px 0px 1px var(--color);
         border-radius: 12px;
@@ -176,5 +199,17 @@ import SocialImg from "../components/SocialImg.astro";
 
     :global(.dark) iframe {
         box-shadow: none;
+    }
+
+    .codeberg-icon {
+        shape-rendering: auto;
+        width: 24px;
+        height: 24px;
+        margin-right: 0.5em;
+    }
+
+    #discord {
+        display: inline-flex;
+        align-items: center;
     }
 </style>

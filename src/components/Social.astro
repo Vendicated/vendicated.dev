@@ -3,28 +3,54 @@ import { Icon } from "astro-icon";
 import Link from "./Link.svelte";
 import SocialImg from "./SocialImg.astro";
 
-export interface Props {
-    icon: string;
-    href?: string;
-    title: string;
-    text?: string;
-    id?: string;
-    children?: any;
+interface CustomSocialProps {
+    children: any;
 }
 
-const { icon, href, text, id, title } = Astro.props;
+interface SocialProps {
+    icon?: string;
+    href: string;
+    title: string;
+    text: string;
+    id?: string;
+}
+
+export type Props = SocialProps | CustomSocialProps;
+
+const { icon, href, text, id, title } = Astro.props as SocialProps &
+    CustomSocialProps;
 ---
 
 <li id={id}>
-    <Link href={href} class={"social-link"}>
-        <SocialImg {icon} {title} />
-        <span>{text}</span>
-    </Link>
+    <slot>
+        {icon && <SocialImg icon={icon!} title={title!} />}
+        <slot name="icon" />
+
+        <span class="title" aria-hidden="true">{title}</span>
+        <Link href={href} class="content">{text}</Link>
+    </slot>
 </li>
 
 <style>
-    .social-link {
+    li {
         display: inline-flex;
         align-items: center;
+    }
+
+    .title {
+        text-decoration: none;
+        margin-right: 0.5em;
+        min-width: 4.5rem;
+    }
+
+    li .content {
+        border-radius: 99999px;
+        padding: 0.2em 0.5em;
+        background-color: var(--surface2);
+        text-decoration: none;
+    }
+
+    .content:hover {
+        text-decoration: underline;
     }
 </style>
