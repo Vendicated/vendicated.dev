@@ -85,8 +85,8 @@ import SocialImg from "../components/SocialImg.astro";
                     title="Email"
                     id="email"
                     icon="fa:envelope"
-                    text="Anti Spam Placeholder, enable Javascript to see."
-                    href="mailto:FBI%20<oiparequest@ic.fbi.gov>"
+                    text="vendicated@riseup.net"
+                    href="mailto:Vendcated%20<vendicated@riseup.net>"
                 />
                 <Social
                     title="PGP Key"
@@ -132,19 +132,6 @@ import SocialImg from "../components/SocialImg.astro";
 
     setWidgetTheme();
     document.addEventListener("themechange", setWidgetTheme);
-
-    const email = String.fromCharCode(
-        ...Array.from(
-            window.atob("GRIBCx4MDgMKCzcdBgQKGgdBARIb"),
-            (s, i) => s.charCodeAt(0) ^ [111, 119, 111][i % 3]
-        )
-    );
-
-    const emailContainer = document.querySelector("#email") as HTMLElement;
-
-    emailContainer.querySelector("a")!.href =
-        "mailto:Vendicated <" + email + ">";
-    emailContainer.querySelector(".content")!.textContent = email;
 
     // Shuffle friends
     const frens = document.querySelector("#frens") as HTMLDivElement;
