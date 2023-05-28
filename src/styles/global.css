@@ -1,5 +1,20 @@
 /* Theme: https://github.com/catppuccin/catppuccin */
 
+html {
+    /*
+        min-width: 100vh is not actually the entire screen on mobile because yes. fill-available works but is not really standard
+
+        to solve, height: fill-available and min-height: fill-available are necessary on html and body respectively
+
+        this works anywhere but in firefox. That's okay i guess, considering it's just a minor visual bug
+        https://caniuse.com/mdn-css_properties_min-height_stretch
+    */
+
+    height: -webkit-fill-available;
+    height: stretch;
+    height: fill-available;
+}
+
 body {
     --background-color: white;
     --surface: #f6f6f7;
@@ -23,6 +38,9 @@ body {
 
     width: 100%;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: stretch;
+    min-height: fill-available;
 
     display: flex;
     flex-direction: column;
@@ -53,6 +71,7 @@ html {
 
 p {
     line-height: 1.75em;
+    margin: 1rem 0;
 }
 
 @font-face {

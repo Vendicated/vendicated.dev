@@ -1,0 +1,83 @@
+---
+import Social from "./Social.astro";
+---
+
+<ul>
+    <Social>
+        <iframe
+            id="discord-widget"
+            title="User Embed"
+            width="340"
+            height="120"
+            frameborder="0"
+            sandbox=""
+            src="https://widgets.vendicated.dev/user?id=343383572805058560&theme=light&banner=true&full-banner=false&rounded-corners=false&discord-icon=true"
+        ></iframe>
+    </Social>
+    <Social
+        title="Github"
+        icon="fa-brands:github"
+        text="Vendicated"
+        href="https://github.com/Vendicated"
+    />
+    <Social title="Codeberg" text="Ven" href="https://codeberg.org/Ven">
+        <svg
+            slot="icon"
+            class="codeberg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+        >
+            <title>Codeberg</title>
+            <path
+                fill="var(--color)"
+                d="M12 1A11 11 0 0 0 1 12a11 11 0 0 0 1.7 6.4L12 6l9.3 12.4A11 11 0 0 0 23 12 11 11 0 0 0 12 1Z"
+            ></path>
+            <path
+                fill="var(--color-semi-trans)"
+                d="M21.3 18.4 12 6l4.4 16.8a11 11 0 0 0 4.9-4.4Z"></path>
+        </svg>
+    </Social>
+    <Social
+        title="Telegram"
+        icon="fa-brands:telegram"
+        text="@Vendicated"
+        href="https://t.me/Vendicated"
+    />
+    <Social
+        title="Last.fm"
+        icon="fa-brands:lastfm"
+        text="@VendyMachine"
+        href="https://www.last.fm/user/Vendymachine"
+    />
+    <Social
+        title="Email"
+        id="email"
+        icon="fa:envelope"
+        text="vendicated@riseup.net"
+        href="mailto:Vendcated%20<vendicated@riseup.net>"
+    />
+    <Social
+        title="PGP Key"
+        icon="fa-solid:key"
+        text="A1DC 0CFB 5615 D905"
+        href="/pgp_key.asc.txt"
+    />
+</ul>
+
+<style lang="scss">
+    ul {
+        list-style: none;
+        // the user agent padding is insane
+        padding: 0 0 0 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .codeberg-icon {
+        shape-rendering: auto;
+        width: 24px;
+        height: 24px;
+        margin-right: 0.5em;
+    }
+</style>
