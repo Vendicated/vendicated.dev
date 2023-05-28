@@ -30,7 +30,7 @@ import SocialImg from "../components/SocialImg.astro";
         <section>
             <h2>You can find me all over the interwebs:</h2>
             <ul>
-                <li id="discord">
+                <Social>
                     <iframe
                         id="discord-widget"
                         title="User Embed"
@@ -40,7 +40,7 @@ import SocialImg from "../components/SocialImg.astro";
                         sandbox="true"
                         src="https://widgets.vendicated.dev/user?id=343383572805058560&theme=light&banner=true&full-banner=false&rounded-corners=false&discord-icon=true"
                     ></iframe>
-                </li>
+                </Social>
                 <Social
                     title="Github"
                     icon="fa-brands:github"
@@ -100,7 +100,7 @@ import SocialImg from "../components/SocialImg.astro";
         <section>
             <h2>Cool peoples' cool sites</h2>
             <div id="frens">
-                <Fren name="MeguminSama" url="https://megu.gay/" />
+                <Fren name="MeguminSama" url="https://megu.dev/" />
                 <Fren name="auravoid" url="https://auravoid.dev" />
                 <Fren name="vanillyn" url="https://vani.megu.dev/" />
                 <Fren name="wingio" url="https://wingio.xyz" />
@@ -110,7 +110,7 @@ import SocialImg from "../components/SocialImg.astro";
                 <Fren name="TymanWasTaken" url="https://tyman.systems/" />
                 <Fren name="Katlyn" url="https://katlyn.dev/" />
                 <Fren name="fawni" url="https://x4.pm/" />
-                <Fren name="aaxyria" url="https://runtime.ee/" />
+                <Fren name="aaxyria" url="https://axyria.dev/" />
             </div>
         </section>
     </CenteredBody>
@@ -193,10 +193,5 @@ import SocialImg from "../components/SocialImg.astro";
         width: 24px;
         height: 24px;
         margin-right: 0.5em;
-    }
-
-    #discord {
-        display: inline-flex;
-        align-items: center;
     }
 </style>

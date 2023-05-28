@@ -50,7 +50,7 @@ const { icon, href, text, id, title } = Astro.props as SocialProps &
         text-decoration: none;
     }
 
-    .content:hover {
+    .content:is(:hover, :focus) {
         text-decoration: underline;
     }
 </style>
