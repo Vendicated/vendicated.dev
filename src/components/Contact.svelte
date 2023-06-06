@@ -5,7 +5,7 @@
         const form = e.target as HTMLFormElement;
         const formData = new FormData(form);
 
-        const response = await fetch("/contact", {
+        const response = await fetch("/contact-form", {
             method: "PUT",
             body: formData,
         });
