@@ -86,7 +86,7 @@
         gap: 0.5em;
     }
 
-    @media (max-width: 600px) {
+    @media screen and (max-width: 600px) {
         div {
             grid-template-columns: minmax(0, 1fr);
             gap: 1.2em;

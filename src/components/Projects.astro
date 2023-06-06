@@ -1,0 +1,46 @@
+---
+import type { RepoData } from "../scripts-ssr/types";
+import ProjectCard from "./ProjectCard.astro";
+
+const data: RepoData[] = Array(6).fill(
+    {
+        name: "Vencord",
+        author: {
+            name: "Vendicated",
+            avatar: "https://github.com/Vendicated.png",
+        },
+        description: "The cutest Discord client mod",
+        language: {
+            name: "TypeScript",
+            color: "#2b7489",
+        },
+        stars: 1621,
+    },
+);
+
+---
+
+<div>
+    {data.map(d => <ProjectCard {...d} />)}
+</div>
+
+<style>
+    div {
+        --cols: 3;
+        display: grid;
+        grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+        gap: 0.75em;
+    }
+
+    @media screen and (max-width: 1400px) {
+        div {
+            --cols: 2;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        div {
+            --cols: 1;
+        }
+    }
+</style>
