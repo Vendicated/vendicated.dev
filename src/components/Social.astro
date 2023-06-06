@@ -1,14 +1,11 @@
 ---
-import { Icon } from "astro-icon";
 import Link from "./Link.svelte";
-import SocialImg from "./SocialImg.astro";
 
 interface CustomSocialProps {
     children: any;
 }
 
 interface SocialProps {
-    icon?: string;
     href: string;
     title: string;
     text: string;
@@ -17,16 +14,15 @@ interface SocialProps {
 
 export type Props = SocialProps | CustomSocialProps;
 
-const { icon, href, text, id, title } = Astro.props as SocialProps &
+const { href, text, id, title } = Astro.props as SocialProps &
     CustomSocialProps;
 ---
 
 <li id={id}>
     <slot>
-        {icon && <SocialImg icon={icon!} title={title!} />}
         <slot name="icon" />
 
-        <span class="title" aria-hidden="true">{title}</span>
+        <h3>{title}</h3>
         <Link href={href} class="content">{text}</Link>
     </slot>
 </li>
@@ -37,7 +33,8 @@ const { icon, href, text, id, title } = Astro.props as SocialProps &
         align-items: center;
     }
 
-    .title {
+    h3 {
+        all: unset;
         text-decoration: none;
         margin-right: 0.5em;
         min-width: 5rem;

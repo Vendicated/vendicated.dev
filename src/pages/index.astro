@@ -43,8 +43,6 @@ import Fren from "../components/Fren.astro";
 </Layout>
 
 <script>
-    import "../scripts/polyfills";
-
     // Shuffle friends
     const frens = document.querySelector("#frens") as HTMLDivElement;
     for (let i = frens.children.length; i >= 0; i--)
@@ -65,7 +63,7 @@ import Fren from "../components/Fren.astro";
         font-size: unset;
     }
 
-    a:not(:hover):not(:focus) {
+    a:not(:hover, :focus) {
         text-decoration: none;
     }
 

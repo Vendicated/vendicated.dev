@@ -1,4 +1,10 @@
 ---
+import Codeberg from "./Icons/Codeberg.astro";
+import Email from "./Icons/Email.astro";
+import GitHub from "./Icons/GitHub.astro";
+import PgpKey from "./Icons/PgpKey.astro";
+import Telegram from "./Icons/Telegram.astro";
+import Lastfm from "./Icons/Lastfm.astro";
 import Social from "./Social.astro";
 ---
 
@@ -16,52 +22,34 @@ import Social from "./Social.astro";
     </Social>
     <Social
         title="Github"
-        icon="fa-brands:github"
         text="Vendicated"
         href="https://github.com/Vendicated"
-    />
+    >
+        <GitHub slot="icon" />
+    </Social>
     <Social title="Codeberg" text="Ven" href="https://codeberg.org/Ven">
-        <svg
-            slot="icon"
-            class="codeberg-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-        >
-            <title>Codeberg</title>
-            <path
-                fill="var(--color)"
-                d="M12 1A11 11 0 0 0 1 12a11 11 0 0 0 1.7 6.4L12 6l9.3 12.4A11 11 0 0 0 23 12 11 11 0 0 0 12 1Z"
-            ></path>
-            <path
-                fill="var(--color-semi-trans)"
-                d="M21.3 18.4 12 6l4.4 16.8a11 11 0 0 0 4.9-4.4Z"></path>
-        </svg>
+        <Codeberg slot="icon" />
+    </Social>
+    <Social title="Telegram" text="@Vendicated" href="https://t.me/Vendicated">
+        <Telegram slot="icon" />
     </Social>
     <Social
-        title="Telegram"
-        icon="fa-brands:telegram"
-        text="@Vendicated"
-        href="https://t.me/Vendicated"
-    />
-    <Social
         title="Last.fm"
-        icon="fa-brands:lastfm"
         text="@VendyMachine"
         href="https://www.last.fm/user/Vendymachine"
-    />
+    >
+        <Lastfm slot="icon" />
+    </Social>
     <Social
         title="Email"
-        id="email"
-        icon="fa:envelope"
         text="vendicated@riseup.net"
         href="mailto:Vendcated%20<vendicated@riseup.net>"
-    />
-    <Social
-        title="PGP Key"
-        icon="fa-solid:key"
-        text="A1DC 0CFB 5615 D905"
-        href="/pgp_key.asc.txt"
-    />
+    >
+        <Email slot="icon" />
+    </Social>
+    <Social title="PGP Key" text="A1DC 0CFB 5615 D905" href="/pgp_key.asc.txt">
+        <PgpKey slot="icon" />
+    </Social>
 </ul>
 
 <script>
@@ -98,12 +86,5 @@ import Social from "./Social.astro";
 
     :global(.dark) iframe {
         box-shadow: none;
-    }
-
-    .codeberg-icon {
-        shape-rendering: auto;
-        width: 24px;
-        height: 24px;
-        margin-right: 0.5em;
     }
 </style>
