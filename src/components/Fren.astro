@@ -28,12 +28,12 @@ const { name, url } = Astro.props;
     a {
         text-decoration: none;
 
-        &:hover img {
+        &:is(:hover, :focus) img {
             box-shadow: var(--box-shadow-stronger);
         }
     }
 
-    :global(.dark) a:hover img {
+    :global(.dark) a:is(:hover, :focus) img {
         box-shadow: 0 8px 15px var(--accent-semi-trans),
             0 6px 6px var(--accent-semi-trans);
         border-color: var(--accent);
