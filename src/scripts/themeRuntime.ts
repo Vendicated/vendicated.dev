@@ -1,5 +1,3 @@
-import { toggleTheme } from "./util";
-
 export function getCurrentTheme() {
     let currentTheme = localStorage.getItem("theme");
     if (!currentTheme) {

@@ -55,21 +55,22 @@ import Social from "./Social.astro";
 <script>
     import { getCurrentTheme } from "../scripts/themeRuntime";
 
-    const setWidgetTheme = () => {
-        const widget = document.querySelector(
-            "#discord-widget"
-        ) as HTMLIFrameElement;
+    const widget = document.querySelector(
+        "#discord-widget"
+    ) as HTMLIFrameElement;
 
-        widget.contentWindow!.postMessage(
-            {
-                type: "setTheme",
-                theme: getCurrentTheme(),
-            },
-            "*"
-        );
+    const setWidgetTheme = () => {
+        const data = {
+            command: "setTheme",
+            theme: getCurrentTheme(),
+        };
+        widget.contentWindow!.postMessage(data, "*");
+        console.log("Posted", data);
     };
 
-    setWidgetTheme();
+    if (getCurrentTheme() === "dark")
+        widget.src = widget.src.replace("theme=light", "theme=dark");
+
     document.addEventListener("themechange", setWidgetTheme);
 </script>
 
