@@ -11,5 +11,3 @@ export function getCurrentTheme() {
 
     return currentTheme;
 }
-
-if (getCurrentTheme() === "dark") toggleTheme(true);

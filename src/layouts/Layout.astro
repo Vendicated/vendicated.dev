@@ -34,6 +34,17 @@ const { title, description } = Astro.props;
         <meta name="og:image" content={ICON} />
     </head>
     <body>
+        <script is:raw>
+            let theme = localStorage.getItem("theme");
+            if (!theme || !["light", "dark"].includes(theme)) {
+                theme = window.matchMedia("(prefers-color-scheme: dark)")
+                    .matches
+                    ? "dark"
+                    : "light";
+            }
+            document.body.classList.add(theme);
+        </script>
+
         <!-- Mastodon Link verification shenanigans -->
         <a rel="me" href="https://wetdry.world/@v"></a>
         <header>
