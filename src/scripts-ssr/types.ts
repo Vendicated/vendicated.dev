@@ -15,3 +15,17 @@ export interface BlogPost {
     frontmatter: BlogFrontmatter;
     url: string;
 }
+
+export interface RepoData {
+    author: {
+        name: string;
+        avatar: string;
+    };
+    name: string;
+    description: string;
+    language: {
+        name: string;
+        color: string;
+    };
+    stars: number;
+}

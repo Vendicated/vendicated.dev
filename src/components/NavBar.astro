@@ -6,6 +6,8 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+
+const routes = ["About", "Contact", "Blog"];
 ---
 
 <nav>
@@ -17,12 +19,13 @@ const { title } = Astro.props;
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
-                <a href="/contact">Contact</a>
-            </li>
-            <li>
-                <a href="/blog">Blog</a>
-            </li>
+            {
+                routes.map(route => (
+                    <li>
+                        <a href={"/" + route.toLowerCase()}>{route}</a>
+                    </li>
+                ))
+            }
         </ul>
         <ThemeToggle client:load />
     </div>
