@@ -7,7 +7,7 @@ import Fren from "../components/Fren.astro";
 ---
 
 <Layout title="Ven's Site" description="read if cute">
-    <CenteredBody id="wrapper">
+    <CenteredBody>
         <section>
             <h1>Hi, I'm <span>Ven!</span></h1>
             <p>
@@ -20,7 +20,7 @@ import Fren from "../components/Fren.astro";
 
         <section>
             <h2>You can find me all over the interwebs:</h2>
-            <Socials />
+            <Socials class="socials" />
         </section>
 
         <section>
@@ -44,20 +44,6 @@ import Fren from "../components/Fren.astro";
 
 <script>
     import "../scripts/polyfills";
-    import { getCurrentTheme } from "../scripts/themeRuntime";
-
-    const setWidgetTheme = () => {
-        const widget = document.querySelector(
-            "#discord-widget"
-        ) as HTMLIFrameElement;
-        widget.src = widget.src.replace(
-            /theme=(light|dark)/,
-            "theme=" + getCurrentTheme()
-        );
-    };
-
-    setWidgetTheme();
-    document.addEventListener("themechange", setWidgetTheme);
 
     // Shuffle friends
     const frens = document.querySelector("#frens") as HTMLDivElement;

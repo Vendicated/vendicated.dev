@@ -1,9 +1,17 @@
-<div>
+---
+export interface Props {
+    margin?: string;
+}
+
+const { margin } = Astro.props;
+---
+
+<div style={{ "--horizontal-margin": margin }}>
     <slot />
 </div>
 
-<style>
+<style define:vars={{ margin }}>
     div {
-        margin: 2em var(--horizontal-margin);
+        margin: 2em var(--margin, var(--horizontal-margin));
     }
 </style>

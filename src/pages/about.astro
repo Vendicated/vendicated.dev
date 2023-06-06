@@ -1,10 +1,36 @@
 ---
 import CenteredBody from "../components/CenteredBody.astro";
+import Contact from "../components/Contact.svelte";
+import Socials from "../components/Socials.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About Me" description="yeee">
-    <CenteredBody>
-        <h1>Read if cute</h1>
+    <CenteredBody margin="10%">
+        <h1>About</h1>
+
+        <div class="grid">
+            <section>
+                <h2>Socials</h2>
+                <Socials />
+            </section>
+            <section>
+                <h2>Send a Message</h2>
+                <Contact client:load />
+            </section>
+        </div>
     </CenteredBody>
 </Layout>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 1300px) {
+        .grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+</style>

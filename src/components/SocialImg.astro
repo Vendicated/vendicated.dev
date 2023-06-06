@@ -9,14 +9,19 @@ export interface Props {
 const { icon, title } = Astro.props;
 ---
 
-<Icon class="brand-icon" role="img" name={icon} {title} />
+<span class="social-icon">
+    <Icon role="img" name={icon} {title} />
+</span>
 
 <style>
-    svg {
-        shape-rendering: auto;
+    span {
         width: 24px;
         height: 24px;
         margin-right: 0.5em;
+    }
+
+    svg {
+        shape-rendering: auto;
     }
 
     svg[astro-icon="fa:envelope"] {

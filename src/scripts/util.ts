@@ -1,3 +1,5 @@
+import "./polyfills";
+
 export function toggleTheme(dark = !document.body.classList.contains('dark')) {
     const newTheme = dark ? "dark" : "light";
     localStorage.setItem("theme", newTheme);
