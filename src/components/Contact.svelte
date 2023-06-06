@@ -15,7 +15,9 @@
             form.reset();
             form.querySelector("textarea")!.style.height = "auto";
         } else {
-            alert("Something went wrong!");
+            if (response.status === 429)
+                alert("You are sending too many messages!");
+            else alert("Something went wrong!");
         }
     }
 
@@ -47,7 +49,7 @@
             />
         </label>
         <label>
-            Email
+            Email (so i can respond :3)
             <input
                 type="email"
                 name="email"

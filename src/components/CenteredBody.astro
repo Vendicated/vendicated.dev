@@ -12,6 +12,10 @@ const { margin } = Astro.props;
 
 <style define:vars={{ margin }}>
     div {
-        margin: 2em var(--margin, var(--horizontal-margin));
+        margin: 2em
+            min(
+                var(--margin, var(--horizontal-margin)),
+                var(--horizontal-margin)
+            );
     }
 </style>
