@@ -5,15 +5,10 @@ export interface Props {
     title: string;
 }
 
-const { title } = Astro.props;
-
 const routes = ["About", "Contact", "Blog"];
 ---
 
 <nav>
-    <a href="/" id="title">
-        <h2>{title}</h2>
-    </a>
     <div id="btns">
         <ul>
             <li>
@@ -38,9 +33,10 @@ const routes = ["About", "Contact", "Blog"];
 
         display: flex;
         flex-direction: row;
+        justify-content: center;
         align-items: center;
 
-        padding: 2em var(--horizontal-margin);
+        padding: 1em;
     }
 
     a {
@@ -71,7 +67,6 @@ const routes = ["About", "Contact", "Blog"];
     }
 
     #btns {
-        margin-left: auto;
         display: flex;
         flex-direction: row;
         align-items: center;
