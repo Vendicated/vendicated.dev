@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import CenteredBody from "../components/CenteredBody.astro";
-import Contact from "../components/Contact.svelte";
+import ContactComponent from "../components/Contact.svelte";
 import Socials from "../components/Socials.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -18,7 +18,7 @@ import Layout from "../layouts/Layout.astro";
             </section>
             <section>
                 <h2>Send a Message</h2>
-                <Contact client:load />
+                <ContactComponent client:load />
             </section>
         </div>
     </CenteredBody>
