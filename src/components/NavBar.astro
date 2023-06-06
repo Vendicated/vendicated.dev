@@ -38,18 +38,40 @@ const routes = ["About", "Contact", "Blog"];
 
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
         align-items: center;
 
-        padding: 1em 0;
+        padding: 2em var(--horizontal-margin);
+    }
+
+    a {
+        text-decoration: none;
+        text-align: center;
+        color: var(--color);
+
+        transition: 0.15s ease;
+        transition-property: color, text-decoration;
+    }
+
+    a:not(#title) {
+        padding: 0.5em;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            outline: none;
+            color: var(--accent);
+        }
     }
 
     h2 {
+        margin: 0;
         cursor: pointer;
         font-weight: 500;
     }
 
     #btns {
+        margin-left: auto;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -64,26 +86,6 @@ const routes = ["About", "Contact", "Blog"];
 
     li {
         float: left;
-    }
-
-    a {
-        text-decoration: none;
-        text-align: center;
-        padding: 0.5em;
-        color: var(--color);
-
-        transition: 0.15s ease;
-        transition-property: color, text-decoration;
-    }
-
-    a:not(#title) {
-        &:hover,
-        &:focus {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            outline: none;
-            color: var(--accent);
-        }
     }
 
     #oneko {
