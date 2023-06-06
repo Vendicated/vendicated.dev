@@ -47,7 +47,9 @@ const {
     html_url,
 } = data;
 
-const stars = stars_count ?? stargazers_count;
+const starCount = stars_count ?? stargazers_count;
+const stars =
+    starCount > 1000 ? `${(starCount / 1000).toFixed(1)}k` : starCount;
 ---
 
 <a href={html_url}>
