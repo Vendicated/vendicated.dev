@@ -46,7 +46,7 @@ const { title, description } = Astro.props;
         </script>
 
         <!-- Mastodon Link verification shenanigans -->
-        <a rel="me" href="https://wetdry.world/@v"></a>
+        <a rel="me" href="https://wetdry.world/@v" style="display: none;"></a>
         <header>
             <NavBar title={title} />
         </header>
@@ -58,12 +58,6 @@ const { title, description } = Astro.props;
         <Footer />
     </body>
 </html>
-
-<style>
-    a[rel="me"] {
-        display: none;
-    }
-</style>
 
 <script>
     import "../scripts/global";

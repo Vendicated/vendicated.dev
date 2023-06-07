@@ -50,6 +50,9 @@ const {
 const starCount = stars_count ?? stargazers_count;
 const stars =
     starCount > 1000 ? `${(starCount / 1000).toFixed(1)}k` : starCount;
+
+const avatarUrl = new URL(owner.avatar_url);
+avatarUrl.searchParams.set("size", "64");
 ---
 
 <a href={html_url}>
@@ -58,7 +61,7 @@ const stars =
     </span>
 
     <div class="author">
-        <img src={owner.avatar_url} alt="" />
+        <img src={avatarUrl.toString()} alt="" />
         <span>{owner.login}</span>
     </div>
 
