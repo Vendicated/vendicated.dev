@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.267 316.612">
+  <defs>
+    <linearGradient id="a" x1="122.896" x2="154.977" y1="246.975" y2="258.535" gradientTransform="scale(.99999 1.00001)" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"/>
+      <stop offset="100%" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path fill="#47c5fb" d="M48.8 206.466 255.267 0h-97.602L0 157.665zM121.132 279.53l48.71-48.71 85.425-85.424h-98.7l-84.419 84.419z"/>
+  <path fill="#00569e" d="m255.267 316.612-85.425-85.792-48.71 48.71 37.082 37.082z"/>
+  <path fill="#00b5f8" d="m169.842 230.82-48.71 48.71L71.6 230.365l48.802-48.802z"/>
+  <path fill="url(#a)" fill-opacity=".8" d="m165.722 234.941-44.59 44.59 40.56-13.459z" style="fill:url(#a)"/>
+</svg>

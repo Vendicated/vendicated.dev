@@ -1,6 +1,7 @@
 ---
 import CenteredBody from "../components/CenteredBody.astro";
 import Projects from "../components/Projects.astro";
+import TechStack from "../components/TechStack.astro";
 import Layout from "../layouts/Layout.astro";
 import { MINUTES, cache } from "../scripts-ssr/cache";
 
@@ -10,6 +11,14 @@ cache(Astro.response, 20 * MINUTES);
 <Layout title="About" description="Learn more about me and my projects">
     <CenteredBody margin="10%">
         <h1>About</h1>
+        <p>
+            I absolutely love tech and open source! I have been programming
+            since early 2020 and have taught myself a multitude of languages and
+            frameworks since then.
+        </p>
+
+        <h2>Tech Stack</h2>
+        <TechStack />
 
         <h2>Projects</h2>
         <Projects />

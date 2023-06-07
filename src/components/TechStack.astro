@@ -1,0 +1,178 @@
+---
+const stack = {
+    Backend: [
+        {
+            name: "Go",
+            url: "https://go.dev",
+        },
+        {
+            name: "Node.js",
+            url: "https://nodejs.dev",
+        },
+        {
+            name: "Java",
+            url: "https://www.java.com",
+        },
+        {
+            name: "Kotlin",
+            url: "https://kotlinlang.org",
+        },
+        {
+            name: "Python",
+            url: "https://www.python.org",
+        },
+    ],
+
+    Frontend: [
+        {
+            name: "TypeScript",
+            url: "https://www.typescriptlang.org",
+        },
+        {
+            name: "SCSS",
+            url: "https://sass-lang.com",
+        },
+
+        {
+            name: "Astro",
+            url: "https://astro.build",
+        },
+        {
+            name: "React",
+            url: "https://react.dev",
+        },
+        {
+            name: "Svelte",
+            url: "https://svelte.dev",
+        },
+        {
+            name: "esbuild",
+            url: "https://esbuild.github.io",
+        },
+    ],
+
+    Native: [
+        {
+            name: "Electron",
+            url: "https://www.electronjs.org",
+        },
+        {
+            name: "Android",
+            url: "https://www.android.com",
+        },
+        {
+            name: "Flutter",
+            url: "https://flutter.dev",
+        },
+    ],
+
+    Databases: [
+        {
+            name: "MongoDB",
+            url: "https://www.mongodb.com",
+        },
+        {
+            name: "PostgreSQL",
+            url: "https://www.postgresql.org",
+        },
+        {
+            name: "SQLite",
+            url: "https://www.sqlite.org",
+        },
+    ],
+
+    Linux: [
+        {
+            name: "Docker",
+            url: "https://www.docker.com",
+        },
+
+        {
+            name: "Bash",
+            url: "https://www.gnu.org/software/bash",
+        },
+        {
+            name: "Debian",
+            url: "https://www.debian.org",
+        },
+        {
+            name: "Fedora",
+            url: "https://fedoraproject.org",
+        },
+        {
+            name: "NGINX",
+            url: "https://www.nginx.com",
+        },
+        {
+            name: "Caddy",
+            url: "https://caddyserver.com",
+        },
+    ],
+
+    Cloud: [
+        {
+            name: "Vercel",
+            url: "https://vercel.com",
+        },
+        {
+            name: "Cloudflare",
+            url: "https://www.cloudflare.com",
+        },
+    ],
+};
+---
+
+<div>
+    {
+        Object.entries(stack).map(([name, items]) => (
+            <section>
+                <h3>{name}</h3>
+                <div class="items">
+                    {items.map(({ name, url }) => (
+                        <a href={url}>
+                            <img
+                                src={`/assets/stack/${name.toLowerCase()}.svg`}
+                                title={name}
+                            />
+                        </a>
+                    ))}
+                </div>
+            </section>
+        ))
+    }
+</div>
+
+<style>
+    section {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    h3 {
+        display: inline-block;
+        margin: 0;
+        font-weight: normal;
+        min-width: 6em;
+        text-align: center;
+        background: var(--surface2);
+        padding: 0.5em;
+        border-radius: 9999px;
+    }
+
+    .items {
+        padding: 0.2em;
+    }
+
+    a {
+        all: unset;
+        cursor: pointer;
+    }
+
+    img {
+        height: 2em;
+        width: 2em;
+        object-fit: fill;
+    }
+</style>
