@@ -54,7 +54,6 @@
                 type="email"
                 name="email"
                 placeholder="me@example.com"
-                required
             />
         </label>
     </div>
