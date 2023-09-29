@@ -1,88 +1,11 @@
 ---
-export const prerender = true;
+const acceptLanguages = Astro.request.headers.get("Accept-Language");
+if (!acceptLanguages) return Astro.redirect("/en", 302);
 
-import Layout from "../layouts/Layout.astro";
-import Socials from "../components/Socials.astro";
+import parser from "accept-language-parser";
+import { Locales } from "../locales";
 
-import CenteredBody from "../components/CenteredBody.astro";
-import Fren from "../components/Fren.astro";
+const lang = parser.pick(Locales, acceptLanguages) || "en";
+
+return Astro.redirect(`/${lang}`, 302);
 ---
-
-<Layout title="Ven's Site" description="read if cute">
-    <CenteredBody>
-        <section>
-            <h1>Hi, I'm <span>Ven!</span></h1>
-            <p>
-                I'm a self-taught software developer who's very passionate about
-                Linux & Android and free/libre privacy-friendly software.
-                <br />
-                I also really love all kinds of music, especially black metal!
-            </p>
-        </section>
-
-        <section>
-            <h2>You can find me all over the interwebs:</h2>
-            <Socials class="socials" />
-        </section>
-
-        <section>
-            <h2>Cool peoples' cool sites</h2>
-            <div id="frens">
-                <Fren name="MeguminSama" url="https://megu.dev/" />
-                <Fren name="auravoid" url="https://auravoid.dev" />
-                <Fren name="vanillyn" url="https://vani.megu.dev/" />
-                <Fren name="wingio" url="https://wingio.xyz" />
-                <Fren name="AAGaming00" url="https://aagaming.me" />
-                <Fren name="neeko-iko" url="https://neeko.page/" />
-                <Fren name="X1nto" url="https://xinto.me/" />
-                <Fren name="Katlyn" url="https://katlyn.dev/" />
-                <Fren name="fawni" url="https://x4.pm/" />
-                <Fren name="txxlchains" url="https://www.axyria.dev/" />
-                <Fren name="exhq" url="https://exhq.dev/" />
-                <Fren name="espimarisa" url="https://espi.me" />
-                <Fren name="lewisakura" url="https://lewisakura.moe" />
-                <Fren name="solelychloe" url="https://arciniega.one" />
-                <Fren name="rini" url="https://rinici.de" source="cobu" />
-            </div>
-        </section>
-    </CenteredBody>
-</Layout>
-
-<script>
-    // Shuffle friends
-    const frens = document.querySelector("#frens") as HTMLDivElement;
-    for (let i = frens.children.length; i >= 0; i--)
-        // appending an already added element moves it
-        frens.appendChild(frens.children[Math.floor(Math.random() * i)]);
-</script>
-
-<style lang="scss">
-    section {
-        margin-bottom: 2.5em;
-    }
-
-    span {
-        color: var(--accent);
-    }
-
-    h2 {
-        font-size: unset;
-    }
-
-    a:not(:hover, :focus) {
-        text-decoration: none;
-    }
-
-    #frens {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    // trolley
-    @media screen and (max-width: 1506px) {
-        #frens {
-            justify-content: center;
-        }
-    }
-</style>

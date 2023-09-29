@@ -1,9 +1,9 @@
 ---
-import CenteredBody from "../components/CenteredBody.astro";
-import Projects from "../components/Projects.astro";
-import TechStack from "../components/TechStack.astro";
-import Layout from "../layouts/Layout.astro";
-import { MINUTES, cache } from "../scripts-ssr/cache";
+import CenteredBody from "../../components/CenteredBody.astro";
+import Projects from "../../components/Projects.astro";
+import TechStack from "../../components/TechStack.astro";
+import Layout from "../../layouts/Layout.astro";
+import { MINUTES, cache } from "../../scripts-ssr/cache";
 
 cache(Astro.response, 20 * MINUTES);
 ---

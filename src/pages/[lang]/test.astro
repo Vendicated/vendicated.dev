@@ -1,0 +1,10 @@
+---
+export const prerender = true;
+
+import { loadStrings } from "../../locales";
+export { getStaticPaths } from "../../locales";
+
+const t = await loadStrings(Astro.params.lang);
+---
+
+<p>{t("home.hello")}</p>

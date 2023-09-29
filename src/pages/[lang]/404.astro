@@ -1,0 +1,35 @@
+---
+export const prerender = true;
+
+import CenteredBody from "../../components/CenteredBody.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { loadStrings, getStaticPaths } from "../../locales";
+export { getStaticPaths };
+
+const t = await loadStrings(Astro.params.lang);
+---
+
+<Layout title="Uh oh! (404)" description="Are you lost? :(">
+    <CenteredBody>
+        <h1>Uh oh!</h1>
+        <h3>That page was not found :(</h3>
+        <p>
+            Either you're lost or I might have just not implemented this page
+            yet.
+        </p>
+        <p>Click Koishi to get back home!</p>
+        <a href="/">
+            <img
+                src="https://cdn.discordapp.com/emojis/432715085526597634.webp"
+                alt="Koishi going xD"
+            />
+        </a>
+    </CenteredBody>
+</Layout>
+
+<style>
+    div {
+        margin: 2em 20%;
+    }
+</style>

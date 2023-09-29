@@ -1,10 +1,15 @@
 ---
 export const prerender = true;
 
-import CenteredBody from "../components/CenteredBody.astro";
-import ContactComponent from "../components/Contact.svelte";
-import Socials from "../components/Socials.astro";
-import Layout from "../layouts/Layout.astro";
+import CenteredBody from "../../components/CenteredBody.astro";
+import ContactComponent from "../../components/Contact.svelte";
+import Socials from "../../components/Socials.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import { loadStrings, getStaticPaths } from "../../locales";
+export { getStaticPaths };
+
+const t = await loadStrings(Astro.params.lang);
 ---
 
 <Layout title="Contact" description="contact me">
