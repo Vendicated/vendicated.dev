@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from "./ThemeToggle.svelte";
+import LanguagePicker from "./locale/LanguagePicker.astro";
 
 export interface Props {
     title: string;
@@ -25,6 +26,7 @@ const { lang } = Astro.params;
             }
         </ul>
         <ThemeToggle client:load />
+        <LanguagePicker />
     </div>
     <div id="oneko" aria-hidden="true"></div>
 </nav>

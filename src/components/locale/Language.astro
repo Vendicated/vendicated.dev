@@ -1,0 +1,59 @@
+---
+import { loadStrings } from "../../locales";
+
+export interface Props {
+    lang: string;
+    active?: boolean;
+}
+const { lang, active } = Astro.props;
+
+const t = await loadStrings(lang);
+
+const name = t("name");
+---
+
+<div class="lang">
+    <img src={`/assets/flags/${lang}.svg`} alt={name} />
+    <span>{name}</span>
+    {
+        active && (
+            <>
+                <svg class="dropdown" viewBox="0 0 16 16">
+                    <polygon fill="currentColor" points="3,5 8,11 13,5 " />
+                </svg>
+                <svg class="check" viewBox="0 0 16 16">
+                    <polyline
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        points="1,9 5,13 15,3 "
+                    />
+                </svg>
+            </>
+        )
+    }
+</div>
+
+<style>
+    div {
+        height: 24px;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+    }
+
+    img {
+        margin-left: 0.2em;
+        height: 24px;
+        width: 24px;
+        border-radius: 6px;
+    }
+
+    svg {
+        height: 16px;
+        color: var(--color);
+        margin-right: 0.2em;
+    }
+</style>

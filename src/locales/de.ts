@@ -1,6 +1,7 @@
 import { defineLocale } from ".";
 
 export default defineLocale({
+    name: "Deutsch",
     home: {
         title: "Vens Seite",
         description: "Wer das liest ist süß!",

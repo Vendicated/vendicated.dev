@@ -1,4 +1,5 @@
 export default {
+    name: "English",
     home: {
         title: "Ven's Site",
         description: "read if cute",
