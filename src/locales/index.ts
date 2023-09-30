@@ -1,6 +1,7 @@
 import type { AstroGlobal } from "astro";
 
-type TransStrings = typeof import("./en").default;
+export type TransStrings = typeof import("./en").default;
+export type TransKey = ObjectToDotProp<TransStrings>;
 
 type Unstricten<T> = {
     [K in keyof T]: T[K] extends Record<string, unknown>
@@ -53,7 +54,7 @@ export async function loadStrings(locale?: string) {
 
     const { default: strings } = await LocaleStrings[locale]();
 
-    return function <Trans extends ObjectToDotProp<TransStrings>>(
+    return function <Trans extends TransKey>(
         trans: Trans,
         params?: Record<string, string>
     ): ResolvePropDeep<TransStrings, Trans> {

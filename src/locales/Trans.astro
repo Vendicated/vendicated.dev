@@ -1,0 +1,28 @@
+---
+import { loadStrings, TransKey } from ".";
+
+export interface Props {
+    i18nKey: TransKey;
+}
+
+const tagsRe = /<([\w\d]+)([^>]*)>/gi;
+
+const t = await loadStrings(Astro.params.lang);
+const template = t(Astro.props.i18nKey);
+
+const html = await Astro.slots.render("default");
+
+let result: string = template;
+for (
+    let i = 0, match = tagsRe.exec(html);
+    match;
+    match = tagsRe.exec(html), i++
+) {
+    const [, name, attrs] = match;
+    result = result
+        .replaceAll(`<${i}>`, `<${name}${attrs}>`)
+        .replaceAll(`</${i}>`, `</${name}>`);
+}
+---
+
+<Fragment set:html={result} />

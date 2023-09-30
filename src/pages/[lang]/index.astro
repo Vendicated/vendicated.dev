@@ -8,16 +8,20 @@ import CenteredBody from "../../components/CenteredBody.astro";
 import Fren from "../../components/Fren.astro";
 
 import { loadStrings, getStaticPaths } from "../../locales";
+import Trans from "../../locales/Trans.astro";
 export { getStaticPaths };
 
 const t = await loadStrings(Astro.params.lang);
 ---
 
-<Layout title="Ven's Site" description="read if cute">
+<Layout title={t("home.title")} description={t("home.description")}>
     <CenteredBody>
         <section>
-            <h1>Hi, I'm <span>Ven!</span></h1>
-            <p>{t("home.hello")}</p>
+            <h1>
+                <Trans i18nKey="home.hello">
+                    Hi, I'm <span>Ven!</span>
+                </Trans>
+            </h1>
             <p>
                 I'm a self-taught software developer who's very passionate about
                 Linux & Android and free/libre privacy-friendly software.
@@ -27,12 +31,12 @@ const t = await loadStrings(Astro.params.lang);
         </section>
 
         <section>
-            <h2>You can find me all over the interwebs:</h2>
+            <h2>{t("home.socialsTitle")}</h2>
             <Socials class="socials" />
         </section>
 
         <section>
-            <h2>Cool peoples' cool sites</h2>
+            <h2>{t("home.friendsTitle")}</h2>
             <div id="frens">
                 <Fren name="MeguminSama" url="https://megu.dev/" />
                 <Fren name="auravoid" url="https://auravoid.dev" />

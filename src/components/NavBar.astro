@@ -6,18 +6,20 @@ export interface Props {
 }
 
 const routes = ["About", "Contact", "Blog"];
+
+const { lang } = Astro.params;
 ---
 
 <nav>
     <div id="btns">
         <ul>
             <li>
-                <a href="/">Home</a>
+                <a href=`/${lang}`>Home</a>
             </li>
             {
                 routes.map(route => (
                     <li>
-                        <a href={"/" + route.toLowerCase()}>{route}</a>
+                        <a href={`/${lang}/${route.toLowerCase()}`}>{route}</a>
                     </li>
                 ))
             }

@@ -16,7 +16,7 @@ const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={Astro.params.lang}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,7 +32,7 @@ const { title, description } = Astro.props;
         <meta name="og:description" content={description} />
         <meta name="og:url" content={Astro.url} />
         <meta name="og:image" content={ICON} />
-        
+
         <meta name="darkreader-lock" />
     </head>
     <body>
