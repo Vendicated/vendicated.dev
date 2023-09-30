@@ -2,7 +2,7 @@
 export const prerender = true;
 
 import CenteredBody from "../../components/CenteredBody.astro";
-import ContactComponent from "../../components/Contact.svelte";
+import ContactComponent from "../../components/Contact.astro";
 import Socials from "../../components/Socials.astro";
 import Layout from "../../layouts/Layout.astro";
 
@@ -12,9 +12,9 @@ export { getStaticPaths };
 const t = await loadStrings(Astro.params.lang);
 ---
 
-<Layout title="Contact" description="contact me">
+<Layout title={t("contact.title")} description={t("contact.description")}>
     <CenteredBody margin="10%">
-        <h1>Contact</h1>
+        <h1>{t("contact.title")}</h1>
 
         <div class="grid">
             <section>
@@ -22,7 +22,7 @@ const t = await loadStrings(Astro.params.lang);
                 <Socials />
             </section>
             <section>
-                <h2>Send a Message</h2>
+                <h2>{t("contact.sendMessage")}</h2>
                 <ContactComponent client:load />
             </section>
         </div>

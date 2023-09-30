@@ -1,10 +1,40 @@
 export default {
     name: "English",
+    routes: {
+        home: "Home",
+        about: "About",
+        contact: "Contact",
+        blog: "Blog",
+    },
+    footer: {
+        message: "read if cute",
+        sourceCode: "source code",
+    },
     home: {
         title: "Ven's Site",
         description: "read if cute",
         hello: "Hi, I'm <0>Ven!</0>",
         socialsTitle: "You can find me all over the interwebs:",
         friendsTitle: "Also check out my cute friends!",
+    },
+    contact: {
+        title: "Contact me",
+        description: "Learn how to contact me",
+        sendMessage: "Send me a message",
+        name: "Name",
+        namePlaceholder: "Me",
+        email: "Email (so i can respond :3)",
+        emailPlaceholder: "me@example.com",
+        message: "Message",
+        messagePlaceholder: "Hi Ven, I just wanted to tell you I am very cute!",
+        send: "Send",
+    },
+    "404": {
+        title: "404 Not Found",
+        description: "Are you lost? :(",
+        notFound: "Oops! That page was not found :(",
+        lost: "Either you're lost or I might have just not implemented this page yet.",
+        goHome: "Click Koishi to get back home!",
+        koishiAlt: "Koishi going xD",
     },
 } as const;

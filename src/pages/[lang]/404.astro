@@ -10,19 +10,16 @@ export { getStaticPaths };
 const t = await loadStrings(Astro.params.lang);
 ---
 
-<Layout title="Uh oh! (404)" description="Are you lost? :(">
+<Layout title={t("404.title")} description={t("404.description")}>
     <CenteredBody>
-        <h1>Uh oh!</h1>
-        <h3>That page was not found :(</h3>
-        <p>
-            Either you're lost or I might have just not implemented this page
-            yet.
-        </p>
-        <p>Click Koishi to get back home!</p>
+        <h1>{t("404.title")}</h1>
+        <h3>{t("404.notFound")}</h3>
+        <p>{t("404.lost")}</p>
+        <p>{t("404.goHome")}</p>
         <a href="/">
             <img
                 src="https://cdn.discordapp.com/emojis/432715085526597634.webp"
-                alt="Koishi going xD"
+                alt={t("404.koishiAlt")}
             />
         </a>
     </CenteredBody>
