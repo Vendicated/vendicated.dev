@@ -23,7 +23,7 @@ const t = await loadStrings(Astro.params.lang);
             </section>
             <section>
                 <h2>{t("contact.sendMessage")}</h2>
-                <ContactComponent client:load />
+                <ContactComponent />
             </section>
         </div>
     </CenteredBody>
