@@ -1,11 +1,16 @@
 ---
-const acceptLanguages = Astro.request.headers.get("Accept-Language");
-if (!acceptLanguages) return Astro.redirect("/en/404", 302);
-
-import parser from "accept-language-parser";
+export const prerender = true;
 import { Locales } from "locales";
-
-const lang = parser.pick(Locales, acceptLanguages) || "en";
-
-return Astro.redirect(`/${lang}/404`, 302);
 ---
+
+<noscript>
+    <meta http-equiv="refresh" content="0; URL=/en/404" />
+</noscript>
+
+<script define:vars={{ Locales }}>
+const lang =
+    navigator.languages.find(l => Locales.includes(l.split("-")[0])) ||
+    "en";
+
+    window.location.replace(`/${lang}/404`);
+</script>
