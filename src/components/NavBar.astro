@@ -70,7 +70,9 @@ const t = await loadStrings(lang, true);
     #btns {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
     }
 
     ul {
@@ -108,20 +110,17 @@ const t = await loadStrings(lang, true);
     }
 
     @media only screen and (max-width: 600px) {
-        nav {
-            position: relative;
-            flex-direction: column;
+        ul {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5em;
         }
+    }
 
-        nav :global(button) {
-            // these importants are necessary because the button uses unset: all
-            position: absolute !important;
-            top: 2rem !important;
-            right: 2rem !important;
-        }
-
+    @media only screen and (max-width: 375px) {
         #oneko {
-            left: 2rem;
+            display: none;
         }
     }
 
