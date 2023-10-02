@@ -46,9 +46,26 @@ export const Locales = Object.keys(LocaleStrings);
 export const getStaticPaths = () =>
     Object.keys(LocaleStrings).map(lang => ({ params: { lang } }));
 
-export async function loadStrings(locale?: string) {
-    if (!locale || !LocaleStrings[locale])
-        throw new Error("Invalid locale " + locale);
+type t = <Trans extends TransKey>(
+    trans: Trans,
+    params?: Record<string, string>
+) => ResolvePropDeep<TransStrings, Trans>;
+
+export async function loadStrings(
+    locale: string | undefined
+): Promise<t | null>;
+export async function loadStrings(
+    locale: string | undefined,
+    throwIfMissing: true
+): Promise<t>;
+export async function loadStrings(
+    locale: string | undefined,
+    throwIfMissing = false
+): Promise<t | null> {
+    if (!locale || !LocaleStrings[locale]) {
+        if (throwIfMissing) throw new Error("Invalid locale " + locale);
+        return null;
+    }
 
     const { default: strings } = await LocaleStrings[locale]();
 

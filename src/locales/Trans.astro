@@ -7,7 +7,7 @@ export interface Props {
 
 const tagsRe = /<([\w\d]+)([^>]*)>/gi;
 
-const t = await loadStrings(Astro.params.lang);
+const t = await loadStrings(Astro.params.lang, true);
 const template = t(Astro.props.i18nKey);
 
 const html = await Astro.slots.render("default");

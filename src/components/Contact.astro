@@ -1,7 +1,7 @@
 ---
 import { loadStrings } from "locales";
 
-const t = await loadStrings(Astro.params.lang);
+const t = await loadStrings(Astro.params.lang, true);
 ---
 
 <form class="message-form">

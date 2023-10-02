@@ -1,14 +1,17 @@
 ---
+export const prerender = true;
+
 import BlogPostCard from "components/BlogPostCard.astro";
 import CenteredBody from "components/CenteredBody.astro";
 import Layout from "layouts/Layout.astro";
-import { loadStrings } from "locales";
-
 import type { BlogPost } from "scripts-ssr/types";
 
 const posts = [] ?? (await Astro.glob<BlogPost>("./*.{md,mdx}"));
 
-const t = await loadStrings(Astro.params.lang);
+import { loadStrings, getStaticPaths } from "locales";
+export { getStaticPaths };
+
+const t = await loadStrings(Astro.params.lang, true);
 ---
 
 <Layout title={t("blog.title")} description={t("blog.description")}>

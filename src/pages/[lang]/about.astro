@@ -5,10 +5,12 @@ import TechStack from "components/TechStack.astro";
 import Layout from "layouts/Layout.astro";
 import { MINUTES, cache } from "scripts-ssr/cache";
 import { loadStrings } from "locales";
+import { redirectTo404 } from "scripts-ssr/utils";
 
 cache(Astro.response, 20 * MINUTES);
 
 const t = await loadStrings(Astro.params.lang);
+if (!t) return await redirectTo404(Astro.url, Astro.request.headers);
 ---
 
 <Layout title={t("about.title")} description={t("about.description")}>

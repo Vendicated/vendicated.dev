@@ -12,7 +12,7 @@ import Trans from "locales/Trans.astro";
 
 export { getStaticPaths };
 
-const t = await loadStrings(Astro.params.lang);
+const t = await loadStrings(Astro.params.lang, true);
 ---
 
 <Layout title={t("home.title")} description={t("home.description")}>

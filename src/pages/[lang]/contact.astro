@@ -9,7 +9,7 @@ import Layout from "layouts/Layout.astro";
 import { loadStrings, getStaticPaths } from "locales";
 export { getStaticPaths };
 
-const t = await loadStrings(Astro.params.lang);
+const t = await loadStrings(Astro.params.lang, true);
 ---
 
 <Layout title={t("contact.title")} description={t("contact.description")}>
