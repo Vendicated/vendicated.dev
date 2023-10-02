@@ -15,12 +15,13 @@ export const put: APIRoute = async ({ request }) => {
     const email = data.get("email");
     const message = data.get("message");
 
-    if (!isNonEmptyString(name) || !isNonEmptyString(email) || !isNonEmptyString(message))
+    if (!isNonEmptyString(name) || !isNonEmptyString(message))
         return new Response(null, {
             status: 400
         });
 
-    const header = `**From ${name.trim()} <${email.trim()}>**`;
+    const header = `**From ${name.trim()} ${isNonEmptyString(email) ? `<${email.trim()}>` : ""}**`;
+
     const text = message.trim();
     const content = header + "\n\n" + text;
 

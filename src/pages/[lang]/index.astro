@@ -1,14 +1,14 @@
 ---
 export const prerender = true;
 
-import Layout from "../../layouts/Layout.astro";
-import Socials from "../../components/Socials.astro";
+import Layout from "layouts/Layout.astro";
+import Socials from "components/Socials.astro";
 
-import CenteredBody from "../../components/CenteredBody.astro";
-import Fren from "../../components/Fren.astro";
+import CenteredBody from "components/CenteredBody.astro";
+import Fren from "components/Fren.astro";
 
-import { loadStrings, getStaticPaths } from "../../locales";
-import Trans from "../../locales/Trans.astro";
+import { loadStrings, getStaticPaths } from "locales";
+import Trans from "locales/Trans.astro";
 
 export { getStaticPaths };
 
@@ -24,10 +24,9 @@ const t = await loadStrings(Astro.params.lang);
                 </Trans>
             </h1>
             <p>
-                I'm a self-taught software developer who's very passionate about
-                Linux & Android and free/libre privacy-friendly software.
+                {t("home.about")}
                 <br />
-                I also really love all kinds of music, especially black metal!
+                {t("home.about2")}
             </p>
         </section>
 

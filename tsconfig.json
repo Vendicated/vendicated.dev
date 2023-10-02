@@ -3,7 +3,8 @@
     "compilerOptions": {
         "jsx": "react-jsx",
         "jsxImportSource": "react",
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "baseUrl": "src"
     },
 
     "include": ["src/**/*"]

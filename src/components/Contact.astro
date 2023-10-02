@@ -1,5 +1,5 @@
 ---
-import { loadStrings } from "../locales";
+import { loadStrings } from "locales";
 
 const t = await loadStrings(Astro.params.lang);
 ---
@@ -41,7 +41,7 @@ const t = await loadStrings(Astro.params.lang);
 
 <script>
     document
-        .querySelector(".messagr-form")!
+        .querySelector(".message-form")!
         .addEventListener("submit", async e => {
             e.preventDefault();
 

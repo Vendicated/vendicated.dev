@@ -3,9 +3,9 @@ import Codeberg from "./Icons/Codeberg.astro";
 import Email from "./Icons/Email.astro";
 import GitHub from "./Icons/GitHub.astro";
 import PgpKey from "./Icons/PgpKey.astro";
-import Telegram from "./Icons/Telegram.astro";
 import Lastfm from "./Icons/Lastfm.astro";
 import Social from "./Social.astro";
+import Telegram from "./Icons/Telegram.astro";
 ---
 
 <ul>
@@ -38,13 +38,20 @@ import Social from "./Social.astro";
         <Lastfm slot="icon" />
     </Social>
     <Social
+        title="Telegram"
+        text="@vendyymachine"
+        href="https://t.me/vendyymachine"
+    >
+        <Telegram slot="icon" />
+    </Social>
+    <Social
         title="Email"
         text="vendicated@riseup.net"
         href="mailto:Vendcated%20<vendicated@riseup.net>"
     >
         <Email slot="icon" />
     </Social>
-    <Social title="PGP Key" text="A1DC 0CFB 5615 D905" href="/pgp_key.asc.txt">
+    <Social title={"PGP"} text="A1DC 0CFB 5615 D905" href="/pgp_key.asc.txt">
         <PgpKey slot="icon" />
     </Social>
 </ul>

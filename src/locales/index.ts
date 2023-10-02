@@ -1,5 +1,3 @@
-import type { AstroGlobal } from "astro";
-
 export type TransStrings = typeof import("./en").default;
 export type TransKey = ObjectToDotProp<TransStrings>;
 

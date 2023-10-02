@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { toggleTheme } from "../scripts/util";
+    import { toggleTheme } from "scripts/util";
 
     function onClick(e: MouseEvent) {
         toggleTheme();

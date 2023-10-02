@@ -1,13 +1,8 @@
 ---
 export const prerender = true;
 
-import CenteredBody from "../../components/CenteredBody.astro";
-import Layout from "../../layouts/Layout.astro";
-
-import { loadStrings, getStaticPaths } from "../../locales";
-export { getStaticPaths };
-
-const t = await loadStrings(Astro.params.lang);
+import CenteredBody from "components/CenteredBody.astro";
+import Layout from "layouts/Layout.astro";
 ---
 
 <!-- this is just a random page to convert Aliucord themes -->

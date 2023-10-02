@@ -1,5 +1,5 @@
 import type { APIContext, APIRoute } from "astro";
-import type { BlogPost } from "../../scripts-ssr/types";
+import type { BlogPost } from "scripts-ssr/types";
 
 async function buildPostData(ctx: APIContext, req: () => Promise<BlogPost>) {
     const post = await req();

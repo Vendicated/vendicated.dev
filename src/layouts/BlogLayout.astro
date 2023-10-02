@@ -1,18 +1,13 @@
 ---
 import "normalize.css";
-import "../styles/global.css";
+import "styles/global.css";
 
-import NavBar from "../components/NavBar.astro";
-import CenteredBody from "../components/CenteredBody.astro";
+import NavBar from "components/NavBar.astro";
+import CenteredBody from "components/CenteredBody.astro";
 
-import {
-    AUTHOR,
-    AUTHOR_URL,
-    ICON,
-    THEME_COLOUR,
-} from "../scripts-ssr/constants";
-import { BlogFrontmatterSchema } from "../scripts-ssr/types";
-import Footer from "../components/Footer.astro";
+import { AUTHOR, AUTHOR_URL, ICON, THEME_COLOUR } from "scripts-ssr/constants";
+import { BlogFrontmatterSchema } from "scripts-ssr/types";
+import Footer from "components/Footer.astro";
 
 const { title, description, publishDate, updateDate, section, tags } =
     BlogFrontmatterSchema.parse(Astro.props.frontmatter);
@@ -98,7 +93,7 @@ const { title, description, publishDate, updateDate, section, tags } =
 </style>
 
 <script>
-    import "../scripts/global";
+    import "scripts/global";
 
     function loadPrismTheme() {
         const theme = document.body.classList.contains("dark")

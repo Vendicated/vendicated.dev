@@ -1,26 +1,25 @@
 ---
-import CenteredBody from "../../components/CenteredBody.astro";
-import Projects from "../../components/Projects.astro";
-import TechStack from "../../components/TechStack.astro";
-import Layout from "../../layouts/Layout.astro";
-import { MINUTES, cache } from "../../scripts-ssr/cache";
+import CenteredBody from "components/CenteredBody.astro";
+import Projects from "components/Projects.astro";
+import TechStack from "components/TechStack.astro";
+import Layout from "layouts/Layout.astro";
+import { MINUTES, cache } from "scripts-ssr/cache";
+import { loadStrings } from "locales";
 
 cache(Astro.response, 20 * MINUTES);
+
+const t = await loadStrings(Astro.params.lang);
 ---
 
-<Layout title="About" description="Learn more about me and my projects">
+<Layout title={t("about.title")} description={t("about.description")}>
     <CenteredBody margin="10%">
-        <h1>About</h1>
-        <p>
-            I absolutely love tech and open source! I have been programming
-            since early 2020 and have taught myself a multitude of languages and
-            frameworks since then.
-        </p>
+        <h1>{t("about.title")}</h1>
+        <p>{t("about.intro")}</p>
 
-        <h2>Tech Stack</h2>
+        <h2>{t("about.stack")}</h2>
         <TechStack />
 
-        <h2>Projects</h2>
+        <h2>{t("about.projects")}</h2>
         <Projects />
     </CenteredBody>
 </Layout>

@@ -3,7 +3,7 @@ const acceptLanguages = Astro.request.headers.get("Accept-Language");
 if (!acceptLanguages) return Astro.redirect("/en/404", 302);
 
 import parser from "accept-language-parser";
-import { Locales } from "../locales";
+import { Locales } from "locales";
 
 const lang = parser.pick(Locales, acceptLanguages) || "en";
 
