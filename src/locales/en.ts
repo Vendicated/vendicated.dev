@@ -38,6 +38,7 @@ export default {
         message: "Message",
         messagePlaceholder: "Hi Ven, I just wanted to tell you I am very cute!",
         send: "Send",
+        noscript: "You need to enable JavaScript to use this form.",
     },
     blog: {
         title: "Ven's Blog",

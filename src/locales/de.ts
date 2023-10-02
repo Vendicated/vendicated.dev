@@ -41,6 +41,8 @@ export default defineLocale({
         messagePlaceholder:
             "Hi Ven, ich wollte dir einfach nur sagen, dass ich sehr süß bin!",
         send: "Senden",
+        noscript:
+            "Du musst JavaScript aktivieren um dieses Formular zu nutzen.",
     },
     blog: {
         title: "Vens Blog",

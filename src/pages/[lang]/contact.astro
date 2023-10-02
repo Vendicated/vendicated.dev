@@ -3,6 +3,7 @@ export const prerender = true;
 
 import CenteredBody from "components/CenteredBody.astro";
 import ContactComponent from "components/Contact.astro";
+import Card, { Kind } from "components/Card.astro";
 import Socials from "components/Socials.astro";
 import Layout from "layouts/Layout.astro";
 
@@ -23,6 +24,9 @@ const t = await loadStrings(Astro.params.lang, true);
             </section>
             <section>
                 <h2>{t("contact.sendMessage")}</h2>
+                <noscript>
+                    <Card kind={Kind.Warning}>{t("contact.noscript")}</Card>
+                </noscript>
                 <ContactComponent />
             </section>
         </div>
