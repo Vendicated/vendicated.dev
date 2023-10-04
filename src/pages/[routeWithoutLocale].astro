@@ -1,0 +1,15 @@
+---
+const routes = ["about", "contact", "blog"];
+const route = Astro.params.routeWithoutLocale;
+if (!routes.includes(route!)) return new Response("Not found", { status: 404 });
+
+const acceptLanguages = Astro.request.headers.get("Accept-Language");
+if (!acceptLanguages) return Astro.redirect(`/en/${route}`, 302);
+
+import parser from "accept-language-parser";
+import { Locales } from "../locales";
+
+const lang = parser.pick(Locales, acceptLanguages) || "en";
+
+return Astro.redirect(`/${lang}/${route}`, 302);
+---
