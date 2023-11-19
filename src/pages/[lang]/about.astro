@@ -18,10 +18,10 @@ if (!t) return await redirectTo404(Astro.url, Astro.request.headers);
         <h1>{t("about.title")}</h1>
         <p>{t("about.intro")}</p>
 
-        <h2>{t("about.stack")}</h2>
+        <h2 id="tech-stack">{t("about.stack")}</h2>
         <TechStack />
 
-        <h2>{t("about.projects")}</h2>
+        <h2 id="projects">{t("about.projects")}</h2>
         <Projects />
     </CenteredBody>
 </Layout>

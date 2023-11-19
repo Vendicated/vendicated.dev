@@ -19,11 +19,11 @@ const t = await loadStrings(Astro.params.lang, true);
 
         <div class="grid">
             <section>
-                <h2>{t("contact.socials")}</h2>
+                <h2 id="socials">{t("contact.socials")}</h2>
                 <Socials />
             </section>
             <section>
-                <h2>{t("contact.sendMessage")}</h2>
+                <h2 id="send-message">{t("contact.sendMessage")}</h2>
                 <noscript>
                     <Card kind={Kind.Warning}>{t("contact.noscript")}</Card>
                 </noscript>
