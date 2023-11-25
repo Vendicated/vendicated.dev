@@ -9,7 +9,7 @@ function jsonToBlob(json: object) {
     return new Blob([JSON.stringify(json)], { type: "application/json" });
 }
 
-export const put: APIRoute = async ({ request }) => {
+export const put: APIRoute = async ({ request, locals }) => {
     const data = await request.formData();
     const name = data.get("name");
     const email = data.get("email");
@@ -17,10 +17,12 @@ export const put: APIRoute = async ({ request }) => {
 
     if (!isNonEmptyString(name) || !isNonEmptyString(message))
         return new Response(null, {
-            status: 400
+            status: 400,
         });
 
-    const header = `**From ${name.trim()} ${isNonEmptyString(email) ? `<${email.trim()}>` : ""}**`;
+    const header = `**From ${name.trim()} ${
+        isNonEmptyString(email) ? `<${email.trim()}>` : ""
+    }**`;
 
     const text = message.trim();
     const content = header + "\n\n" + text;
@@ -30,30 +32,34 @@ export const put: APIRoute = async ({ request }) => {
 
     const msgData = {
         allowed_mentions: {
-            parse: []
+            parse: [],
         },
-        content: content.length > 2000 ? header : content
+        content: content.length > 2000 ? header : content,
     };
 
     const payload = new FormData();
     payload.set("payload_json", jsonToBlob(msgData), "");
 
     if (text.length > 2000)
-        payload.set("files[0]", new Blob([text], { type: "text/plain" }), "message.txt");
+        payload.set(
+            "files[0]",
+            new Blob([text], { type: "text/plain" }),
+            "message.txt"
+        );
 
-    const url = new URL(getEnv(request, import.meta.env, "CONTACT_WEBHOOK"));
+    const url = new URL(getEnv(locals, import.meta.env, "CONTACT_WEBHOOK"));
     url.searchParams.set("wait", "true");
 
     const res = await fetch(url, {
         method: "POST",
-        body: payload
+        body: payload,
     });
 
     if (!res.ok) {
         console.error(
             "Error while executing contact webhook:",
             res.status,
-            "\n" + await res.text().catch(() => "Unknown error")
+            "\n" + (await res.text().catch(() => "Unknown error"))
         );
 
         return new Response("Failed to post message", {
@@ -62,6 +68,6 @@ export const put: APIRoute = async ({ request }) => {
     }
 
     return new Response(null, {
-        status: 201
+        status: 201,
     });
 };

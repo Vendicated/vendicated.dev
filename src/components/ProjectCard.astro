@@ -21,7 +21,7 @@ const requestInit = {
 if (repo.includes("api.github.com")) {
     const env = import.meta.env;
 
-    const token = getEnv(Astro.request, env, "GITHUB_TOKEN");
+    const token = getEnv(Astro.locals, env, "GITHUB_TOKEN");
 
     requestInit.headers.set("Accept", "application/vnd.github.v3+json");
     requestInit.headers.set("Authorization", `Bearer ${token}`);
@@ -94,7 +94,8 @@ avatarUrl.searchParams.set("size", "64");
         border-radius: 8px;
         display: grid;
 
-        transition: 200ms box-shadow var(--box-shadow-transition),
+        transition:
+            200ms box-shadow var(--box-shadow-transition),
             200ms background;
     }
 

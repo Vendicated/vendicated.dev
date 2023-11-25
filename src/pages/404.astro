@@ -3,15 +3,19 @@ export const prerender = true;
 import { Locales } from "locales";
 ---
 
-<noscript>
-    <meta http-equiv="refresh" content="0; URL=/en/404" />
-</noscript>
+<!doctype html>
+<html>
+    <noscript>
+        <meta http-equiv="refresh" content="0; URL=/en/404" />
+    </noscript>
 
-<script define:vars={{ Locales }}>
-    const lang =
-        navigator.languages
-            .find(l => Locales.includes(l.split("-")[0]))
-            ?.split("-")[0] || "en";
+    <script define:vars={{ Locales }}>
+        const lang =
+            navigator.languages
+                .find(l => Locales.includes(l.split("-")[0]))
+                ?.split("-")[0] || "en";
 
-    window.location.replace(`/${lang}/404`);
-</script>
+        window.location.replace(`/${lang}/404`);
+    </script>
+
+</html>
