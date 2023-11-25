@@ -13,9 +13,9 @@ export default defineLocale({
         sourceCode: "quellcode",
     },
     home: {
-        title: "Vens Seite",
+        title: "Vees Seite",
         description: "wer das liest ist süß!",
-        hello: "Hallo, ich bin <0>Ven!</0>",
+        hello: "Hallo, ich bin <0>Vee!</0>",
         about: "Ich bin ein selbstlernender Softwareentwickler. Am meisten interessiere ich mich für Linux & Android und freie Software",
         about2: "Außerdem liebe ich fast alle Arten von Musik, aber ganz besonders Black Metal (oder wie ich es gerne nenne, Schwarzmetall)!",
         socialsTitle: "Du kannst mich online überall finden:",
@@ -39,13 +39,13 @@ export default defineLocale({
         emailPlaceholder: "ich@beispiel.com",
         message: "Nachricht",
         messagePlaceholder:
-            "Hi Ven, ich wollte dir einfach nur sagen, dass ich sehr süß bin!",
+            "Hi Vee, ich wollte dir einfach nur sagen, dass ich sehr süß bin!",
         send: "Senden",
         noscript:
             "Du musst JavaScript aktivieren um dieses Formular zu nutzen.",
     },
     blog: {
-        title: "Vens Blog",
+        title: "Vees Blog",
         description: "in den Gedanken eines Verrückten",
         teehee: "Ich möchte hier bald mal was schreiben",
     },
