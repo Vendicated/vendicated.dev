@@ -8,9 +8,10 @@ import { Locales } from "locales";
 </noscript>
 
 <script define:vars={{ Locales }}>
-const lang =
-    navigator.languages.find(l => Locales.includes(l.split("-")[0])) ||
-    "en";
+    const lang =
+        navigator.languages
+            .find(l => Locales.includes(l.split("-")[0]))
+            ?.split("-")[0] || "en";
 
-window.location.replace(`/${lang}/404`);
+    window.location.replace(`/${lang}/404`);
 </script>
