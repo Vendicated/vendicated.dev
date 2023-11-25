@@ -8,7 +8,7 @@
     export { className as class };
 </script>
 
-<a class={className} {href} {title}><slot /></a>
+<a class={className} {href} {title} {...$$restProps}><slot /></a>
 
 <style>
     a {

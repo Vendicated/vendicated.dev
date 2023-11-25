@@ -23,7 +23,7 @@ const { href, text, id, title } = Astro.props as SocialProps &
         <slot name="icon" />
 
         <h3>{title}</h3>
-        <Link href={href} class="content">{text}</Link>
+        <Link href={href} class="content" rel="me">{text}</Link>
     </slot>
 </li>
 

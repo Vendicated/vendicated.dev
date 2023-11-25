@@ -4,8 +4,9 @@ import Email from "./Icons/Email.astro";
 import GitHub from "./Icons/GitHub.astro";
 import PgpKey from "./Icons/PgpKey.astro";
 import Lastfm from "./Icons/Lastfm.astro";
-import Social from "./Social.astro";
 import Telegram from "./Icons/Telegram.astro";
+import Mastodon from "./Icons/Mastodon.astro";
+import Social from "./Social.astro";
 ---
 
 <ul>
@@ -43,6 +44,13 @@ import Telegram from "./Icons/Telegram.astro";
         href="https://t.me/vendyymachine"
     >
         <Telegram slot="icon" />
+    </Social>
+    <Social
+        title="Mastodon"
+        text="@v@wetdry.world"
+        href="https://wetdry.world/@v"
+    >
+        <Mastodon slot="icon" />
     </Social>
     <Social
         title="Email"
