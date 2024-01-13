@@ -1,41 +1,8 @@
 ---
-import { SOURCE_CODE_URL } from "scripts-ssr/constants";
-import { getEnv } from "scripts-ssr/env";
 import { getLanguageColor } from "scripts-ssr/languageColors";
 import OpenExternalIcon from "./Icons/OpenExternalIcon.astro";
 
 import Star from "./Icons/Star.astro";
-
-export interface Props {
-    repo: string;
-}
-
-const { repo } = Astro.props;
-
-const requestInit = {
-    headers: new Headers({
-        "User-Agent": SOURCE_CODE_URL,
-    }),
-} satisfies RequestInit;
-
-if (repo.includes("api.github.com")) {
-    const env = import.meta.env;
-
-    const token = getEnv(Astro.locals, env, "GITHUB_TOKEN");
-
-    requestInit.headers.set("Accept", "application/vnd.github.v3+json");
-    requestInit.headers.set("Authorization", `Bearer ${token}`);
-}
-
-const data = await fetch(repo, requestInit).then(async r => {
-    if (!r.ok) {
-        const e = await r.text().catch(() => "Unknown Error");
-        throw new Error(
-            `Failed to fetch repo info for ${repo}: ${r.status} ${r.statusText}\n${e}`
-        );
-    }
-    return r.json();
-});
 
 const {
     name,
@@ -45,7 +12,7 @@ const {
     stars_count,
     stargazers_count,
     html_url,
-} = data;
+} = Astro.props;
 
 const starCount = stars_count ?? stargazers_count;
 const stars =
@@ -94,8 +61,7 @@ avatarUrl.searchParams.set("size", "64");
         border-radius: 8px;
         display: grid;
 
-        transition:
-            200ms box-shadow var(--box-shadow-transition),
+        transition: 200ms box-shadow var(--box-shadow-transition),
             200ms background;
     }
 
