@@ -3,18 +3,12 @@
 html {
     /* make scrollbar overlay over the content, not taking up any space */
     overflow-y: overlay;
-
-    /*
-        min-width: 100vh is not actually the entire screen on mobile because yes. fill-available works but is not really standard
-
-        to solve, height: fill-available and min-height: fill-available are necessary on html and body respectively
-
-        this works anywhere but in firefox. That's okay i guess, considering it's just a minor visual bug
-        https://caniuse.com/mdn-css_properties_min-height_stretch
-    */
-    height: -webkit-fill-available;
-    height: stretch;
-    height: fill-available;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: -moz-available;
+    min-height: stretch;
+    min-height: fill-available;
+    min-height: 100dvh;
 }
 
 body {
@@ -41,8 +35,10 @@ body {
     width: 100%;
     min-height: 100vh;
     min-height: -webkit-fill-available;
+    min-height: -moz-available;
     min-height: stretch;
     min-height: fill-available;
+    min-height: 100dvh;
 
     display: flex;
     flex-direction: column;
