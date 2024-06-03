@@ -5,10 +5,6 @@ function isNonEmptyString(value: unknown): value is string {
     return typeof value === "string" && value.length > 0;
 }
 
-function jsonToBlob(json: object) {
-    return new Blob([JSON.stringify(json)], { type: "application/json" });
-}
-
 export const put: APIRoute = async ({ request, locals }) => {
     const data = await request.formData();
     const name = data.get("name");
@@ -38,7 +34,7 @@ export const put: APIRoute = async ({ request, locals }) => {
     };
 
     const payload = new FormData();
-    payload.set("payload_json", jsonToBlob(msgData), "");
+    payload.set("payload_json", msgData);
 
     if (text.length > 2000)
         payload.set(
