@@ -34,7 +34,7 @@ export const put: APIRoute = async ({ request, locals }) => {
     };
 
     const payload = new FormData();
-    payload.set("payload_json", msgData);
+    payload.set("payload_json", JSON.stringify(msgData));
 
     if (text.length > 2000)
         payload.set(
