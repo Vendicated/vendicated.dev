@@ -32,15 +32,6 @@ export default defineLocale({
         title: "Kontaktier mich",
         description: "Erfahre wie du mich kontaktieren kannst",
         socials: "Socials",
-        sendMessage: "Send mir eine Nachricht",
-        name: "Name",
-        namePlaceholder: "Ich",
-        email: "Email (damit ich dir antworten kann :3)",
-        emailPlaceholder: "ich@beispiel.com",
-        message: "Nachricht",
-        messagePlaceholder:
-            "Hi Vee, ich wollte dir einfach nur sagen, dass ich sehr süß bin!",
-        send: "Senden",
         noscript:
             "Du musst JavaScript aktivieren um dieses Formular zu nutzen.",
     },

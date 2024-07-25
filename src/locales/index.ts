@@ -37,7 +37,7 @@ export function defineLocale(strings: Unstricten<TransStrings>) {
 }
 
 const LocaleStrings = {
-    de: () => import("./de"),
+    // de: () => import("./de"),
     en: () => import("./en"),
 };
 
