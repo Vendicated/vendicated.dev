@@ -12,14 +12,14 @@ html {
 }
 
 body {
-    --background-color: white;
-    --surface: #f6f6f7;
-    --surface2: #f2f2f3;
+    --background-color:  oklab(0.958184 0.0128697 0.00403672);
+    --surface: oklab(0.933528 0.0206833 0.0065456);
+    --surface2: oklab(0.905162 0.0299256 0.00958234);
     --color: black;
     --color-semi-trans: rgba(0, 0, 0, 0.3);
 
     --warning: #df8e1d;
-    --accent: #dd7878;
+    --accent: rgb(180, 50, 50);
     --accent-semi-trans: rgba(238, 190, 190, 0.6);
 
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
