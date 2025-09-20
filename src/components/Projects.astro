@@ -1,7 +1,6 @@
 ---
 import { SOURCE_CODE_URL } from "scripts-ssr/constants";
 import ProjectCard from "./ProjectCard.astro";
-import { getEnv } from "scripts-ssr/env";
 
 const repos = [
     "https://api.github.com/repos/Vendicated/Vencord",
@@ -27,9 +26,9 @@ const repoData = await Promise.all(
         } satisfies RequestInit;
 
         if (repo.includes("api.github.com")) {
-            const env = import.meta.env;
-
-            const token = getEnv(Astro.locals, env, "GITHUB_TOKEN");
+            const token = import.meta.env.PROD
+                ? Astro.locals.runtime.env.GITHUB_TOKEN
+                : import.meta.env.GITHUB_TOKEN;
 
             requestInit.headers.set("Accept", "application/vnd.github.v3+json");
             requestInit.headers.set("Authorization", `Bearer ${token}`);
