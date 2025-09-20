@@ -3,7 +3,7 @@ import { loadStrings } from "locales";
 import { SOURCE_CODE_URL } from "scripts-ssr/constants";
 import Link from "./Link.svelte";
 
-const t = await loadStrings(Astro.params.lang, true);
+const t = await loadStrings("en", true);
 ---
 
 <footer>

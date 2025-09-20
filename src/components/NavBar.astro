@@ -1,7 +1,6 @@
 ---
 import { loadStrings } from "locales";
 import ThemeToggle from "./ThemeToggle.svelte";
-import LanguagePicker from "./locale/LanguagePicker.astro";
 
 export interface Props {
     title: string;
@@ -9,32 +8,29 @@ export interface Props {
 
 const routes = ["about", "contact", "blog"] as const;
 
-const { lang } = Astro.params;
-
-const t = await loadStrings(lang, true);
+const t = await loadStrings("en", true);
 ---
 
 <nav>
     <div id="btns">
         <ul>
             <li>
-                <a href=`/${lang}`>{t("routes.home")}</a>
+                <a href="/">{t("routes.home")}</a>
             </li>
             {
                 routes.map(route => (
                     <li>
-                        <a href={`/${lang}/${route}`}>{t(`routes.${route}`)}</a>
+                        <a href={`/${route}`}>{t(`routes.${route}`)}</a>
                     </li>
                 ))
             }
         </ul>
         <ThemeToggle client:load />
-        <LanguagePicker />
     </div>
     <div id="oneko" aria-hidden="true"></div>
 </nav>
 
-<style lang="scss">
+<style>
     nav {
         background-color: var(--surface);
 

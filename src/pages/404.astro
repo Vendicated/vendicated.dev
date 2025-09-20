@@ -1,22 +1,31 @@
 ---
 export const prerender = true;
-import { Locales } from "locales";
+
+import CenteredBody from "components/CenteredBody.astro";
+import Layout from "layouts/Layout.astro";
+
+import { loadStrings } from "locales";
+
+const t = await loadStrings("en", true);
 ---
 
-<!doctype html>
-<html>
-    <noscript>
-        <meta http-equiv="refresh" content="0; URL=/en/404" />
-    </noscript>
+<Layout title={t("404.title")} description={t("404.description")}>
+    <CenteredBody>
+        <h1>{t("404.title")}</h1>
+        <h3>{t("404.notFound")}</h3>
+        <p>{t("404.lost")}</p>
+        <p>{t("404.goHome")}</p>
+        <a href="/">
+            <img
+                src="https://cdn.discordapp.com/emojis/432715085526597634.webp"
+                alt={t("404.koishiAlt")}
+            />
+        </a>
+    </CenteredBody>
+</Layout>
 
-    <script is:inline define:vars={{ Locales }}>
-        const lang =
-            navigator.languages
-                .find(l => Locales.includes(l.split("-")[0]))
-                ?.split("-")[0] || "en";
-
-        window.location.replace(`/${lang}/404`);
-    </script>
-
-
-</html>
+<style>
+    div {
+        margin: 2em 20%;
+    }
+</style>

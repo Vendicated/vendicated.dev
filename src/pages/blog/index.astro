@@ -11,7 +11,7 @@ const posts = [] ?? (await Astro.glob<BlogPost>("./*.{md,mdx}"));
 import { loadStrings, getStaticPaths } from "locales";
 export { getStaticPaths };
 
-const t = await loadStrings(Astro.params.lang, true);
+const t = await loadStrings("en", true);
 ---
 
 <Layout title={t("blog.title")} description={t("blog.description")}>

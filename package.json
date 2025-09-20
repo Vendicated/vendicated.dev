@@ -23,6 +23,7 @@
         "@astrojs/sitemap": "^3.6.0",
         "@types/accept-language-parser": "^1.5.8",
         "sass": "^1.93.0",
+        "wrangler": "^4.38.0",
         "zod": "^4.1.11"
     }
 }

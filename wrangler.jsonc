@@ -1,0 +1,10 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "vendicated-dev",
+    // Update to today's date
+    "compatibility_date": "2025-09-20",
+    "assets": {
+        "directory": "./dist",
+        "not_found_handling": "404-page" // If you have a custom `src/pages/404.astro` page
+    }
+}
