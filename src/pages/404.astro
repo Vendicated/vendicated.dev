@@ -9,7 +9,7 @@ import { Locales } from "locales";
         <meta http-equiv="refresh" content="0; URL=/en/404" />
     </noscript>
 
-    <script define:vars={{ Locales }}>
+    <script is:inline define:vars={{ Locales }}>
         const lang =
             navigator.languages
                 .find(l => Locales.includes(l.split("-")[0]))
@@ -17,5 +17,6 @@ import { Locales } from "locales";
 
         window.location.replace(`/${lang}/404`);
     </script>
+
 
 </html>

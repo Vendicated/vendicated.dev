@@ -10,7 +10,7 @@
     }
 </script>
 
-<button on:click={onClick} aria-label="toggle dark theme" tabindex="0" />
+<button on:click={onClick} aria-label="toggle dark theme" tabindex="0"></button>
 
 <style>
     button {

@@ -7,7 +7,7 @@ export interface Props {
 }
 const { lang, active } = Astro.props;
 
-const t = await loadStrings(lang);
+const t = await loadStrings(lang, true);
 
 const name = t("name");
 ---

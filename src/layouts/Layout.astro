@@ -15,7 +15,7 @@ export interface Props {
 const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={Astro.params.lang}>
     <head>
         <meta charset="UTF-8" />
@@ -34,9 +34,14 @@ const { title, description } = Astro.props;
         <meta name="og:image" content={ICON} />
 
         <meta name="darkreader-lock" />
+        <style>
+            @view-transition {
+                navigation: auto;
+            }
+        </style>
     </head>
     <body>
-        <script is:raw>
+        <script is:inline>
             let theme = localStorage.getItem("theme");
             if (!theme || !["light", "dark"].includes(theme)) {
                 theme = window.matchMedia("(prefers-color-scheme: dark)")

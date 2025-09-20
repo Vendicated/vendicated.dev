@@ -1,14 +1,21 @@
 <script lang="ts">
+    import type { HTMLAnchorAttributes } from "svelte/elements";
+
     // the only reason this file is Svelte is because Astro treats whitespace after inline elements
     // like "a" as desired, meaning the newline between a and style is preserved
 
-    export let href: string;
-    export let title: string | undefined;
-    let className: string | undefined;
-    export { className as class };
+    const {
+        href,
+        title,
+        class: className,
+        children,
+        ...rest
+    }: HTMLAnchorAttributes = $props();
 </script>
 
-<a class={className} {href} {title} {...$$restProps}><slot /></a>
+<a class={className} {href} {title} {...rest}>
+    {@render children?.()}
+</a>
 
 <style>
     a {
