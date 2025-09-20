@@ -25,5 +25,6 @@
         "sass": "^1.93.0",
         "wrangler": "^4.38.0",
         "zod": "^4.1.11"
-    }
+    },
+    "packageManager": "pnpm@10.17.0"
 }
