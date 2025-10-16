@@ -1,6 +1,6 @@
 ---
 import { loadStrings } from "locales";
-import ThemeToggle from "./ThemeToggle.svelte";
+import ThemeToggle from "./ThemeToggle/index.astro";
 
 export interface Props {
     title: string;
@@ -25,9 +25,8 @@ const t = await loadStrings("en", true);
                 ))
             }
         </ul>
-        <ThemeToggle client:load />
+        <ThemeToggle />
     </div>
-    <div id="oneko" aria-hidden="true"></div>
 </nav>
 
 <style>
@@ -69,9 +68,11 @@ const t = await loadStrings("en", true);
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+        width: 100%;
     }
 
     ul {
+        margin-inline: auto;
         float: right;
         list-style-type: none;
         overflow: hidden;
@@ -82,30 +83,7 @@ const t = await loadStrings("en", true);
         float: left;
     }
 
-    #oneko {
-        content: "";
-        display: inline-block;
-        position: absolute;
-        width: 32px;
-        height: 32px;
-        right: 2rem;
-        top: 1.3rem;
-        image-rendering: pixelated;
-        /* https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif */
-        background-image: url("/assets/oneko.gif");
-        animation: sleep 1s infinite;
-        cursor: pointer;
-
-        &:hover {
-            animation: 2.5s 1 forwards wakeup;
-        }
-
-        @media (prefers-reduced-motion) {
-            display: none;
-        }
-    }
-
-    @media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         ul {
             width: 100%;
             display: flex;
@@ -115,45 +93,6 @@ const t = await loadStrings("en", true);
 
         nav {
             padding-bottom: 1.5em;
-        }
-    }
-
-    @media only screen and (max-width: 375px) {
-        #oneko {
-            display: none;
-        }
-    }
-
-    @keyframes sleep {
-        0%,
-        50% {
-            background-position: -64px 0;
-        }
-        50.00001%,
-        100% {
-            background-position: -64px -32px;
-        }
-    }
-    @keyframes wakeup {
-        0%,
-        20% {
-            background-position: -160px 0;
-        }
-        20.00001%,
-        40% {
-            background-position: -192px 0;
-        }
-        40.00001%,
-        60% {
-            background-position: -224px 0;
-        }
-        60.00001%,
-        80% {
-            background-position: -96px -64px;
-        }
-        80.00001%,
-        100% {
-            background-position: -96px -96px;
         }
     }
 </style>

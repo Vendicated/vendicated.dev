@@ -1,6 +1,7 @@
 ---
 import "normalize.css";
 import "styles/global.css";
+import "styles/theme.css";
 
 import NavBar from "components/NavBar.astro";
 
@@ -41,17 +42,6 @@ const { title, description } = Astro.props;
         </style>
     </head>
     <body>
-        <script is:inline>
-            let theme = localStorage.getItem("theme");
-            if (!theme || !["light", "dark"].includes(theme)) {
-                theme = window.matchMedia("(prefers-color-scheme: dark)")
-                    .matches
-                    ? "dark"
-                    : "light";
-            }
-            document.body.classList.add(theme);
-        </script>
-
         <header>
             <NavBar title={title} />
         </header>
