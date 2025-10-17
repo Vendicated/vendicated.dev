@@ -14,7 +14,7 @@ const { maxWidth } = Astro.props;
 
 <style define:vars={{ maxWidth: maxWidth || "800px" }}>
     .centered-body {
-        margin: 2em 5%;
+        margin: 2em min(2em, 5%);
         display: flex;
         justify-content: center;
     }
@@ -22,5 +22,9 @@ const { maxWidth } = Astro.props;
     .content {
         width: 100%;
         max-width: var(--maxWidth);
+
+        @media (max-width: 900px) {
+            max-width: 100%;
+        }
     }
 </style>

@@ -107,5 +107,9 @@ const t = await loadStrings("en", true);
         gap: 4px;
         max-width: calc(var(--per-row) * (88px + 4px));
         width: 100%;
+
+        @media (max-width: 405px) {
+            justify-content: center;
+        }
     }
 </style>
