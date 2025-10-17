@@ -26,6 +26,9 @@ importers:
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
+      sharp:
+        specifier: ^0.34.4
+        version: 0.34.4
       svelte:
         specifier: ^5.39.3
         version: 5.39.3
@@ -2761,8 +2764,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.4':
     optional: true
 
-  '@img/colour@1.0.0':
-    optional: true
+  '@img/colour@1.0.0': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -4765,7 +4767,6 @@ snapshots:
       '@img/sharp-win32-arm64': 0.34.4
       '@img/sharp-win32-ia32': 0.34.4
       '@img/sharp-win32-x64': 0.34.4
-    optional: true
 
   shiki@3.13.0:
     dependencies:

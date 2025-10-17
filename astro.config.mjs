@@ -10,6 +10,8 @@ export default defineConfig({
     site: "https://vendicated.dev",
 
     output: "static",
-    adapter: cloudflare(),
+    adapter: cloudflare({
+        imageService: "compile"
+    }),
     integrations: [sitemap(), svelte(), mdx()],
 });
