@@ -1,0 +1,48 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+export interface Props {
+    name: string;
+    url: string;
+    title?: string;
+}
+
+const { name, url, title = name } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "../assets/88x31/*.{jpeg,jpg,png,webp,avif,gif}"
+);
+const img = Object.keys(images).find(path => path.includes(`/${name}.`));
+if (!img) {
+    throw new Error(`88x31 for ${name} not found`);
+}
+---
+
+<a href={url} title={title} rel="nofollow">
+    <Image src={images[img]()} alt="" />
+</a>
+
+<style lang="scss">
+    img {
+        height: 31px;
+        width: 88px;
+        image-rendering: pixelated;
+
+        transition: 0.2s box-shadow var(--box-shadow-transition);
+    }
+
+    a {
+        text-decoration: none;
+
+        &:is(:hover, :focus) img {
+            box-shadow: var(--box-shadow);
+        }
+    }
+
+    :global(.dark) a:is(:hover, :focus) img {
+        box-shadow:
+            0 8px 15px var(--accent-semi-trans),
+            0 6px 6px var(--accent-semi-trans);
+        border-color: var(--accent);
+    }
+</style>

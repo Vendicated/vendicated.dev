@@ -1,0 +1,43 @@
+---
+export const prerender = true;
+
+import Button88X31 from "components/Button88x31.astro";
+import CenteredBody from "components/CenteredBody.astro";
+import Layout from "layouts/Layout.astro";
+
+import Me from "assets/88x31/me.gif";
+import Alt from "assets/88x31/me-alt.png";
+---
+
+<Layout title="88x31" description="">
+    <CenteredBody>
+        <h1>88x31 button</h1>
+        <p>
+            If we're friends and you want me to add your button, just send me a
+            message!
+        </p>
+        <p>If you want to add my button to your site, there are two options:</p>
+
+        <div class="buttons">
+            <section>
+                <h2>88x31 by <a href="https://arhsm.cat">arHSM</a></h2>
+                <Button88X31 name="me" url={Me.src} />
+                <p>Thanks a lot to arHSM for creating this ❤️</p>
+            </section>
+
+            <section>
+                <h2>Alternative 88x31</h2>
+                <Button88X31 name="me-alt" url={Alt.src} />
+                <p>I genuinely have no clue who made this I'm sorry</p>
+            </section>
+        </div>
+    </CenteredBody>
+</Layout>
+
+<style>
+    .buttons {
+        display: flex;
+        gap: 4em;
+        flex-wrap: wrap;
+    }
+</style>

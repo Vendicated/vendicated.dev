@@ -5,10 +5,10 @@ import Layout from "layouts/Layout.astro";
 import Socials from "components/Socials.astro";
 
 import CenteredBody from "components/CenteredBody.astro";
-import Fren from "components/Fren.astro";
 
 import { loadStrings, getStaticPaths } from "locales";
 import Trans from "locales/Trans.astro";
+import Button88X31 from "components/Button88x31.astro";
 
 export { getStaticPaths };
 
@@ -36,32 +36,54 @@ const t = await loadStrings("en", true);
         </section>
 
         <section id="friends">
-            <h2>{t("home.friendsTitle")}</h2>
             <div id="frens">
-                <Fren name="MeguminSama" url="https://megu.dev/" />
-                <Fren name="rushiiMachine" url="https://rushii.materii.dev/" />
-                <Fren name="wingio" url="https://wingio.xyz" />
-                <Fren name="AAGaming00" url="https://aagaming.me" />
-                <Fren name="mantikafasi" url="https://mantikafasi.dev/" />
-                <Fren name="X1nto" url="https://xinto.dev/" />
-                <Fren name="Katlyn" url="https://katlyn.dev/" />
-                <Fren name="fawn" url="https://fawn.moe" source="cobu" />
-                <Fren name="espimarisa" url="https://espi.me" />
-                <Fren name="lewisakura" url="https://lewisakura.moe" />
-                <Fren name="sapphicmoe" url="https://sapphic.moe" />
-                <Fren name="rini" url="https://rinici.de" source="cobu" />
-                <Fren name="khcrysalis" url="https://khcrysalis.dev" />
+                <Button88X31
+                    name="me"
+                    url="/88x31"
+                    title="88x31 made by arHSM!"
+                />
+
+                <Button88X31 name="megu" url="https://megu.dev" />
+                <Button88X31 name="c7" url="https://c7.pm" />
+                <Button88X31 name="wing" url="https://wingio.xyz" />
+                <Button88X31 name="epsi" url="https://espi.me" />
+                <Button88X31 name="caitlyn" url="https://caitlyn.moe" />
+                <Button88X31 name="vap" url="https://github.com/vap0r1ze" />
+                <Button88X31 name="lewi" url="https://lewisakura.moe" />
+                <Button88X31 name="aagamer" url="https://aagaming.me" />
+                <Button88X31 name="alula" url="https://alula.me" />
+                <Button88X31 name="rushii" url="https://rushii.dev/" />
+                <Button88X31 name="rinicide" url="https://github.com/rniii" />
+                <Button88X31 name="samara" url="https://khcrysalis.dev" />
+                <Button88X31 name="chloe" url="https://sapphic.moe" />
+
+                {
+                    /*
+                <Button88X31
+                    name="mantikafasi"
+                    url="https://mantikafasi.dev/"
+                />
+                <Button88X31 name="X1nto" url="https://xinto.dev/" />
+                <Button88X31 name="Katlyn" url="https://katlyn.dev/" />
+                <Button88X31 name="fawn" url="https://fawn.moe" source="cobu" />
+                <Button88X31 name="sapphicmoe" url="https://sapphic.moe" />
+                    */
+                }
             </div>
         </section>
     </CenteredBody>
 </Layout>
 
 <script>
-    // Shuffle friends
+    // Shuffle friends, skipping first child (self)
     const frens = document.querySelector("#frens") as HTMLDivElement;
-    for (let i = frens.children.length; i >= 0; i--)
-        // appending an already added element moves it
-        frens.appendChild(frens.children[Math.floor(Math.random() * i)]);
+    const nodes = Array.from(frens.children);
+    const fixed = nodes.shift();
+    for (let i = nodes.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [nodes[i], nodes[j]] = [nodes[j], nodes[i]];
+    }
+    frens.replaceChildren(fixed!, ...nodes);
 </script>
 
 <style lang="scss">
