@@ -1,12 +1,19 @@
 ---
 export const prerender = true;
 
+import { Prism } from "@astrojs/prism";
 import Button88X31 from "components/Button88x31.astro";
 import CenteredBody from "components/CenteredBody.astro";
 import Layout from "layouts/Layout.astro";
+import { stripIndent } from "scripts/stripIndent";
 
-import Me from "assets/88x31/me.gif";
-import Alt from "assets/88x31/me-alt.png";
+const { origin } = Astro.url;
+
+const makeHtml = (name: string) => stripIndent`
+    <a href="${origin}" title="vending machine" rel="nofollow">
+        <img src="${origin}/assets/88x31/${name}" alt="" width="88" height="31" loading="lazy" decoding="async" style="image-rendering: pixelated;"/>
+    </a>
+`;
 ---
 
 <Layout title="88x31" description="">
@@ -21,14 +28,16 @@ import Alt from "assets/88x31/me-alt.png";
         <div class="buttons">
             <section>
                 <h2>88x31 by <a href="https://arhsm.cat">arHSM</a></h2>
-                <Button88X31 name="me" url={Me.src} />
-                <p>Thanks a lot to arHSM for creating this ❤️</p>
+                <Button88X31 name="me" />
+                <p>Thanks a lot to arHSM for creating it ❤️</p>
+                <Prism code={makeHtml("me.gif")} lang="html" />
             </section>
 
             <section>
                 <h2>Alternative 88x31</h2>
-                <Button88X31 name="me-alt" url={Alt.src} />
+                <Button88X31 name="me-alt" />
                 <p>I genuinely have no clue who made this I'm sorry</p>
+                <Prism code={makeHtml("me-alt.png")} lang="html" />
             </section>
         </div>
     </CenteredBody>
@@ -37,7 +46,8 @@ import Alt from "assets/88x31/me-alt.png";
 <style>
     .buttons {
         display: flex;
-        gap: 4em;
+        flex-direction: column;
+        gap: 2em;
         flex-wrap: wrap;
     }
 </style>

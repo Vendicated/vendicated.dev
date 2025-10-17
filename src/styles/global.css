@@ -73,3 +73,16 @@ img::selection {
 .dark img::selection {
     background-color: var(--accent-semi-trans);
 }
+
+pre,
+code {
+    background-color: var(--surface2) !important;
+
+    ::selection {
+        background-color: var(--color) !important;
+    }
+
+    .dark ::selection {
+        background-color: var(--accent) !important;
+    }
+}

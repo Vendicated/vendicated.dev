@@ -2,15 +2,15 @@ import "./polyfills";
 
 export type Theme = "light" | "dark" | "system";
 
-export function getCurrentTheme() {
+export function getCurrentTheme(): "light" | "dark" {
     let currentTheme = localStorage.getItem("theme");
-    if (!currentTheme || currentTheme === "system") {
+    if (!currentTheme || !["light", "dark"].includes(currentTheme)) {
         currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light";
     }
 
-    return currentTheme;
+    return currentTheme as any;
 }
 
 export function setTheme(theme: Theme) {
@@ -25,3 +25,23 @@ export function setTheme(theme: Theme) {
 }
 
 globalThis.setTheme = setTheme;
+
+{
+    function loadPrismTheme() {
+        const theme = getCurrentTheme();
+        document
+            .getElementById("prism-theme")!
+            .setAttribute("href", `/styles/prism-one-${theme}.css`);
+    }
+
+    document.addEventListener("themechange", loadPrismTheme);
+
+    document.head.append(
+        Object.assign(document.createElement("link"), {
+            id: "prism-theme",
+            rel: "stylesheet",
+        })
+    );
+
+    loadPrismTheme();
+}

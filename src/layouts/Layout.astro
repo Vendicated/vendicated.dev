@@ -35,6 +35,18 @@ const { title, description } = Astro.props;
         <meta name="og:image" content={ICON} />
 
         <meta name="darkreader-lock" />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="/styles/prism-one-light.css"
+                media="(prefers-color-scheme: light)"
+            />
+            <link
+                rel="stylesheet"
+                href="/styles/prism-one-dark.css"
+                media="(prefers-color-scheme: dark)"
+            />
+        </noscript>
         <style>
             @view-transition {
                 navigation: auto;
