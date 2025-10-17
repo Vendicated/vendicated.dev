@@ -56,6 +56,7 @@ const t = await loadStrings("en", true);
                 <Button88X31 name="rinicide" url="https://github.com/rniii" />
                 <Button88X31 name="samara" url="https://khcrysalis.dev" />
                 <Button88X31 name="chloe" url="https://sapphic.moe" />
+                <Button88X31 name="paiger" url="https://codeberg.org/paige" />
 
                 {
                     /*
@@ -70,21 +71,21 @@ const t = await loadStrings("en", true);
                     */
                 }
             </div>
+
+            <script is:inline>
+                // Shuffle friends, skipping first child (self)
+                const frens = document.querySelector("#frens");
+                const nodes = Array.from(frens.children);
+                const fixed = nodes.shift();
+                for (let i = nodes.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [nodes[i], nodes[j]] = [nodes[j], nodes[i]];
+                }
+                frens.replaceChildren(fixed, ...nodes);
+            </script>
         </section>
     </CenteredBody>
 </Layout>
-
-<script>
-    // Shuffle friends, skipping first child (self)
-    const frens = document.querySelector("#frens") as HTMLDivElement;
-    const nodes = Array.from(frens.children);
-    const fixed = nodes.shift();
-    for (let i = nodes.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [nodes[i], nodes[j]] = [nodes[j], nodes[i]];
-    }
-    frens.replaceChildren(fixed!, ...nodes);
-</script>
 
 <style lang="scss">
     section {
