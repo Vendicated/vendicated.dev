@@ -25,23 +25,3 @@ export function setTheme(theme: Theme) {
 }
 
 globalThis.setTheme = setTheme;
-
-{
-    function loadPrismTheme() {
-        const theme = getCurrentTheme();
-        document
-            .getElementById("prism-theme")!
-            .setAttribute("href", `/styles/prism-one-${theme}.css`);
-    }
-
-    document.addEventListener("themechange", loadPrismTheme);
-
-    document.head.append(
-        Object.assign(document.createElement("link"), {
-            id: "prism-theme",
-            rel: "stylesheet",
-        })
-    );
-
-    loadPrismTheme();
-}

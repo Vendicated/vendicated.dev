@@ -1,3 +1,7 @@
+@view-transition {
+    navigation: auto;
+}
+
 @font-face {
     font-family: "Inter";
     src: url("/fonts/Inter.var-subset.woff2") format("woff2");
@@ -74,19 +78,8 @@ img::selection {
     background-color: var(--accent-semi-trans);
 }
 
-/* copy paste of Prism styles to avoid layout shift while css is loading */
-pre {
-    padding: 1em;
-    margin: .5em 0;
-    overflow: auto;
-    border-radius: .3em;
-    line-height: 1.5;
-}
-
 pre,
 code {
-    background-color: var(--surface2) !important;
-
     ::selection {
         background-color: var(--color) !important;
     }
