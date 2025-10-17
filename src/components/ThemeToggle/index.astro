@@ -18,7 +18,7 @@ const options = [
 <div aria-label="Change Theme" id="theme-toggle" class="focus-ring-parent">
     {
         options.map(option => (
-            <label title={option.label}}>
+            <label title={option.label}>
                 <option.icon class="theme-toggle-icon" />
                 <input
                     type="radio"
@@ -26,6 +26,7 @@ const options = [
                     value={option.value}
                     id={`theme-${option.value}`}
                     checked={option.value === "system"}
+                    aria-label={option.label}
                 />
             </label>
         ))
