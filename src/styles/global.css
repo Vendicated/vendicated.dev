@@ -77,6 +77,10 @@ img::selection {
 pre,
 code {
     background-color: var(--surface2) !important;
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+    border-radius: .3em;
 
     ::selection {
         background-color: var(--color) !important;
