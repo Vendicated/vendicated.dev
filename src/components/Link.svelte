@@ -9,11 +9,12 @@
         title,
         class: className,
         children,
+        focusRing = true,
         ...rest
-    }: HTMLAnchorAttributes = $props();
+    }: HTMLAnchorAttributes & { focusRing?: boolean } = $props();
 </script>
 
-<a class={className} {href} {title} {...rest}>
+<a class={[className, focusRing && "focus-ring"]} {href} {title} {...rest}>
     {@render children?.()}
 </a>
 
@@ -26,11 +27,19 @@
         transition: color 0.2s ease;
     }
 
-    a:hover,
-    a:focus {
+    a:hover {
         color: var(--accent);
         text-decoration-color: var(--accent);
         text-decoration-thickness: 2px;
         outline: none;
+    }
+
+    a:global(.focus-ring) {
+        padding: 0.2em;
+        border-radius: 8px;
+
+        &:focus-visible {
+            text-decoration: none;
+        }
     }
 </style>

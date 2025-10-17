@@ -95,3 +95,17 @@ code {
         background-color: var(--accent) !important;
     }
 }
+
+.focus-ring:focus-visible {
+    box-shadow: 0 0 0 4px #00b0f4;
+    outline: none;
+}
+
+.focus-ring-parent:has(:focus-visible) {
+    box-shadow: 0 0 0 4px #00b0f4;
+    outline: none;
+
+    :focus-visible {
+        outline: none;
+    }
+}

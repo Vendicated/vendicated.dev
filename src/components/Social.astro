@@ -23,7 +23,7 @@ const { href, text, id, title } = Astro.props as SocialProps &
         <slot name="icon" />
 
         <h3>{title}</h3>
-        <Link href={href} class="content" rel="me">{text}</Link>
+        <Link href={href} class="content focus-ring" rel="me">{text}</Link>
     </slot>
 </li>
 
@@ -49,7 +49,7 @@ const { href, text, id, title } = Astro.props as SocialProps &
         text-decoration: none;
     }
 
-    .content:is(:hover, :focus) {
+    .content:hover {
         text-decoration: underline;
     }
 </style>

@@ -15,11 +15,11 @@ const options = [
 ] as const;
 ---
 
-<div aria-label="Change Theme" id="theme-toggle" role="radiogroup">
+<div aria-label="Change Theme" id="theme-toggle" class="focus-ring-parent">
     {
         options.map(option => (
-            <label title={option.label}>
-                <option.icon />
+            <label title={option.label}}>
+                <option.icon class="theme-toggle-icon" />
                 <input
                     type="radio"
                     name="theme"
@@ -57,6 +57,10 @@ const options = [
     }
 
     label {
+        width: 1.5em;
+        height: 1.5em;
+        padding: 0.4em;
+
         position: relative;
         display: block;
         background: var(--surface2);
@@ -65,16 +69,21 @@ const options = [
         &:has(input:checked) {
             background: var(--surface);
         }
-    }
 
-    label {
-        width: 1.5em;
-        height: 1.5em;
-        padding: 0.4em;
+        .theme-toggle-icon {
+            transition:
+                200ms scale,
+                200ms color;
+        }
+
+        &:hover .theme-toggle-icon {
+            scale: 1.1;
+            color: var(--accent);
+        }
     }
 
     input {
-        opacity: 0;
         position: absolute;
+        opacity: 0;
     }
 </style>

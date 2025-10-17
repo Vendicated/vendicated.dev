@@ -22,7 +22,7 @@ const avatarUrl = new URL(owner.avatar_url);
 avatarUrl.searchParams.set("size", "64");
 ---
 
-<a href={html_url}>
+<a href={html_url} class="focus-ring">
     <span class="open-external">
         <OpenExternalIcon />
     </span>
@@ -61,7 +61,8 @@ avatarUrl.searchParams.set("size", "64");
         border-radius: 8px;
         display: grid;
 
-        transition: 200ms box-shadow var(--box-shadow-transition),
+        transition:
+            200ms box-shadow var(--box-shadow-transition),
             200ms background;
     }
 

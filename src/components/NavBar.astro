@@ -1,6 +1,7 @@
 ---
 import { loadStrings } from "locales";
 import ThemeToggle from "./ThemeToggle/index.astro";
+import Link from "./Link.svelte";
 
 export interface Props {
     title: string;
@@ -14,13 +15,17 @@ const t = await loadStrings("en", true);
 <nav>
     <div id="btns">
         <ul>
-            <li>
-                <a href="/">{t("routes.home")}</a>
+            <li class="focus-ring-parent">
+                <Link focusRing={false} href="/">
+                    {t("routes.home")}
+                </Link>
             </li>
             {
                 routes.map(route => (
-                    <li>
-                        <a href={`/${route}`}>{t(`routes.${route}`)}</a>
+                    <li class="focus-ring-parent">
+                        <Link focusRing={false} href={`/${route}`}>
+                            {t(`routes.${route}`)}
+                        </Link>
                     </li>
                 ))
             }
@@ -41,25 +46,8 @@ const t = await loadStrings("en", true);
         padding: 1em;
     }
 
-    a {
+    a:not(:hover) {
         text-decoration: none;
-        text-align: center;
-        color: var(--color);
-
-        transition: 0.15s ease;
-        transition-property: color, text-decoration;
-    }
-
-    a:not(#title) {
-        padding: 0.5em;
-
-        &:hover,
-        &:focus {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-            outline: none;
-            color: var(--accent);
-        }
     }
 
     #btns {
@@ -75,12 +63,16 @@ const t = await loadStrings("en", true);
         margin-inline: auto;
         float: right;
         list-style-type: none;
-        overflow: hidden;
         padding: 0;
+        display: flex;
+        gap: 0.5em;
     }
 
     li {
         float: left;
+        display: inline-block;
+        border-radius: 8px;
+        padding: 0.1em 0.5em;
     }
 
     @media (max-width: 600px) {

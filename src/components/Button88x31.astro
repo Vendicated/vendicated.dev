@@ -18,15 +18,8 @@ if (!img) throw new Error(`88x31 for ${name} not found`);
 const src = (await images[img]()).default.src;
 ---
 
-<a href={url ?? src} title={title} rel="nofollow">
-    <img
-        src={src}
-        alt=""
-        width="88"
-        height="31"
-        loading="lazy"
-        decoding="async"
-    />
+<a href={url ?? src} title={title} rel="nofollow" class="focus-ring">
+    <img src={src} alt="" width="88" height="31" decoding="async" />
 </a>
 
 <style lang="scss">
@@ -35,21 +28,17 @@ const src = (await images[img]()).default.src;
         width: 88px;
         image-rendering: pixelated;
 
-        transition: 0.2s box-shadow var(--box-shadow-transition);
+        transition: 0.2s scale;
     }
 
     a {
+        height: 31px;
+        width: 88px;
+
         text-decoration: none;
 
-        &:is(:hover, :focus) img {
-            box-shadow: var(--box-shadow);
+        &:is(:hover) img {
+            scale: 1.05;
         }
-    }
-
-    :global(.dark) a:is(:hover, :focus) img {
-        box-shadow:
-            0 8px 15px var(--accent-semi-trans),
-            0 6px 6px var(--accent-semi-trans);
-        border-color: var(--accent);
     }
 </style>

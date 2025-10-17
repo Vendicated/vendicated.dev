@@ -110,7 +110,7 @@ const stack = {
                 <h3>{name}</h3>
                 <div class="items">
                     {items.map(({ name, url }) => (
-                        <a href={url}>
+                        <a href={url} class="focus-ring">
                             <img
                                 src={`/assets/stack/${name.toLowerCase()}.svg`}
                                 title={name}
@@ -145,11 +145,17 @@ const stack = {
 
     .items {
         padding: 0.2em;
+        display: flex;
+        gap: 0.5em;
+        flex-wrap: wrap;
     }
 
     a {
-        all: unset;
-        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+        height: 2em;
+        width: 2em;
+        padding: 0.2em;
     }
 
     img {
