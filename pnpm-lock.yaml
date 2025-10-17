@@ -29,6 +29,9 @@ importers:
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
+      prismjs:
+        specifier: ^1.30.0
+        version: 1.30.0
       sharp:
         specifier: ^0.34.4
         version: 0.34.4

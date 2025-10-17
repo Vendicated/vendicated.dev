@@ -18,6 +18,7 @@
         "accept-language-parser": "^1.5.0",
         "astro": "^5.13.9",
         "normalize.css": "^8.0.1",
+        "prismjs": "^1.30.0",
         "sharp": "^0.34.4",
         "svelte": "^5.39.3"
     },

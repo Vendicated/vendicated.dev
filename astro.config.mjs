@@ -14,4 +14,11 @@ export default defineConfig({
         imageService: "compile"
     }),
     integrations: [sitemap(), svelte(), mdx()],
+
+    vite: {
+        ssr: {
+            // https://github.com/withastro/astro/issues/9192
+            external: ["prismjs"]
+        }
+    }
 });
