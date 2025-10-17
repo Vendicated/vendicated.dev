@@ -16,7 +16,7 @@ const t = await loadStrings("en", true);
 ---
 
 <Layout title={t("home.title")} description={t("home.description")}>
-    <CenteredBody>
+    <CenteredBody margin="30%">
         <section>
             <h1>
                 <Trans i18nKey="home.hello">
@@ -44,19 +44,27 @@ const t = await loadStrings("en", true);
                 />
 
                 <Button88X31 name="megu" url="https://megu.dev" />
-                <Button88X31 name="c7" url="https://c7.pm" />
-                <Button88X31 name="wing" url="https://wingio.xyz" />
-                <Button88X31 name="epsi" url="https://espi.me" />
                 <Button88X31 name="caitlyn" url="https://caitlyn.moe" />
                 <Button88X31 name="vap" url="https://github.com/vap0r1ze" />
                 <Button88X31 name="lewi" url="https://lewisakura.moe" />
                 <Button88X31 name="aagamer" url="https://aagaming.me" />
-                <Button88X31 name="alula" url="https://alula.me" />
                 <Button88X31 name="rushii" url="https://rushii.dev/" />
                 <Button88X31 name="rinicide" url="https://github.com/rniii" />
                 <Button88X31 name="samara" url="https://khcrysalis.dev" />
-                <Button88X31 name="chloe" url="https://sapphic.moe" />
                 <Button88X31 name="paiger" url="https://codeberg.org/paige" />
+                <Button88X31 name="xinto" url="https://xinto.dev" />
+                <Button88X31 name="zoot" url="https://zt64.dev" />
+                <Button88X31 name="wing" url="https://wingio.xyz" />
+                <Button88X31 name="c7" url="https://c7.pm" />
+                <Button88X31 name="epsi" url="https://espi.me" />
+                <Button88X31 name="alula" url="https://alula.me" />
+                <Button88X31 name="chloe" url="https://sapphic.moe" />
+                <Button88X31 name="wearr" url="https://wearr.dev" />
+                <Button88X31 name="recutified" url="https://uncutified.moe/" />
+                <Button88X31
+                    name="bignutty"
+                    url="https://bignutty.gitlab.io/"
+                />
 
                 {
                     /*
@@ -64,25 +72,12 @@ const t = await loadStrings("en", true);
                     name="mantikafasi"
                     url="https://mantikafasi.dev/"
                 />
-                <Button88X31 name="X1nto" url="https://xinto.dev/" />
                 <Button88X31 name="Katlyn" url="https://katlyn.dev/" />
                 <Button88X31 name="fawn" url="https://fawn.moe" source="cobu" />
                 <Button88X31 name="sapphicmoe" url="https://sapphic.moe" />
                     */
                 }
             </div>
-
-            <script is:inline>
-                // Shuffle friends, skipping first child (self)
-                const frens = document.querySelector("#frens");
-                const nodes = Array.from(frens.children);
-                const fixed = nodes.shift();
-                for (let i = nodes.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [nodes[i], nodes[j]] = [nodes[j], nodes[i]];
-                }
-                frens.replaceChildren(fixed, ...nodes);
-            </script>
         </section>
     </CenteredBody>
 </Layout>
@@ -105,15 +100,12 @@ const t = await loadStrings("en", true);
     }
 
     #frens {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
+        --per-row: 10;
 
-    // trolley
-    @media screen and (max-width: 1506px) {
-        #frens {
-            justify-content: center;
-        }
+        display: inline-grid;
+        grid-template-columns: repeat(auto-fit, 88px);
+        gap: 4px;
+        max-width: calc(var(--per-row) * (88px + 4px));
+        width: 100%;
     }
 </style>

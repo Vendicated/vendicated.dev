@@ -1,21 +1,26 @@
 ---
 export interface Props {
-    margin?: string;
+    maxWidth?: string;
 }
 
-const { margin } = Astro.props;
+const { maxWidth } = Astro.props;
 ---
 
-<div>
-    <slot />
+<div class="centered-body">
+    <div class="content">
+        <slot />
+    </div>
 </div>
 
-<style define:vars={{ margin }}>
-    div {
-        margin: 2em
-            min(
-                var(--margin, var(--horizontal-margin)),
-                var(--horizontal-margin)
-            );
+<style define:vars={{ maxWidth: maxWidth || "800px" }}>
+    .centered-body {
+        margin: 2em 5%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .content {
+        width: 100%;
+        max-width: var(--maxWidth);
     }
 </style>

@@ -11,13 +11,13 @@ const { origin } = Astro.url;
 
 const makeHtml = (name: string) => stripIndent`
     <a href="${origin}" title="vending machine" rel="nofollow">
-        <img src="${origin}/assets/88x31/${name}" alt="" width="88" height="31" loading="lazy" decoding="async" style="image-rendering: pixelated;"/>
+        <img src="${origin}/assets/88x31/${name}" alt="" width="88" height="31"/>
     </a>
 `;
 ---
 
 <Layout title="88x31" description="">
-    <CenteredBody>
+    <CenteredBody maxWidth="80%">
         <h1>88x31 button</h1>
         <p>
             If we're friends and you want me to add your button, just send me a
@@ -48,6 +48,5 @@ const makeHtml = (name: string) => stripIndent`
         display: flex;
         flex-direction: column;
         gap: 2em;
-        flex-wrap: wrap;
     }
 </style>
