@@ -11,9 +11,9 @@ export default {
         sourceCode: "source code",
     },
     home: {
-        title: "Vee's Site",
+        title: "V's Site",
         description: "read if cute",
-        hello: "Hi, I'm <0>Vee!</0>",
+        hello: "Hi, I'm <0>V!</0>",
         about: "I'm a self-taught software developer who's very passionate about Linux & Android and free/libre privacy-friendly software",
         about2: "I also really love all kinds of music, especially black metal!",
         socialsTitle: "You can find me all over the interwebs:",
@@ -33,7 +33,7 @@ export default {
         noscript: "You need to enable JavaScript to use this form.",
     },
     blog: {
-        title: "Vee's Blog",
+        title: "V's Blog",
         description: "in the mind of a crazy person",
         teehee: "I really wanna write something here at some point",
     },
