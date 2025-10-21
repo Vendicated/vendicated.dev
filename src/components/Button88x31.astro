@@ -15,10 +15,12 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 const img = Object.keys(images).find(path => path.includes(`/${name}.`));
 if (!img) throw new Error(`88x31 for ${name} not found`);
+
+const { default: image } = await images[img]();
 ---
 
 <a href={url} title={title} rel="nofollow" class="focus-ring">
-    <Image src={images[img]()} alt={title} width="88" height="31" />
+    <img src={image.src} alt={title} width="88" height="31" />
 </a>
 
 <style>
