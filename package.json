@@ -11,23 +11,22 @@
         "astro": "astro"
     },
     "dependencies": {
-        "@astrojs/cloudflare": "^12.6.8",
-        "@astrojs/mdx": "^4.3.5",
+        "@astrojs/cloudflare": "^12.6.12",
+        "@astrojs/mdx": "^4.3.13",
         "@astrojs/prism": "^3.3.0",
-        "@astrojs/svelte": "^7.1.1",
+        "@astrojs/svelte": "^7.2.4",
         "accept-language-parser": "^1.5.0",
-        "astro": "^5.13.9",
+        "astro": "^5.16.6",
         "normalize.css": "^8.0.1",
         "prismjs": "^1.30.0",
-        "sharp": "^0.34.4",
-        "svelte": "^5.39.3"
+        "sharp": "^0.34.5",
+        "svelte": "^5.46.1"
     },
     "devDependencies": {
         "@astrojs/sitemap": "^3.6.0",
         "@types/accept-language-parser": "^1.5.8",
-        "sass": "^1.93.0",
-        "wrangler": "^4.38.0",
-        "zod": "^4.1.11"
+        "wrangler": "^4.54.0",
+        "zod": "^4.3.4"
     },
     "packageManager": "pnpm@10.17.0"
 }
