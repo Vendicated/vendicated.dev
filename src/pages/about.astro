@@ -3,6 +3,7 @@ export const prerender = true;
 
 import VencordWhen from "assets/vencord when.png";
 import VencordStarGraph from "assets/vencord star graph.svg";
+import Chud from "assets/chud.webp";
 import { Image } from "astro:assets";
 import CenteredBody from "components/CenteredBody.astro";
 import Layout from "layouts/Layout.astro";
@@ -190,11 +191,16 @@ const t = await loadStrings("en", true);
                 Ven, which is why I just shortened it to V.
             </p>
         </section>
+        <Image class="chud" src={Chud} alt="" />
     </CenteredBody>
 </Layout>
 
 <style>
     .section {
         margin-top: 3em;
+    }
+
+    .chud {
+        margin-top: 300em;
     }
 </style>
