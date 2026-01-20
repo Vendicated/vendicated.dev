@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 
+import Terry from "assets/terry.gif";
 import Layout from "layouts/Layout.astro";
 import Socials from "components/Socials.astro";
 
@@ -9,6 +10,7 @@ import CenteredBody from "components/CenteredBody.astro";
 import { loadStrings, getStaticPaths } from "locales";
 import Trans from "locales/Trans.astro";
 import Button88X31 from "components/Button88x31.astro";
+import { Image } from "astro:assets";
 
 export { getStaticPaths };
 
@@ -16,70 +18,117 @@ const t = await loadStrings("en", true);
 ---
 
 <Layout title={t("home.title")} description={t("home.description")}>
-    <CenteredBody>
-        <section>
-            <h1>
-                <Trans i18nKey="home.hello">
-                    Hi, I'm <span>V!</span>
-                </Trans>
-            </h1>
-            <p>
-                {t("home.about")}
-                <br />
-                {t("home.about2")}
-            </p>
-        </section>
+    <div class="wrapper">
+        <CenteredBody>
+            <section>
+                <h1>
+                    <Trans i18nKey="home.hello">
+                        Hi, I'm <span>V!</span>
+                    </Trans>
+                </h1>
+                <p>
+                    {t("home.about")}
+                    <br />
+                    {t("home.about2")}
+                </p>
+            </section>
 
-        <section id="socials">
-            <h2>{t("home.socialsTitle")}</h2>
-            <Socials class="socials" />
-        </section>
+            <section id="socials">
+                <h2>{t("home.socialsTitle")}</h2>
+                <Socials class="socials" />
+            </section>
 
-        <section id="friends">
-            <div id="frens">
-                <Button88X31
-                    name="me"
-                    url="/88x31"
-                    title="88x31 made by arHSM!"
-                />
+            <section id="friends">
+                <div id="frens">
+                    <Button88X31
+                        name="me"
+                        url="/88x31"
+                        title="88x31 made by arHSM!"
+                    />
+                    <Button88X31 name="miku" />
+                    <Button88X31
+                        name="fedora"
+                        url="https://fedoraproject.org"
+                    />
+                    <Button88X31
+                        name="linuxnow"
+                        url="https://www.gnu.org/philosophy/free-sw.html"
+                    />
+                    <Button88X31
+                        name="soulseek"
+                        url="https://nicotine-plus.org/"
+                    />
+                    <Button88X31 name="megu" url="https://megu.dev" />
+                    <Button88X31 name="caitlyn" url="https://caitlyn.moe" />
+                    <Button88X31 name="vap" url="https://github.com/vap0r1ze" />
+                    <Button88X31 name="lewi" url="https://lewisakura.moe" />
+                    <Button88X31 name="aagamer" url="https://aagaming.me" />
+                    <Button88X31 name="rushii" url="https://rushii.dev/" />
+                    <Button88X31
+                        name="rinicide"
+                        url="https://github.com/rniii"
+                    />
+                    <Button88X31 name="samara" url="https://khcrysalis.dev" />
+                    <Button88X31
+                        name="paiger"
+                        url="https://codeberg.org/paige"
+                    />
+                    <Button88X31 name="xinto" url="https://xinto.dev" />
+                    <Button88X31 name="zoot" url="https://zt64.dev" />
+                    <Button88X31
+                        name="mantikafasi"
+                        url="https://mantikafasi.dev"
+                    />
+                    <Button88X31 name="mugman" url="https://mugman.tech" />
+                    <Button88X31 name="wing" url="https://wingio.xyz" />
+                    <Button88X31 name="elissa" url="https://elissa.moe" />
+                    <Button88X31 name="c7" url="https://c7.pm" />
+                    <Button88X31 name="epsi" url="https://espi.me" />
+                    <Button88X31 name="alula" url="https://alula.me" />
+                    <Button88X31 name="chloe" url="https://sapphic.moe" />
+                    <Button88X31 name="wearr" url="https://wearr.dev" />
+                    <Button88X31
+                        name="recutified"
+                        url="https://uncutified.moe"
+                    />
+                    <Button88X31
+                        name="bignutty"
+                        url="https://bignutty.gitlab.io"
+                    />
+                    <Button88X31 name="salad" url="https://sadan.zip/" />
+                    <Button88X31 name="nino" url="https://nin0.dev/" />
 
-                <Button88X31 name="megu" url="https://megu.dev" />
-                <Button88X31 name="caitlyn" url="https://caitlyn.moe" />
-                <Button88X31 name="vap" url="https://github.com/vap0r1ze" />
-                <Button88X31 name="lewi" url="https://lewisakura.moe" />
-                <Button88X31 name="aagamer" url="https://aagaming.me" />
-                <Button88X31 name="rushii" url="https://rushii.dev/" />
-                <Button88X31 name="rinicide" url="https://github.com/rniii" />
-                <Button88X31 name="samara" url="https://khcrysalis.dev" />
-                <Button88X31 name="paiger" url="https://codeberg.org/paige" />
-                <Button88X31 name="xinto" url="https://xinto.dev" />
-                <Button88X31 name="zoot" url="https://zt64.dev" />
-                <Button88X31 name="mantikafasi" url="https://mantikafasi.dev" />
-                <Button88X31 name="mugman" url="https://mugman.tech" />
-                <Button88X31 name="wing" url="https://wingio.xyz" />
-                <Button88X31 name="elissa" url="https://elissa.moe" />
-                <Button88X31 name="c7" url="https://c7.pm" />
-                <Button88X31 name="epsi" url="https://espi.me" />
-                <Button88X31 name="alula" url="https://alula.me" />
-                <Button88X31 name="chloe" url="https://sapphic.moe" />
-                <Button88X31 name="wearr" url="https://wearr.dev" />
-                <Button88X31 name="recutified" url="https://uncutified.moe" />
-                <Button88X31 name="bignutty" url="https://bignutty.gitlab.io" />
-                <Button88X31 name="salad" url="https://sadan.zip/" />
-                <Button88X31 name="nino" url="https://nin0.dev/" />
-
-                {
-                    /*
+                    {
+                        /*
                 <Button88X31 name="Katlyn" url="https://katlyn.dev/" />
                 <Button88X31 name="fawn" url="https://fawn.moe" source="cobu" />
                     */
-                }
-            </div>
-        </section>
-    </CenteredBody>
+                    }
+                </div>
+            </section>
+        </CenteredBody>
+
+        <Image src={Terry} alt="" class="terry" />
+    </div>
 </Layout>
 
 <style>
+    .wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .terry {
+        margin-inline: auto 2em;
+        margin-bottom: 1em;
+
+        @media (prefers-reduced-motion: reduce) {
+            display: none;
+        }
+    }
+
     section {
         margin-bottom: 2.5em;
     }

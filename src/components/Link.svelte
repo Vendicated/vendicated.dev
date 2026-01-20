@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { Snippet } from "svelte";
     import type { HTMLAnchorAttributes } from "svelte/elements";
 
     // the only reason this file is Svelte is because Astro treats whitespace after inline elements
@@ -11,11 +12,18 @@
         children,
         focusRing = true,
         ...rest
-    }: HTMLAnchorAttributes & { focusRing?: boolean } = $props();
+    }: Omit<HTMLAnchorAttributes, "children"> & {
+        focusRing?: boolean;
+        children: string | Snippet;
+    } = $props();
 </script>
 
 <a class={[className, focusRing && "focus-ring"]} {href} {title} {...rest}>
-    {@render children?.()}
+    {#if typeof children === "string"}
+        {children}
+    {:else}
+        {@render children?.()}
+    {/if}
 </a>
 
 <style>

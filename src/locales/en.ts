@@ -3,7 +3,7 @@ export default {
     routes: {
         home: "Home",
         about: "About",
-        contact: "Contact",
+        tech: "Tech",
         blog: "Blog",
     },
     footer: {
@@ -14,23 +14,23 @@ export default {
         title: "V's Site",
         description: "read if cute",
         hello: "Hi, I'm <0>V!</0>",
-        about: "I'm a self-taught software developer who's very passionate about Linux & Android and free/libre privacy-friendly software",
-        about2: "I also really love all kinds of music, especially black metal!",
-        socialsTitle: "You can find me all over the interwebs:",
+        about: "I'm a self-taught software developer who's very passionate about technology, freedom, and privacy.",
+        about2: "I also really love Music, especially Black Metal!",
+        socialsTitle: "Find me online:",
         friendsTitle: "Also check out my cute friends!",
     },
-    about: {
-        title: "About me",
-        description: "Learn more about me and my projects",
-        intro: "I absolutely love tech and open source! I have been programming since early 2020 and have taught myself a multitude of languages and frameworks since then.",
+    tech: {
+        title: "Tech",
+        description: "Cool things I've made",
+        intro:
+            "I'm a big fan of <0>free (as in freedom) software</0>, and develop most things out in the open!\n" +
+            "I love learning new things, so I have tried a lot of different programming languages. However, my favourites to work with are Typescript and Go.",
         stack: "Tech Stack",
         projects: "Projects",
     },
-    contact: {
-        title: "Contact me",
-        description: "Learn how to contact me",
-        socials: "Socials",
-        noscript: "You need to enable JavaScript to use this form.",
+    about: {
+        title: "About Me",
+        description: "Get to know me better",
     },
     blog: {
         title: "V's Blog",

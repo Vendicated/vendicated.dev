@@ -1,0 +1,42 @@
+---
+export const prerender = false;
+
+import CenteredBody from "components/CenteredBody.astro";
+import Link from "components/Link.svelte";
+import ProjectsGrid from "components/ProjectsGrid.astro";
+import TechStack from "components/TechStack.astro";
+import Layout from "layouts/Layout.astro";
+import { MINUTES, cache } from "scripts-ssr/cache";
+import { loadStrings } from "locales";
+import Trans from "locales/Trans.astro";
+
+cache(Astro.response, 20 * MINUTES);
+
+const t = await loadStrings("en", true);
+---
+
+<Layout title={t("tech.title")} description={t("tech.description")}>
+    <CenteredBody maxWidth="80%">
+        <h1>{t("tech.title")}</h1>
+        <p class="pre">
+            <Trans i18nKey="tech.intro">
+                <Link
+                    href="https://www.gnu.org/philosophy/free-sw.html"
+                    focusRing={false}
+                />
+            </Trans>
+        </p>
+
+        <h2 id="tech-stack">{t("tech.stack")}</h2>
+        <TechStack />
+
+        <h2 id="projects">{t("tech.projects")}</h2>
+        <ProjectsGrid />
+    </CenteredBody>
+</Layout>
+
+<style>
+    .pre {
+        white-space: pre-line;
+    }
+</style>
