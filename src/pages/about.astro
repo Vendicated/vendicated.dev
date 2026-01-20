@@ -19,7 +19,11 @@ const t = await loadStrings("en", true);
         <h1>{t("about.title")}</h1>
         <p>
             Hi! I go by V, but you can also call me Ven or Vee if you prefer!<sup
-                ><a class="footnote" href="#username-history">[1]</a></sup
+                ><Link
+                    class="footnote"
+                    href="#username-history"
+                    focusRing={false}>[1]</Link
+                ></sup
             >
         </p>
         <p>
