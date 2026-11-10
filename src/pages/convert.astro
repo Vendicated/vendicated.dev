@@ -1,8 +1,8 @@
 ---
 export const prerender = true;
 
-import CenteredBody from "components/CenteredBody.astro";
-import Layout from "layouts/Layout.astro";
+import CenteredBody from "~/components/CenteredBody.astro";
+import Layout from "~/layouts/Layout.astro";
 
 // hack: this route is not in the lang folder. layout requires lang, so just force to english
 Astro.params.lang = "en";

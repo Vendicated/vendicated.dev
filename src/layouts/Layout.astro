@@ -1,11 +1,11 @@
 ---
 import "normalize.css";
-import "styles/global.css";
-import "styles/theme.css";
-import "styles/prism-one.css";
-import Footer from "components/Footer.astro";
-import NavBar from "components/NavBar.astro";
-import { AUTHOR, ICON, THEME_COLOUR } from "scripts-ssr/constants";
+import "~/styles/global.css";
+import "~/styles/theme.css";
+import "~/styles/prism-one.css";
+import Footer from "~/components/Footer.astro";
+import NavBar from "~/components/NavBar.astro";
+import { AUTHOR, ICON, THEME_COLOUR } from "~/scripts-ssr/constants";
 
 export interface Props {
     title: string;
@@ -51,5 +51,5 @@ const { title, description } = Astro.props;
 </html>
 
 <script>
-    import "scripts/global";
+    import "~/scripts/global";
 </script>

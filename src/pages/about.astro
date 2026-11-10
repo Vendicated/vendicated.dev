@@ -1,14 +1,15 @@
 ---
 export const prerender = true;
 
-import Chud from "assets/chud.webp";
-import VencordStarGraph from "assets/vencord star graph.svg";
-import VencordWhen from "assets/vencord when.png";
 import { Image } from "astro:assets";
-import CenteredBody from "components/CenteredBody.astro";
-import Link from "components/Link.svelte";
-import Layout from "layouts/Layout.astro";
-import { loadStrings, getStaticPaths } from "locales";
+
+import Chud from "~/assets/chud.webp";
+import VencordStarGraph from "~/assets/vencord star graph.svg";
+import VencordWhen from "~/assets/vencord when.png";
+import CenteredBody from "~/components/CenteredBody.astro";
+import Link from "~/components/Link.svelte";
+import Layout from "~/layouts/Layout.astro";
+import { loadStrings, getStaticPaths } from "~/locales";
 export { getStaticPaths };
 
 const t = await loadStrings("en", true);

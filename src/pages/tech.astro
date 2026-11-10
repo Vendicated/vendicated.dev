@@ -1,14 +1,14 @@
 ---
 export const prerender = false;
 
-import CenteredBody from "components/CenteredBody.astro";
-import Link from "components/Link.svelte";
-import ProjectsGrid from "components/ProjectsGrid.astro";
-import TechStack from "components/TechStack.astro";
-import Layout from "layouts/Layout.astro";
-import { loadStrings } from "locales";
-import Trans from "locales/Trans.astro";
-import { MINUTES, cache } from "scripts-ssr/cache";
+import CenteredBody from "~/components/CenteredBody.astro";
+import Link from "~/components/Link.svelte";
+import ProjectsGrid from "~/components/ProjectsGrid.astro";
+import TechStack from "~/components/TechStack.astro";
+import Layout from "~/layouts/Layout.astro";
+import { loadStrings } from "~/locales";
+import Trans from "~/locales/Trans.astro";
+import { MINUTES, cache } from "~/scripts-ssr/cache";
 
 cache(Astro.response, 20 * MINUTES);
 

@@ -1,9 +1,9 @@
 ---
 export const prerender = true;
 
-import CenteredBody from "components/CenteredBody.astro";
-import Layout from "layouts/Layout.astro";
-import { loadStrings } from "locales";
+import CenteredBody from "~/components/CenteredBody.astro";
+import Layout from "~/layouts/Layout.astro";
+import { loadStrings } from "~/locales";
 
 const t = await loadStrings("en", true);
 ---

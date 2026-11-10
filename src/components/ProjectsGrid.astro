@@ -1,5 +1,7 @@
 ---
-import { SOURCE_CODE_URL } from "scripts-ssr/constants";
+import { env } from "cloudflare:workers";
+
+import { SOURCE_CODE_URL } from "~/scripts-ssr/constants";
 
 import ProjectCard from "./ProjectCard.astro";
 
@@ -27,7 +29,7 @@ const repoData = await Promise.all(
         } satisfies RequestInit;
 
         if (repo.includes("api.github.com")) {
-            const token = import.meta.env.PROD ? Astro.locals.runtime.env.GITHUB_TOKEN : import.meta.env.GITHUB_TOKEN;
+            const token = env.GITHUB_TOKEN;
 
             requestInit.headers.set("Accept", "application/vnd.github.v3+json");
             requestInit.headers.set("Authorization", `Bearer ${token}`);

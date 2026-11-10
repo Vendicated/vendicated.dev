@@ -2,8 +2,7 @@
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "vendicated-dev",
     "main": "@astrojs/cloudflare/entrypoints/server",
-    // Update to today's date
-    "compatibility_date": "2025-09-20",
+    "compatibility_date": "2026-05-05",
     "compatibility_flags": ["nodejs_compat"],
     "assets": {
         "binding": "ASSETS",
@@ -11,5 +10,8 @@
     },
     "observability": {
         "enabled": true
+    },
+    "secrets": {
+        "required": ["GITHUB_TOKEN"]
     }
 }

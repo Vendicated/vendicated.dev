@@ -15,6 +15,9 @@ export default defineConfig({
     integrations: [sitemap(), svelte(), mdx()],
 
     vite: {
+        build: {
+            sourcemap: true
+        },
         ssr: {
             // https://github.com/withastro/astro/issues/9192
             external: ["prismjs"]

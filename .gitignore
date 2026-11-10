@@ -3,6 +3,7 @@ dist/
 .output/
 .wrangler
 .astro
+worker-configuration.d.ts
 
 # dependencies
 node_modules/
