@@ -9,7 +9,7 @@ body {
     color-scheme: light dark;
 
     /* salad */
-    --background-color: light-dark(oklab(0.958184 0.0128697 0.00403672), #1d1d2c);
+    --background-color: light-dark(#faeeee, #1d1d2c);
     --surface: hsl(from var(--background-color) h s calc(l - 2));
     --surface2: hsl(from var(--background-color) h s calc(l - 3));
     --color: light-dark(black, #e5e5e5);

@@ -37,16 +37,31 @@ import Social from "./Social.astro";
 
     const widget = document.querySelector("#discord-widget") as HTMLIFrameElement;
 
-    const setWidgetTheme = () => {
-        const data = {
-            command: "setTheme",
-            theme: getCurrentTheme()
-        };
+    const isDark = () => getCurrentTheme() === "dark";
+    const getBackgroundColor = () => (isDark() ? "#1d1d2c" : "#faeeee");
+
+    function postData(data: { command: string } & Record<string, unknown>) {
         widget.contentWindow!.postMessage(data, "*");
         console.log("Posted", data);
+    }
+
+    const setWidgetTheme = () => {
+        postData({
+            command: "setTheme",
+            theme: getCurrentTheme()
+        });
+        postData({
+            command: "setColors",
+            backgroundColor: getBackgroundColor()
+        });
     };
 
-    if (getCurrentTheme() === "dark") widget.src = widget.src.replace("theme=light", "theme=dark");
+    let src = new URL(widget.src);
+    src.searchParams.set("background-color", getBackgroundColor());
+    if (isDark()) {
+        src.searchParams.set("theme", "dark");
+    }
+    widget.src = src.toString();
 
     document.addEventListener("themechange", setWidgetTheme);
 </script>
