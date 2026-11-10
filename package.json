@@ -8,7 +8,9 @@
         "start": "astro dev",
         "build": "astro build",
         "preview": "astro preview",
-        "astro": "astro"
+        "astro": "astro",
+        "fmt": "oxfmt",
+        "fmt:check": "oxfmt --check"
     },
     "dependencies": {
         "@astrojs/cloudflare": "^14.4.6",
@@ -25,8 +27,9 @@
     "devDependencies": {
         "@astrojs/sitemap": "^3.7.4",
         "@types/accept-language-parser": "^1.5.8",
+        "oxfmt": "^0.77.0",
         "wrangler": "^4.158.0",
         "zod": "^4.6.7"
     },
-    "packageManager": "pnpm@10.17.0"
+    "packageManager": "pnpm@12.18.0"
 }
