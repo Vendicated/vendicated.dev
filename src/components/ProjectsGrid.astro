@@ -1,5 +1,6 @@
 ---
 import { SOURCE_CODE_URL } from "scripts-ssr/constants";
+
 import ProjectCard from "./ProjectCard.astro";
 
 const repos = [
@@ -14,21 +15,19 @@ const repos = [
     "https://codeberg.org/api/v1/repos/vee/vlock",
     "https://api.github.com/repos/Vendicated/DiscordWidgets",
     "https://api.github.com/repos/Vendicated/AliucordPlugins",
-    "https://api.github.com/repos/Vendicated/WebpackGrabber",
+    "https://api.github.com/repos/Vendicated/WebpackGrabber"
 ];
 
 const repoData = await Promise.all(
     repos.map(async repo => {
         const requestInit = {
             headers: new Headers({
-                "User-Agent": SOURCE_CODE_URL,
-            }),
+                "User-Agent": SOURCE_CODE_URL
+            })
         } satisfies RequestInit;
 
         if (repo.includes("api.github.com")) {
-            const token = import.meta.env.PROD
-                ? Astro.locals.runtime.env.GITHUB_TOKEN
-                : import.meta.env.GITHUB_TOKEN;
+            const token = import.meta.env.PROD ? Astro.locals.runtime.env.GITHUB_TOKEN : import.meta.env.GITHUB_TOKEN;
 
             requestInit.headers.set("Accept", "application/vnd.github.v3+json");
             requestInit.headers.set("Authorization", `Bearer ${token}`);
@@ -38,9 +37,7 @@ const repoData = await Promise.all(
             .then(async r => {
                 if (!r.ok) {
                     const e = await r.text().catch(() => "Unknown Error");
-                    throw new Error(
-                        `Failed to fetch repo info for ${repo}: ${r.status} ${r.statusText}\n${e}`
-                    );
+                    throw new Error(`Failed to fetch repo info for ${repo}: ${r.status} ${r.statusText}\n${e}`);
                 }
                 return r.json();
             })
@@ -52,9 +49,7 @@ const repoData = await Promise.all(
 );
 ---
 
-<div>
-    {repoData.map(data => (data ? <ProjectCard {...data} /> : null))}
-</div>
+<div>{repoData.map(data => (data ? <ProjectCard {...data} /> : null))}</div>
 
 <style>
     div {

@@ -1,7 +1,8 @@
 ---
 import { loadStrings } from "locales";
-import ThemeToggle from "./ThemeToggle/index.astro";
+
 import Link from "./Link.svelte";
+import ThemeToggle from "./ThemeToggle/index.astro";
 
 export interface Props {
     title: string;
@@ -20,15 +21,13 @@ const t = await loadStrings("en", true);
                     {t("routes.home")}
                 </Link>
             </li>
-            {
-                routes.map(route => (
-                    <li class="focus-ring-parent">
-                        <Link focusRing={false} href={`/${route}`}>
-                            {t(`routes.${route}`)}
-                        </Link>
-                    </li>
-                ))
-            }
+            {routes.map(route => (
+                <li class="focus-ring-parent">
+                    <Link focusRing={false} href={`/${route}`}>
+                        {t(`routes.${route}`)}
+                    </Link>
+                </li>
+            ))}
         </ul>
         <ThemeToggle />
     </div>

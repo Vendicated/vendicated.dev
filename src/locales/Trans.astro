@@ -13,15 +13,9 @@ const template = t(Astro.props.i18nKey);
 const html = await Astro.slots.render("default");
 
 let result: string = template;
-for (
-    let i = 0, match = tagsRe.exec(html);
-    match;
-    match = tagsRe.exec(html), i++
-) {
+for (let i = 0, match = tagsRe.exec(html); match; match = tagsRe.exec(html), i++) {
     const [, name, attrs] = match;
-    result = result
-        .replaceAll(`<${i}>`, `<${name}${attrs}>`)
-        .replaceAll(`</${i}>`, `</${name}>`);
+    result = result.replaceAll(`<${i}>`, `<${name}${attrs}>`).replaceAll(`</${i}>`, `</${name}>`);
 }
 ---
 

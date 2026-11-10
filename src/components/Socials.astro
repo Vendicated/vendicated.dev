@@ -2,9 +2,9 @@
 import Codeberg from "./Icons/Codeberg.astro";
 import Email from "./Icons/Email.astro";
 import GitHub from "./Icons/GitHub.astro";
+import Mastodon from "./Icons/Mastodon.astro";
 import PgpKey from "./Icons/PgpKey.astro";
 import Telegram from "./Icons/Telegram.astro";
-import Mastodon from "./Icons/Mastodon.astro";
 import Social from "./Social.astro";
 ---
 
@@ -21,21 +21,13 @@ import Social from "./Social.astro";
             src="https://widgets.vendicated.dev/user?id=343383572805058560&theme=light&banner=true&full-banner=false&rounded-corners=false&discord-icon=true"
         ></iframe>
     </Social>
-    <Social
-        title="Github"
-        text="Vendicated"
-        href="https://github.com/Vendicated"
-    >
+    <Social title="Github" text="Vendicated" href="https://github.com/Vendicated">
         <GitHub slot="icon" />
     </Social>
     <Social title="Codeberg" text="vee" href="https://codeberg.org/vee">
         <Codeberg slot="icon" />
     </Social>
-    <Social
-        title="Telegram"
-        text="@vendyymachine"
-        href="https://t.me/vendyymachine"
-    >
+    <Social title="Telegram" text="@vendyymachine" href="https://t.me/vendyymachine">
         <Telegram slot="icon" />
     </Social>
 </ul>
@@ -43,21 +35,18 @@ import Social from "./Social.astro";
 <script>
     import { getCurrentTheme } from "../scripts/themeRuntime";
 
-    const widget = document.querySelector(
-        "#discord-widget"
-    ) as HTMLIFrameElement;
+    const widget = document.querySelector("#discord-widget") as HTMLIFrameElement;
 
     const setWidgetTheme = () => {
         const data = {
             command: "setTheme",
-            theme: getCurrentTheme(),
+            theme: getCurrentTheme()
         };
         widget.contentWindow!.postMessage(data, "*");
         console.log("Posted", data);
     };
 
-    if (getCurrentTheme() === "dark")
-        widget.src = widget.src.replace("theme=light", "theme=dark");
+    if (getCurrentTheme() === "dark") widget.src = widget.src.replace("theme=light", "theme=dark");
 
     document.addEventListener("themechange", setWidgetTheme);
 </script>

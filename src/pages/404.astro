@@ -3,7 +3,6 @@ export const prerender = true;
 
 import CenteredBody from "components/CenteredBody.astro";
 import Layout from "layouts/Layout.astro";
-
 import { loadStrings } from "locales";
 
 const t = await loadStrings("en", true);
@@ -16,10 +15,7 @@ const t = await loadStrings("en", true);
         <p>{t("404.lost")}</p>
         <p>{t("404.goHome")}</p>
         <a href="/">
-            <img
-                src="https://cdn.discordapp.com/emojis/432715085526597634.webp"
-                alt={t("404.koishiAlt")}
-            />
+            <img src="https://cdn.discordapp.com/emojis/432715085526597634.webp" alt={t("404.koishiAlt")} />
         </a>
     </CenteredBody>
 </Layout>

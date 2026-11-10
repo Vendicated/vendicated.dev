@@ -1,6 +1,7 @@
 ---
 import { loadStrings } from "locales";
 import { SOURCE_CODE_URL } from "scripts-ssr/constants";
+
 import Link from "./Link.svelte";
 
 const t = await loadStrings("en", true);
@@ -8,7 +9,8 @@ const t = await loadStrings("en", true);
 
 <footer>
     <p>
-        {t("footer.message")}<span>&nbsp;•&nbsp;</span>
+        {t("footer.message")}
+        <span>&nbsp;•&nbsp;</span>
         <Link href={SOURCE_CODE_URL}>{t("footer.sourceCode")}</Link>
     </p>
 </footer>

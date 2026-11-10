@@ -9,9 +9,7 @@ export interface Props {
 
 const { name, url, title = name } = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-    "../assets/88x31/*.{jpeg,jpg,png,webp,avif,gif}"
-);
+const images = import.meta.glob<{ default: ImageMetadata }>("../assets/88x31/*.{jpeg,jpg,png,webp,avif,gif}");
 const img = Object.keys(images).find(path => path.includes(`/${name}.`));
 if (!img) throw new Error(`88x31 for ${name} not found`);
 

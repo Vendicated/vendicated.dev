@@ -14,8 +14,7 @@ interface SocialProps {
 
 export type Props = SocialProps | CustomSocialProps;
 
-const { href, text, id, title } = Astro.props as SocialProps &
-    CustomSocialProps;
+const { href, text, id, title } = Astro.props as SocialProps & CustomSocialProps;
 ---
 
 <li id={id}>
@@ -23,7 +22,9 @@ const { href, text, id, title } = Astro.props as SocialProps &
         <slot name="icon" />
 
         <h3>{title}</h3>
-        <Link href={href} class="content focus-ring" rel="me">{text}</Link>
+        <Link href={href} class="content focus-ring" rel="me">
+            {text}
+        </Link>
     </slot>
 </li>
 

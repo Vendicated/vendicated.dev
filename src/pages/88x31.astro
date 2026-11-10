@@ -19,15 +19,14 @@ const makeHtml = (name: string) => stripIndent`
 <Layout title="88x31" description="">
     <CenteredBody maxWidth="80%">
         <h1>88x31 button</h1>
-        <p>
-            If we're friends and you want me to add your button, just send me a
-            message!
-        </p>
+        <p>If we're friends and you want me to add your button, just send me a message!</p>
         <p>If you want to add my button to your site, there are two options:</p>
 
         <div class="buttons">
             <section>
-                <h2>88x31 by <a href="https://arhsm.cat">arHSM</a></h2>
+                <h2>
+                    88x31 by <a href="https://arhsm.cat">arHSM</a>
+                </h2>
                 <Button88X31 name="me" url="/assets/88x31/me.gif" />
                 <p>Thanks a lot to arHSM for creating it ❤️</p>
                 <Prism code={makeHtml("me.gif")} lang="html" />

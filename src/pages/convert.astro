@@ -16,24 +16,19 @@ Astro.params.lang = "en";
     <CenteredBody>
         <h1>Aliucord Theme Converter</h1>
         <p>
-            This tool allows you to convert themes created with the Themer
-            plugin to themes compatible with the Xposed module.
+            This tool allows you to convert themes created with the Themer plugin to themes compatible with the Xposed
+            module.
         </p>
         <p>
-            Note that the Xposed module does not have as many features as the
-            plugin, so things like backgrounds will not work!
+            Note that the Xposed module does not have as many features as the plugin, so things like backgrounds will
+            not work!
         </p>
 
         <section>
             <label for="file">
-                <input
-                    type="file"
-                    id="file"
-                    name="file"
-                    accept="application/json"
-                />
-                Choose a theme to convert</label
-            >
+                <input type="file" id="file" name="file" accept="application/json" />
+                Choose a theme to convert
+            </label>
         </section>
     </CenteredBody>
 </Layout>
@@ -52,28 +47,19 @@ Astro.params.lang = "en";
                 console.log(json);
                 const converted = {} as Record<string, any>;
 
-                function loopIfNotNull(
-                    obj: Record<string, any>,
-                    fn: (key: string, value: any) => void
-                ) {
+                function loopIfNotNull(obj: Record<string, any>, fn: (key: string, value: any) => void) {
                     if (obj != null) for (const key in obj) fn(key, obj[key]);
                 }
 
-                loopIfNotNull(
-                    json.colors,
-                    (k, v) => (converted["color_" + k] = v)
-                );
+                loopIfNotNull(json.colors, (k, v) => (converted["color_" + k] = v));
 
-                loopIfNotNull(
-                    json.drawable_tints,
-                    (k, v) => (converted["drawablecolor_" + k] = v)
-                );
+                loopIfNotNull(json.drawable_tints, (k, v) => (converted["drawablecolor_" + k] = v));
 
                 const map = {
                     accent: "simple_accent_color",
                     background: "simple_bg_color",
                     background_secondary: "simple_bg_secondary_color",
-                    mention_highlight: "mention_highlight",
+                    mention_highlight: "mention_highlight"
                 };
 
                 loopIfNotNull(json.simple_colors, (k, v) => {
@@ -81,16 +67,14 @@ Astro.params.lang = "en";
                 });
 
                 const file = new Blob([JSON.stringify(converted, null, 4)], {
-                    type: "text/plain",
+                    type: "text/plain"
                 });
 
                 const a = document.createElement("a");
                 const url = URL.createObjectURL(file);
 
                 a.href = url;
-                a.download =
-                    (name.endsWith(".json") ? name.slice(0, -5) : name) +
-                    ".converted.json";
+                a.download = (name.endsWith(".json") ? name.slice(0, -5) : name) + ".converted.json";
                 document.body.appendChild(a);
                 a.click();
 

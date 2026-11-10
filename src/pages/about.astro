@@ -1,15 +1,14 @@
 ---
 export const prerender = true;
 
-import VencordWhen from "assets/vencord when.png";
-import VencordStarGraph from "assets/vencord star graph.svg";
 import Chud from "assets/chud.webp";
+import VencordStarGraph from "assets/vencord star graph.svg";
+import VencordWhen from "assets/vencord when.png";
 import { Image } from "astro:assets";
 import CenteredBody from "components/CenteredBody.astro";
-import Layout from "layouts/Layout.astro";
-
-import { loadStrings, getStaticPaths } from "locales";
 import Link from "components/Link.svelte";
+import Layout from "layouts/Layout.astro";
+import { loadStrings, getStaticPaths } from "locales";
 export { getStaticPaths };
 
 const t = await loadStrings("en", true);
@@ -19,18 +18,14 @@ const t = await loadStrings("en", true);
     <CenteredBody>
         <h1>{t("about.title")}</h1>
         <p>
-            Hi! I go by V, but you can also call me Ven or Vee if you prefer!<sup
-                ><Link
-                    class="footnote"
-                    href="#username-history"
-                    focusRing={false}>[1]</Link
-                ></sup
-            >
+            Hi! I go by V, but you can also call me Ven or Vee if you prefer!
+            <sup>
+                <Link class="footnote" href="#username-history" focusRing={false}>
+                    [1]
+                </Link>
+            </sup>
         </p>
-        <p>
-            I'm a very big nerd and care a lot about freedom and privacy. Below
-            you can find more about my interests!
-        </p>
+        <p>I'm a very big nerd and care a lot about freedom and privacy. Below you can find more about my interests!</p>
 
         <section class="section">
             <h2>Interests</h2>
@@ -38,37 +33,29 @@ const t = await loadStrings("en", true);
             <section>
                 <h3>Programming</h3>
                 <p>
-                    It should probably go without saying that my biggest
-                    interest is Programming! I have only been doing it since
-                    2020 but would consider myself very proficient and good at
-                    it. I enjoy it so much that when I'm really passionate about
-                    a project or feature I'm working on, I can go for 10 hours
-                    straight, completely forgetting the time or my hungry
-                    stomach ¯\_(ツ)_/¯
+                    It should probably go without saying that my biggest interest is Programming! I have only been doing
+                    it since 2020 but would consider myself very proficient and good at it. I enjoy it so much that when
+                    I'm really passionate about a project or feature I'm working on, I can go for 10 hours straight,
+                    completely forgetting the time or my hungry stomach ¯\_(ツ)_/¯
                 </p>
                 <p>
-                    I've tried out a lot of things and learned many languages
-                    and frameworks because learning new things is just so fun
-                    and rewarding :D ! But I mainly specialise on Android and
-                    full-stack Web development and my favourite languages are
-                    Typescript and Go. I also really enjoy more niche languages
-                    like Crystal, but unfortunately I don't really get to use
-                    them because they are too niche and not really production
-                    ready... :(
+                    I've tried out a lot of things and learned many languages and frameworks because learning new things
+                    is just so fun and rewarding :D ! But I mainly specialise on Android and full-stack Web development
+                    and my favourite languages are Typescript and Go. I also really enjoy more niche languages like
+                    Crystal, but unfortunately I don't really get to use them because they are too niche and not really
+                    production ready... :(
                 </p>
                 <p>
-                    In the past, I struggled a lot with staying motivated for my
-                    projects, mainly because at that time I was still learning
-                    and only making stuff that no one used. But nowadays several
-                    of my projects have a lot of people (millions) using it,
-                    which is incredibly rewarding and motivating. Even more so
-                    because everything I build is open source which led to an
-                    amazing community of contributors forming. My main project <Link
-                        href="https://github.com/Vendicated/Vencord"
-                        focusRing={false}>Vencord</Link
-                    > has 296 different contributors! It has honestly reached a point
-                    where I can't even keep up with the amount of received pull requests
-                    anymore, but I am still very grateful for everyone's contributions
+                    In the past, I struggled a lot with staying motivated for my projects, mainly because at that time I
+                    was still learning and only making stuff that no one used. But nowadays several of my projects have
+                    a lot of people (millions) using it, which is incredibly rewarding and motivating. Even more so
+                    because everything I build is open source which led to an amazing community of contributors forming.
+                    My main project{" "}
+                    <Link href="https://github.com/Vendicated/Vencord" focusRing={false}>
+                        Vencord
+                    </Link>{" "}
+                    has 296 different contributors! It has honestly reached a point where I can't even keep up with the
+                    amount of received pull requests anymore, but I am still very grateful for everyone's contributions
                     D:
                 </p>
             </section>
@@ -93,58 +80,45 @@ const t = await loadStrings("en", true);
             <section>
                 <h3>Modding</h3>
                 <p>
-                    A more specific aspect of Programming I'm very into is
-                    Modding. I love reverse engineering proprietary programs and
-                    adding additional functionality to them (or removing
-                    undesired functionality like ads or tracking). My first
-                    modding endeavours were CSS Themes and JS Plugins for
-                    BetterDiscord and Powercord. There, I met many awesome and
-                    smart like-minded people, which really helped me get better
-                    at it. Eventually I joined the Aliucord project (a mod for
-                    the Kotlin Discord Android app that uses XPosed style Java
-                    method hooking) and was one of its main developers for a
-                    year. This skyrocketed my talent and allowed me to
-                    transition into my own big project a year later: Vencord, a
-                    modification for the Discord desktop app, which today is one
-                    of the most popular Discord mods. Vencord patches Discord's
-                    Webpack script loader to intercept newly added JS scripts
-                    and apply RegEx based code replacements to them, essentially
-                    rewriting Discord's JavaScript code to do what we want it to
-                    do.
+                    A more specific aspect of Programming I'm very into is Modding. I love reverse engineering
+                    proprietary programs and adding additional functionality to them (or removing undesired
+                    functionality like ads or tracking). My first modding endeavours were CSS Themes and JS Plugins for
+                    BetterDiscord and Powercord. There, I met many awesome and smart like-minded people, which really
+                    helped me get better at it. Eventually I joined the Aliucord project (a mod for the Kotlin Discord
+                    Android app that uses XPosed style Java method hooking) and was one of its main developers for a
+                    year. This skyrocketed my talent and allowed me to transition into my own big project a year later:
+                    Vencord, a modification for the Discord desktop app, which today is one of the most popular Discord
+                    mods. Vencord patches Discord's Webpack script loader to intercept newly added JS scripts and apply
+                    RegEx based code replacements to them, essentially rewriting Discord's JavaScript code to do what we
+                    want it to do.
                 </p>
             </section>
 
             <section>
                 <h3>Music</h3>
                 <p>
-                    Music is one of the most important things in my life. I have
-                    a pretty diverse taste but my favourite Genres are: Black
-                    Metal, most other kinds of Metal, Punk Rock, Classical
-                    Music, East Asian (CJK) Pop, and Folk/Folk Rock and Ballads!
+                    Music is one of the most important things in my life. I have a pretty diverse taste but my favourite
+                    Genres are: Black Metal, most other kinds of Metal, Punk Rock, Classical Music, East Asian (CJK)
+                    Pop, and Folk/Folk Rock and Ballads!
                 </p>
             </section>
 
             <section>
                 <h3>Gaming</h3>
                 <p>
-                    For how much money I spent on my PC, I really don't game all
-                    that much. But it's still a hobby of mine that I'm pretty
-                    passionate about! Unfortunately I mainly enjoy singleplayer
-                    games so I don't get to play with people much D: - the only
-                    multiplayer games I play are Yu-Gi-Oh! Master Duel,
-                    Overwatch, oh and very rarely Dead by Daylight. In terms of
-                    singleplayer games, I love story rich games - like the
-                    Resident Evil series (especially re2 remake and re4 remake),
-                    the Tomb raider series - and RPGs - like Cyberpunk 2077,
-                    Hogwarts Legacy, and the Fallout and Elder Scrolls series.
+                    For how much money I spent on my PC, I really don't game all that much. But it's still a hobby of
+                    mine that I'm pretty passionate about! Unfortunately I mainly enjoy singleplayer games so I don't
+                    get to play with people much D: - the only multiplayer games I play are Yu-Gi-Oh! Master Duel,
+                    Overwatch, oh and very rarely Dead by Daylight. In terms of singleplayer games, I love story rich
+                    games - like the Resident Evil series (especially re2 remake and re4 remake), the Tomb raider series
+                    - and RPGs - like Cyberpunk 2077, Hogwarts Legacy, and the Fallout and Elder Scrolls series.
                 </p>
                 <p>
-                    You can also check out my <Link
-                        focusRing={false}
-                        href="https://steamcommunity.com/id/Vendicated"
-                        >Steam</Link
-                    >, but please don't try to add me unless we know each other
-                    well.
+                    You can also check out my{" "}
+                    <Link focusRing={false} href="https://steamcommunity.com/id/Vendicated">
+                        Steam
+                    </Link>
+                    , but please don't try to add me unless we know each other well.
                 </p>
             </section>
         </section>
@@ -152,32 +126,31 @@ const t = await loadStrings("en", true);
         <section class="section">
             <h2 id="username-history">Username Lore</h2>
             <p>
-                I initially based my username on the planets Venus, Neptune, and
-                Mercury. As nickname, I used just Ven.
+                I initially based my username on the planets Venus, Neptune, and Mercury. As nickname, I used just Ven.
             </p>
             <p>
-                During a conversation on the <Link
-                    href="https://github.com/Aliucord/Aliucord"
-                    focusRing={false}>Aliucord</Link
-                > Discord server where I was criticising the <Link
-                    href="https://github.com/powercord-org/powercord"
-                    focusRing={false}>Powercord</Link
-                > Discord modification, <Link
-                    href="https://zt64.dev"
-                    focusRing={false}>zoot</Link
-                > jokingly asked "Vencord when".
+                During a conversation on the{" "}
+                <Link href="https://github.com/Aliucord/Aliucord" focusRing={false}>
+                    Aliucord
+                </Link>{" "}
+                Discord server where I was criticising the{" "}
+                <Link href="https://github.com/powercord-org/powercord" focusRing={false}>
+                    Powercord
+                </Link>{" "}
+                Discord modification,{" "}
+                <Link href="https://zt64.dev" focusRing={false}>
+                    zoot
+                </Link>{" "}
+                jokingly asked "Vencord when".
             </p>
-            <Image
-                src={VencordWhen}
-                alt="Discord Message from zoot at 14/08/2021: Vencord when"
-            />
+            <Image src={VencordWhen} alt="Discord Message from zoot at 14/08/2021: Vencord when" />
             <p>
-                From then on, Vencord became a gag in multiple Discord modding
-                communities. Fast forward one year to August 2022 and I actually
-                <Link
-                    href="https://github.com/Vendicated/Vencord"
-                    focusRing={false}>turned it into a reality</Link
-                > as a joke, never expecting it to become popular.
+                From then on, Vencord became a gag in multiple Discord modding communities. Fast forward one year to
+                August 2022 and I actually
+                <Link href="https://github.com/Vendicated/Vencord" focusRing={false}>
+                    turned it into a reality
+                </Link>{" "}
+                as a joke, never expecting it to become popular.
             </p>
             <p>But oh did it become popular...</p>
             <Image
@@ -185,10 +158,9 @@ const t = await loadStrings("en", true);
                 alt="Vencord reached 2300 github stars within the first year and now has 12000 stars"
             />
             <p>
-                In hindsight, I very much regret naming it after myself. I only
-                did so for the joke and because I never expected for it to
-                become so popular. This led to me disassociating with the name
-                Ven, which is why I just shortened it to V.
+                In hindsight, I very much regret naming it after myself. I only did so for the joke and because I never
+                expected for it to become so popular. This led to me disassociating with the name Ven, which is why I
+                just shortened it to V.
             </p>
         </section>
         <Image class="chud" src={Chud} alt="" />

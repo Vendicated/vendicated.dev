@@ -1,36 +1,35 @@
 ---
 import { setTheme, type Theme } from "scripts/themeRuntime";
+
 import DarkIcon from "./DarkIcon.astro";
-import SystemIcon from "./SystemIcon.astro";
 import LightIcon from "./LightIcon.astro";
+import SystemIcon from "./SystemIcon.astro";
 
 const options = [
     { label: "Light theme", value: "light", icon: LightIcon },
     {
         label: "Follow system theme",
         value: "system",
-        icon: SystemIcon,
+        icon: SystemIcon
     },
-    { label: "Dark theme", value: "dark", icon: DarkIcon },
+    { label: "Dark theme", value: "dark", icon: DarkIcon }
 ] as const;
 ---
 
 <div aria-label="Change Theme" id="theme-toggle" class="focus-ring-parent">
-    {
-        options.map(option => (
-            <label title={option.label}>
-                <option.icon class="theme-toggle-icon" />
-                <input
-                    type="radio"
-                    name="theme"
-                    value={option.value}
-                    id={`theme-${option.value}`}
-                    checked={option.value === "system"}
-                    aria-label={option.label}
-                />
-            </label>
-        ))
-    }
+    {options.map(option => (
+        <label title={option.label}>
+            <option.icon class="theme-toggle-icon" />
+            <input
+                type="radio"
+                name="theme"
+                value={option.value}
+                id={`theme-${option.value}`}
+                checked={option.value === "system"}
+                aria-label={option.label}
+            />
+        </label>
+    ))}
     <script is:inline>
         let theme = localStorage.getItem("theme");
         if (!["light", "dark", "system"].includes(theme)) {
@@ -41,10 +40,7 @@ const options = [
         const toggle = document.getElementById("theme-toggle");
         toggle.addEventListener("change", e => {
             const target = e.target;
-            if (
-                target.name === "theme" &&
-                ["light", "dark", "system"].includes(target.value)
-            ) {
+            if (target.name === "theme" && ["light", "dark", "system"].includes(target.value)) {
                 globalThis.setTheme(target.value);
             }
         });

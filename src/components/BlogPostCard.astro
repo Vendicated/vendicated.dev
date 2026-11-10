@@ -5,13 +5,12 @@ export type Props = { post: BlogPost };
 
 const { url, frontmatter } = Astro.props.post;
 
-const { description, title, publishDate, tags, section } =
-    BlogFrontmatterSchema.parse(frontmatter);
+const { description, title, publishDate, tags, section } = BlogFrontmatterSchema.parse(frontmatter);
 
 const dateString = publishDate.toLocaleDateString("en-GB", {
     year: "numeric",
     month: "short",
-    day: "numeric",
+    day: "numeric"
 });
 ---
 

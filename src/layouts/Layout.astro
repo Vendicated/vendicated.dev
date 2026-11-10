@@ -3,11 +3,9 @@ import "normalize.css";
 import "styles/global.css";
 import "styles/theme.css";
 import "styles/prism-one.css";
-
-import NavBar from "components/NavBar.astro";
-
-import { AUTHOR, ICON, THEME_COLOUR } from "scripts-ssr/constants";
 import Footer from "components/Footer.astro";
+import NavBar from "components/NavBar.astro";
+import { AUTHOR, ICON, THEME_COLOUR } from "scripts-ssr/constants";
 
 export interface Props {
     title: string;
@@ -37,13 +35,7 @@ const { title, description } = Astro.props;
 
         <meta name="darkreader-lock" />
 
-        <link
-            rel="preload"
-            href="/fonts/Inter.var-subset.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin
-        />
+        <link rel="preload" href="/fonts/Inter.var-subset.woff2" as="font" type="font/woff2" crossorigin />
     </head>
     <body>
         <header>
