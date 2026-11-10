@@ -4,7 +4,7 @@
  * https://github.com/PrismJS/prism-themes/blob/master/themes/prism-one-dark.css
  */
 
-:root {
+body {
     --prism-bg: light-dark(#f9f9f9, #272b33);
     --prism-fg: light-dark(#383942, #aab1bf);
     --prism-selection-bg: light-dark(#e5e5e5, #3e4450);
