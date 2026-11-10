@@ -12,13 +12,13 @@
     --prism-toolbar-fg: light-dark(#696b76, #818896);
     --prism-toolbar-bg-hover: light-dark(#c6c6c7, #3e4450);
     --prism-toolbar-fg-hover: light-dark(#383942, #aab1bf);
-    --prism-highlight-bg: light-dark(hsla(230, 8%, 24%, .05), hsla(220, 100%, 80%, .04));
+    --prism-highlight-bg: light-dark(hsla(230, 8%, 24%, 0.05), hsla(220, 100%, 80%, 0.04));
     --prism-highlight-label-bg: light-dark(#e5e5e5, #393f4a);
     --prism-highlight-label-fg: light-dark(#383942, #aab1bf);
     --prism-border-color: light-dark(#f2f2f2, #252830);
     --prism-previewer-bg: light-dark(#fff, #30353f);
     --prism-previewer-stroke: light-dark(#383942, #aab1bf);
-    --prism-line-numbers-border: light-dark(hsla(230, 8%, 24%, .2), hsla(220, 14%, 71%, .15));
+    --prism-line-numbers-border: light-dark(hsla(230, 8%, 24%, 0.2), hsla(220, 14%, 71%, 0.15));
     --prism-line-numbers-fg: light-dark(#9d9d9f, #626d82);
     --prism-token-comment: light-dark(#9fa0a6, #5b6270);
     --prism-token-punctuation: light-dark(#383942, #aab1bf);
@@ -40,17 +40,17 @@
     --prism-token-brace-2: light-dark(#50a04f, #97c279);
     --prism-token-brace-3: light-dark(#4078f1, #61afef);
     --prism-token-brace-4: light-dark(#a625a4, #c578dd);
-    --prism-token-deleted-bg: hsla(353, 100%, 66%, .15);
-    --prism-token-deleted-bg-sel: hsla(353, 95%, 66%, .25);
-    --prism-token-inserted-bg: hsla(137, 100%, 55%, .15);
-    --prism-token-inserted-bg-sel: hsla(135, 73%, 55%, .25);
+    --prism-token-deleted-bg: hsla(353, 100%, 66%, 0.15);
+    --prism-token-deleted-bg-sel: hsla(353, 95%, 66%, 0.25);
+    --prism-token-inserted-bg: hsla(137, 100%, 55%, 0.15);
+    --prism-token-inserted-bg-sel: hsla(135, 73%, 55%, 0.25);
 }
 
-code[class*=language-],
-pre[class*=language-] {
+code[class*="language-"],
+pre[class*="language-"] {
     background: var(--prism-bg);
     color: var(--prism-fg);
-    text-shadow: light-dark(none, 0 1px rgba(0, 0, 0, .3));
+    text-shadow: light-dark(none, 0 1px rgba(0, 0, 0, 0.3));
     font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
     direction: ltr;
     text-align: left;
@@ -67,39 +67,38 @@ pre[class*=language-] {
     hyphens: none;
 }
 
-code[class*=language-] ::-moz-selection,
-code[class*=language-]::-moz-selection,
-pre[class*=language-] ::-moz-selection {
+code[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection {
     background: var(--prism-selection-bg);
     color: inherit;
     text-shadow: none;
 }
 
-code[class*=language-] ::selection,
-code[class*=language-]::selection,
-pre[class*=language-] ::selection {
+code[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"] ::selection {
     background: var(--prism-selection-bg);
     color: inherit;
     text-shadow: none;
 }
 
-pre[class*=language-] {
+pre[class*="language-"] {
     padding: 1em;
-    margin: .5em 0;
+    margin: 0.5em 0;
     overflow: auto;
-    border-radius: .3em;
+    border-radius: 0.3em;
 }
 
-:not(pre)>code[class*=language-] {
-    padding: .2em .3em;
-    border-radius: .3em;
+:not(pre) > code[class*="language-"] {
+    padding: 0.2em 0.3em;
+    border-radius: 0.3em;
     white-space: normal;
 }
 
 @media print {
-
-    code[class*=language-],
-    pre[class*=language-] {
+    code[class*="language-"],
+    pre[class*="language-"] {
         text-shadow: none;
     }
 }
@@ -139,7 +138,7 @@ pre[class*=language-] {
 }
 
 .token.attr-value,
-.token.attr-value>.token.punctuation,
+.token.attr-value > .token.punctuation,
 .token.builtin,
 .token.char,
 .token.inserted,
@@ -159,8 +158,8 @@ pre[class*=language-] {
     color: var(--prism-token-url);
 }
 
-.token.attr-value>.token.punctuation.attr-equals,
-.token.special-attr>.token.attr-value>.token.value.css {
+.token.attr-value > .token.punctuation.attr-equals,
+.token.special-attr > .token.attr-value > .token.value.css {
     color: var(--prism-token-punctuation);
 }
 
@@ -173,11 +172,11 @@ pre[class*=language-] {
 }
 
 .language-css .token.function,
-.language-css .token.url>.token.function {
+.language-css .token.url > .token.function {
     color: var(--prism-token-url);
 }
 
-.language-css .token.url>.token.string.url {
+.language-css .token.url > .token.string.url {
     color: var(--prism-token-string);
 }
 
@@ -190,7 +189,7 @@ pre[class*=language-] {
     color: var(--prism-token-keyword);
 }
 
-.language-javascript .token.template-string>.token.interpolation>.token.interpolation-punctuation.punctuation {
+.language-javascript .token.template-string > .token.interpolation > .token.interpolation-punctuation.punctuation {
     color: var(--prism-token-template-punct);
 }
 
@@ -203,17 +202,17 @@ pre[class*=language-] {
 }
 
 .language-markdown .token.url,
-.language-markdown .token.url-reference.url>.token.string,
-.language-markdown .token.url>.token.operator {
+.language-markdown .token.url-reference.url > .token.string,
+.language-markdown .token.url > .token.operator {
     color: var(--prism-token-punctuation);
 }
 
-.language-markdown .token.url>.token.content {
+.language-markdown .token.url > .token.content {
     color: var(--prism-token-function);
 }
 
 .language-markdown .token.url-reference.url,
-.language-markdown .token.url>.token.url {
+.language-markdown .token.url > .token.url {
     color: var(--prism-token-url);
 }
 
@@ -238,7 +237,7 @@ pre[class*=language-] {
 .language-markdown .token.list.punctuation,
 .language-markdown .token.strike .token.content,
 .language-markdown .token.strike .token.punctuation,
-.language-markdown .token.title.important>.token.punctuation {
+.language-markdown .token.title.important > .token.punctuation {
     color: var(--prism-token-strike);
 }
 
@@ -256,36 +255,36 @@ pre[class*=language-] {
 }
 
 .token.namespace {
-    opacity: .8;
+    opacity: 0.8;
 }
 
 .token.token.cr:before,
 .token.token.lf:before,
 .token.token.space:before,
 .token.token.tab:not(:empty):before {
-    color: light-dark(hsla(230, 8%, 24%, .2), hsla(220, 14%, 71%, .15));
+    color: light-dark(hsla(230, 8%, 24%, 0.2), hsla(220, 14%, 71%, 0.15));
     text-shadow: none;
 }
 
-div.code-toolbar>.toolbar.toolbar>.toolbar-item {
-    margin-right: .4em;
+div.code-toolbar > .toolbar.toolbar > .toolbar-item {
+    margin-right: 0.4em;
 }
 
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>a,
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>button,
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>span {
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > span {
     background: var(--prism-toolbar-bg);
     color: var(--prism-toolbar-fg);
-    padding: .1em .4em;
-    border-radius: .3em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.3em;
 }
 
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>a:focus,
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>a:hover,
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>button:focus,
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>button:hover,
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>span:focus,
-div.code-toolbar>.toolbar.toolbar>.toolbar-item>span:hover {
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus,
+div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:hover {
     background: var(--prism-toolbar-bg-hover);
     color: var(--prism-toolbar-fg-hover);
 }
@@ -298,12 +297,12 @@ div.code-toolbar>.toolbar.toolbar>.toolbar-item>span:hover {
 .line-highlight.line-highlight[data-end]:after {
     background: var(--prism-highlight-label-bg);
     color: var(--prism-highlight-label-fg);
-    padding: .1em .6em;
-    border-radius: .3em;
-    box-shadow: 0 2px 0 0 rgba(0, 0, 0, .2);
+    padding: 0.1em 0.6em;
+    border-radius: 0.3em;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
 }
 
-pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows>span:hover:before {
+pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows > span:hover:before {
     background-color: var(--prism-highlight-bg);
 }
 
@@ -312,8 +311,8 @@ pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows>span:
     border-right-color: var(--prism-line-numbers-border);
 }
 
-.command-line .command-line-prompt>span:before,
-.line-numbers .line-numbers-rows>span:before {
+.command-line .command-line-prompt > span:before,
+.line-numbers .line-numbers-rows > span:before {
     color: var(--prism-line-numbers-fg);
 }
 
@@ -341,41 +340,41 @@ pre[id].linkable-line-numbers.linkable-line-numbers span.line-numbers-rows>span:
     color: var(--prism-token-brace-4);
 }
 
-pre.diff-highlight>code .token.token.deleted:not(.prefix),
-pre>code.diff-highlight .token.token.deleted:not(.prefix) {
+pre.diff-highlight > code .token.token.deleted:not(.prefix),
+pre > code.diff-highlight .token.token.deleted:not(.prefix) {
     background-color: var(--prism-token-deleted-bg);
 }
 
-pre.diff-highlight>code .token.token.deleted:not(.prefix) ::-moz-selection,
-pre.diff-highlight>code .token.token.deleted:not(.prefix)::-moz-selection,
-pre>code.diff-highlight .token.token.deleted:not(.prefix) ::-moz-selection,
-pre>code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection {
+pre.diff-highlight > code .token.token.deleted:not(.prefix) ::-moz-selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix)::-moz-selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix) ::-moz-selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection {
     background-color: var(--prism-token-deleted-bg-sel);
 }
 
-pre.diff-highlight>code .token.token.deleted:not(.prefix) ::selection,
-pre.diff-highlight>code .token.token.deleted:not(.prefix)::selection,
-pre>code.diff-highlight .token.token.deleted:not(.prefix) ::selection,
-pre>code.diff-highlight .token.token.deleted:not(.prefix)::selection {
+pre.diff-highlight > code .token.token.deleted:not(.prefix) ::selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix)::selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix) ::selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix)::selection {
     background-color: var(--prism-token-deleted-bg-sel);
 }
 
-pre.diff-highlight>code .token.token.inserted:not(.prefix),
-pre>code.diff-highlight .token.token.inserted:not(.prefix) {
+pre.diff-highlight > code .token.token.inserted:not(.prefix),
+pre > code.diff-highlight .token.token.inserted:not(.prefix) {
     background-color: var(--prism-token-inserted-bg);
 }
 
-pre.diff-highlight>code .token.token.inserted:not(.prefix) ::-moz-selection,
-pre.diff-highlight>code .token.token.inserted:not(.prefix)::-moz-selection,
-pre>code.diff-highlight .token.token.inserted:not(.prefix) ::-moz-selection,
-pre>code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection {
+pre.diff-highlight > code .token.token.inserted:not(.prefix) ::-moz-selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix)::-moz-selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix) ::-moz-selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection {
     background-color: var(--prism-token-inserted-bg-sel);
 }
 
-pre.diff-highlight>code .token.token.inserted:not(.prefix) ::selection,
-pre.diff-highlight>code .token.token.inserted:not(.prefix)::selection,
-pre>code.diff-highlight .token.token.inserted:not(.prefix) ::selection,
-pre>code.diff-highlight .token.token.inserted:not(.prefix)::selection {
+pre.diff-highlight > code .token.token.inserted:not(.prefix) ::selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix)::selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix) ::selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix)::selection {
     background-color: var(--prism-token-inserted-bg-sel);
 }
 
@@ -387,7 +386,7 @@ pre>code.diff-highlight .token.token.inserted:not(.prefix)::selection {
 .prism-previewer-color.prism-previewer-color:before,
 .prism-previewer-easing.prism-previewer-easing:before,
 .prism-previewer-gradient.prism-previewer-gradient div {
-    border-radius: .3em;
+    border-radius: 0.3em;
 }
 
 .prism-previewer.prism-previewer:after {

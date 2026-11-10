@@ -3,19 +3,16 @@ body {
     color: var(--color);
 
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
-    --box-shadow-stronger: 0 8px 15px rgba(0, 0, 0, 0.25),
-        0 6px 6px rgba(0, 0, 0, 0.22);
+    --box-shadow-stronger: 0 8px 15px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22);
     --box-shadow-transition: cubic-bezier(0.25, 0.8, 0.25, 1);
 
     color-scheme: light dark;
 
     /* salad */
-    --background-color: light-dark(oklab(0.958184 0.0128697 0.00403672),
-            #1d1d2c);
+    --background-color: light-dark(oklab(0.958184 0.0128697 0.00403672), #1d1d2c);
     --surface: hsl(from var(--background-color) h s calc(l - 2));
     --surface2: hsl(from var(--background-color) h s calc(l - 3));
-    --color: light-dark(black,
-            #e5e5e5);
+    --color: light-dark(black, #e5e5e5);
     --color-semi-trans: hsl(from var(--color) h s l / 0.4);
     --warning: light-dark(#df8e1d, #e5c890);
     --accent: light-dark(rgb(180, 50, 50), #eebebe);

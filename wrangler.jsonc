@@ -4,9 +4,7 @@
     "main": "@astrojs/cloudflare/entrypoints/server",
     // Update to today's date
     "compatibility_date": "2025-09-20",
-    "compatibility_flags": [
-        "nodejs_compat"
-    ],
+    "compatibility_flags": ["nodejs_compat"],
     "assets": {
         "binding": "ASSETS",
         "directory": "./dist"

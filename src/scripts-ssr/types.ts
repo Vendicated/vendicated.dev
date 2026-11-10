@@ -6,7 +6,7 @@ export const BlogFrontmatterSchema = z.object({
     publishDate: z.coerce.date(),
     updateDate: z.coerce.date().optional(),
     section: z.string(),
-    tags: z.string(),
+    tags: z.string()
 });
 
 export type BlogFrontmatter = z.infer<typeof BlogFrontmatterSchema>;

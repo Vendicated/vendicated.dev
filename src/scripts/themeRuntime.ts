@@ -5,9 +5,7 @@ export type Theme = "light" | "dark" | "system";
 export function getCurrentTheme(): "light" | "dark" {
     let currentTheme = localStorage.getItem("theme");
     if (!currentTheme || !["light", "dark"].includes(currentTheme)) {
-        currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
+        currentTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
 
     return currentTheme as any;
