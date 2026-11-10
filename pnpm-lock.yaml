@@ -197,6 +197,9 @@ importers:
         specifier: ^5.57.3
         version: 5.57.3
     devDependencies:
+      '@astrojs/compiler-rs':
+        specifier: ^0.5.2
+        version: 0.5.2
       '@astrojs/sitemap':
         specifier: ^3.7.4
         version: 3.7.4

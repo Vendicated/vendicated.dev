@@ -25,6 +25,7 @@
         "svelte": "^5.57.3"
     },
     "devDependencies": {
+        "@astrojs/compiler-rs": "^0.5.2",
         "@astrojs/sitemap": "^3.7.4",
         "@types/accept-language-parser": "^1.5.8",
         "oxfmt": "^0.77.0",

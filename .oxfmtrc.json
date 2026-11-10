@@ -11,5 +11,6 @@
     "sortImports": true,
     "sortPackageJson": false,
     "insertFinalNewline": true,
-    "svelte": true
+    "svelte": true,
+    "astro": true
 }
